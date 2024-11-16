@@ -10,3 +10,4 @@
 
 
 - Cấu hình DB trong file commons/env.php
+test lỗi cấu hình git
