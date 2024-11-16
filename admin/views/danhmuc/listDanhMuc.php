@@ -33,7 +33,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-            <table id="example1" class="table table-bordered table-striped">
+              <table id="example1" class="table table-bordered table-striped">
                 <thead>
                   <tr>
                     <th>STT</th>
@@ -41,11 +41,13 @@
                     <th>Mô tả</th>
                     <th>Thao tác</th>
                   </tr>
-                </thead>
+                  
+                  </thead>
+                  
                   <tbody>
                   <?php foreach($listDanhMuc as $key=>$danhmuc):?>
                     <tr>
-                      <td><?= $key+1 ?></td>
+                      <td><?= $key + 1 ?></td>
                       <td><?= $danhmuc['ten_danh_muc'] ?></td>
                       <td><?= $danhmuc['mo_ta'] ?></td>
                       <td>
@@ -59,7 +61,7 @@
                         
                       </td>
                     </tr>
-                  <?php endforeach;?>
+                  <?php endforeach; ?>
                   
                  
                   </tbody>
@@ -70,8 +72,8 @@
                     <th>Mô tả</th>
                     <th>Thao tác</th>
                   </tr>
-                  </tfoot>
-                </table>
+                </tfoot>
+              </table>
             </div>
             <!-- /.card-body -->
           </div>

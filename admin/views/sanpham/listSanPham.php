@@ -76,7 +76,7 @@
                       </td>
                     </tr>
                   <?php endforeach; ?>
-                </tbody>               
+                </tbody> 
                 <tfoot>
                   <tr>
                     <th>STT</th>
