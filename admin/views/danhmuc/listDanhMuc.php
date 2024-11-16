@@ -41,10 +41,11 @@
                     <th>Mô tả</th>
                     <th>Thao tác</th>
                   </tr>
-                </thead>
-                <tbody>
+                  
+                  </thead>
+                  
                   <tbody>
-                  <?php foreach ($listDanhMuc as $key => $danhmuc): ?>
+                  <?php foreach($listDanhMuc as $key=>$danhmuc):?>
                     <tr>
                       <td><?= $key + 1 ?></td>
                       <td><?= $danhmuc['ten_danh_muc'] ?></td>
@@ -64,7 +65,7 @@
                   
                  
                   </tbody>
-                <tfoot>
+                  <tfoot>
                   <tr>
                     <th>STT</th>
                     <th>Tên danh mục</th>

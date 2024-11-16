@@ -76,7 +76,7 @@
                       </td>
                     </tr>
                   <?php endforeach; ?>
-                </tbody>
+                </tbody> 
                 <tfoot>
                   <tr>
                     <th>STT</th>
@@ -88,7 +88,6 @@
                     <th>Trạng thái</th>
                     <th>Thao tác</th>
                   </tr>
-                  
                 </tfoot>
               </table>
             </div>
