@@ -45,7 +45,7 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <!-- <?php foreach($listQuanTri as $key=>$quantri):?>
+                  <?php foreach($listQuanTri as $key=>$quantri):?>
                     <tr>
                       <td><?= $key+1 ?></td>
                       <td><?= $quantri['ho_ten'] ?></td>
@@ -62,61 +62,8 @@
                         </a>
                       </td>
                     </tr>
-                  <?php endforeach;?> -->
-                  <tr>
-                    <td>Presto</td>
-                    <td>Opera 8.0</td>
-                    <td>Win 95+ / OSX.2+</td>
-                    <td>-</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Presto</td>
-                    <td>Opera 8.5</td>
-                    <td>Win 95+ / OSX.2+</td>
-                    <td>-</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Presto</td>
-                    <td>Opera 9.0</td>
-                    <td>Win 95+ / OSX.3+</td>
-                    <td>-</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Presto</td>
-                    <td>Opera 9.2</td>
-                    <td>Win 88+ / OSX.3+</td>
-                    <td>-</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Presto</td>
-                    <td>Opera 9.5</td>
-                    <td>Win 88+ / OSX.3+</td>
-                    <td>-</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Presto</td>
-                    <td>Opera for Wii</td>
-                    <td>Wii</td>
-                    <td>-</td>
-                    <td>A</td>
-                  </tr>
+                  <?php endforeach;?>
                   
-                 
-                  </tbody>
-                  <tfoot>
-                  <tr>
-                  <th>STT</th>
-                    <th>Họ tên</th>
-                    <th>Email</th>
-                    <th>Số điện thoại</th>
-                    <th>Trạng thái</th>
-                    <!-- <th>Thao tác</th> -->
-                  </tr>
                   </tfoot>
                 </table>
             </div>
