@@ -23,7 +23,7 @@
                with font-awesome or any other icon font library -->
 
         <li class="nav-item">
-          <a href="" class="nav-link">
+          <a href="<?= BASE_URL_ADMIN   ?>" class="nav-link">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Trang chù
@@ -33,7 +33,7 @@
 
 
         <li class="nav-item">
-          <a href="" class="nav-link">
+          <a href="<?= BASE_URL_ADMIN . '?act=danh-muc'  ?>" class="nav-link">
             <i class="nav-icon fas fa-th"></i>
             <p>
               Danh mục sản phẩm
@@ -42,29 +42,29 @@
         </li>
 
         <li class="nav-item">
-          <a href="" class="nav-link">
-            <i class="nav-icon fas fa-cat"></i>
+          <a href="<?= BASE_URL_ADMIN . '?act=san-pham'  ?>" class="nav-link">
+            <i class="nav-icon fas fa-shoe-prints"></i>
             <p>
               Sản phẩm
             </p>
           </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a href="" class="nav-link">
             <i class="nav-icon fas fa-file-invoice-dollar"></i>
             <p>
               Đơn hàng
             </p>
           </a>
-        </li>
+        </li> -->
 
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="<?= BASE_URL_ADMIN . '?act=tai-khoan'?>" class="nav-link">
             <i class="nav-icon fas fa-user"></i>
             <p>Quản lý tài khoản</p>
-            <i class="fas fa-angle-left right"></i>
+            <!-- <i class="fas fa-angle-left right"></i> -->
           </a>
-          <ul class="nav nav-treeview">
+          <!-- <ul class="nav nav-treeview">
             <li class="nav-item">
               <a href="" class="nav-link">
                 <i class="nav-icon fas fa-user"></i>
@@ -84,7 +84,7 @@
               </a>
             </li>
 
-          </ul>
+          </ul> -->
         </li>
 
 
