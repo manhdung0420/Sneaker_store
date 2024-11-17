@@ -38,7 +38,7 @@
                   <tr>
                     <th>STT</th>
                     <th>Tên danh mục</th>
-                    <th>Mô tả</th>
+                    
                     <th>Thao tác</th>
                   </tr>
                   
@@ -49,7 +49,7 @@
                     <tr>
                       <td><?= $key + 1 ?></td>
                       <td><?= $danhmuc['ten_danh_muc'] ?></td>
-                      <td><?= $danhmuc['mo_ta'] ?></td>
+                      
                       <td>
                         <a href="<?= BASE_URL_ADMIN . '?act=form-sua-danh-muc&id_danh_muc=' . $danhmuc['id'] ?>">
                           <button class="btn btn-warning">Sửa</button>
@@ -69,7 +69,6 @@
                   <tr>
                     <th>STT</th>
                     <th>Tên danh mục</th>
-                    <th>Mô tả</th>
                     <th>Thao tác</th>
                   </tr>
                 </tfoot>
