@@ -43,3 +43,15 @@ function deleteFile($file){
         unlink($pathDelete);
     }
 }
+
+function uploadFileAlbum($file, $folderUpload ,$key){
+    $pathStorage = $folderUpload . time() . $file['name'][$key];
+
+    $from = $file['tmp_name'][$key];
+    $sto = PATH_ROOT . $pathStorage;
+
+    if(move_uploaded_file($from, $sto)){
+        return $pathStorage;
+    }
+    return null;
+}

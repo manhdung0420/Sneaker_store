@@ -31,12 +31,12 @@
             <div class="col-12">
               <img style="width: 400px; height: 400px" src="<?= BASE_URL . $sanPham['hinh_anh']; ?>" class="product-image" alt="Product Image">
             </div>
-            <!-- <div class="col-12 product-image-thumbs">
+            <div class="col-12 product-image-thumbs">
               <?php foreach ($listAnhSanPham as $key => $anhSP) : ?>
 
                 <div class="product-image-thumb active <?= $anhSP[$key] == 0 ? 'active' : '' ?>"><img src="<?= BASE_URL . $anhSP["link_hinh_anh"]; ?>"></div>
               <?php endforeach ?>
-            </div> -->
+            </div>
           </div>
           <div class="col-12 col-sm-6">
             <h3 class="my-3">Tên sản phẩm: <?= $sanPham['ten_san_pham']; ?></h3>

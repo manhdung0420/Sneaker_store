@@ -68,11 +68,10 @@
                                     </span>
                                 </div>
 
-                                <!-- <div class="form-group col-6">
+                                <div class="form-group col-6">
                                     <label>Album ảnh</label>
                                     <input type="file" class="form-control" name="img_array[]" multiple>
-
-                                </div> -->
+                                </div>
 
                                 <div class="form-group col-6">
                                     <label>Số lượng</label>
