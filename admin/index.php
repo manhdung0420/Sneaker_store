@@ -27,7 +27,11 @@ match ($act) {
 
     // route quản lý danh mục
     'danh-muc'=>   (new adminDanhMucController())->danhSachDanhMuc(),
-
+    'form-them-danh-muc'=>(new adminDanhMucController())->formAddDanhMuc(),
+    'them-danh-muc'=>(new adminDanhMucController())->postAddDanhMuc(),
+    'form-sua-danh-muc'=>(new adminDanhMucController())->formEditDanhMuc(),
+    'sua-danh-muc'=>(new adminDanhMucController())->postEditDanhMuc(),
+    'xoa-danh-muc'=>(new adminDanhMucController())->deleteDanhMuc(),
 
 
     // route quản lý sản phẩm
