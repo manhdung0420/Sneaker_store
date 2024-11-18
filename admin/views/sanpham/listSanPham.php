@@ -40,8 +40,10 @@
                     <th>Tên sản phẩm</th>
                     <th>Ảnh sản phẩm</th>
                     <th>Giá tiền</th>
+                    <th>Giá Khuyễn mãi</th>
                     <th>Số lượng</th>
-                    <th>Danh mục</th>
+                    <th>size</th>
+                    <th>Màu</th>
                     <th>Trạng thái</th>
                     <th>Thao tác</th>
                   </tr>
@@ -54,11 +56,13 @@
                       <td><?= $sanPham['ten_san_pham'] ?></td>
                       <td>
                         <img src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" style="width: 100px" alt=""
-                          onerror="this.onnerror=null; this.src='https://cdn.mobilecity.vn/mobilecity-vn/images/2021/12/tong-hop-meo-giup-ban-chup-nhung-buc-anh-dep-hon-ve-thu-cung-cua-minh.jpg.webp'">
+                          onerror="this.onnerror=null; this.src='https://cdn.storims.com/api/v2/image/resize?path=https://storage.googleapis.com/storims_cdn/storims/uploads/92a72d6719f18a4a951cb3fa68eddbaf.jpeg&format=jpeg'">
                       </td>
                       <td><?= $sanPham['gia_san_pham'] ?></td>
+                      <td><?= $sanPham['gia_khuyen_mai'] ?></td>
                       <td><?= $sanPham['so_luong'] ?></td>
-                      <td><?= $sanPham['ten_danh_muc'] ?></td>
+                      <td><?= $sanPham['size'] ?></td>
+                      <td><?= $sanPham['mau'] ?></td>
                       <td><?= $sanPham['trang_thai'] == 1 ? 'còn bán' : 'Dừng bán'; ?></td>
                       <td>
                         <div class="btn-group">
@@ -83,8 +87,10 @@
                     <th>Tên sản phẩm</th>
                     <th>Ảnh sản phẩm</th>
                     <th>Giá tiền</th>
+                    <th>Giá Khuyễn mãi</th>
                     <th>Số lượng</th>
-                    <th>Danh mục</th>
+                    <th>Size</th>
+                    <th>Màu</th>
                     <th>Trạng thái</th>
                     <th>Thao tác</th>
                   </tr>

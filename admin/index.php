@@ -1,4 +1,5 @@
 <?php 
+session_start();
 
 // Require file Common
 require_once '../commons/env.php'; // Khai báo biến môi trường
@@ -31,6 +32,13 @@ match ($act) {
 
     // route quản lý sản phẩm
     'san-pham'=>(new adminSanPhamController())->danhSachSanPham(),
+    'form-them-san-pham'=>(new adminSanPhamController())->formAddSanPham(),
+    'them-san-pham'=>(new adminSanPhamController())->postAddSanPham(),
+    'form-sua-san-pham'=>(new adminSanPhamController())->formEditSanPham(),
+    'sua-san-pham'=>(new adminSanPhamController())->postEditSanPham(),
+    // 'sua-album-anh-san-pham'=>(new adminSanPhamController())->postEditAnhSanPham(),
+    'xoa-san-pham'=>(new adminSanPhamController())->deleteSanPham(),
+    'chi-tiet-san-pham'=>(new adminSanPhamController())->detailSanPham(),
 
 
     // route quản lý tài khoản
