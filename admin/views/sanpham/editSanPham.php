@@ -17,7 +17,7 @@
                     <h1>Sửa thông tin sản phẩm <?= $sanPham['ten_san_pham'] ?></h1>
                 </div>
                 <div class="col-sm-1">
-                    <a href="<?= BASE_URL_ADMIN . '?act=san-pham' ?>" class="btn btn-secondary">Quat lại</a>
+                    <a href="<?= BASE_URL_ADMIN . '?act=san-pham' ?>" class="btn btn-secondary">Quay lại</a>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -161,6 +161,52 @@
                     </form>
                 </div>
             </div>
+            <div class="col-md-4">
+                <div class="card card-info">
+                    <div class="card-header">
+                        <h3 class="card-title">Album ảnh sản phẩm</h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <form action="<?= BASE_URL_ADMIN . '?act=sua-album-anh-san-pham' ?>" method="post" enctype="multipart/form-data">
+                            <!-- Nội dung album ảnh sản phẩm -->
+                            <div class="table-responsive">
+                                <table id="faqs" class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Ảnh</th>
+                                            <th>File</th>
+                                            <th>
+                                                <div class="text-center"><button onclick="addfaqs();" type="button" class="badge badge-success"><i class="fa fa-plus"></i> Thêm</button></div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <input type="hidden" name="san_pham_id" value="<?= $sanPham["id"] ?>">
+                                        <input type="hidden" id="img_delete" name="img_delete">
+                                        <?php foreach ($listAnhSanPham as $key => $value): ?>
+                                            <tr id="faqs-row-<?= $key ?>">
+                                                <input type="hidden" name="current_img_ids[]" value="<?= $value['id'] ?>">
+                                                <td><img src="<?= BASE_URL . $value['link_hinh_anh'] ?>" style="width: 50px; height: 50px;" alt=""></td>
+                                                <td><input type="file" name="img_array[]" class="form-control"></td>
+                                                <td class="mt-10"><button class="badge badge-danger" type="button" onclick="removeRow(<?= $key ?>, <?= $value['id'] ?>)"><i class="fa fa-trash"></i> Delete</button></td>
+                                            </tr>
+                                        <?php endforeach ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button type="submit" class="btn btn-primary">Sửa thông tin</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
 
         </div>
 
@@ -174,7 +220,7 @@
 <!-- End Footer -->
 
 </body>
-<!-- <script>
+<script>
     var faqs_row = <?= count($listAnhSanPham); ?>;
 
     function addfaqs() {
@@ -198,6 +244,6 @@
             imgDeleteInput.value = currentValue ? currentValue + ',' + imgId : imgId;
         }
     }
-</script> -->
+</script>
 
 </html>
