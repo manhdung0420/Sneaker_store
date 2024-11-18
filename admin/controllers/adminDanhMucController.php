@@ -10,6 +10,16 @@ class adminDanhMucController
         $listDanhMuc = $this->modleDanhMuc->getAllDanhMuc();
         require_once './views/danhmuc/listDanhMuc.php';
     }
+    public function create() {
+        include 'views/danhmuc/create.php';
+    }
+
+    public function store() {
+        if (!empty($_POST['name'])) {
+            $this->modleDanhMuc->addDanhMuc($_POST['name']);
+        }
+        header("Location: ?route=categories");
+    }
     
 }
 ?>
