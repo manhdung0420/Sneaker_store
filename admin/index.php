@@ -46,5 +46,12 @@ match ($act) {
 
 
     // route quản lý tài khoản
-    'tai-khoan'=>(new adminTaiKhoanController())->danhSachQuanTri(),
+    'tai-khoan'=>(new adminTaiKhoanController())->listTK(),
+    // 'xoaaccount'=>(new adminTaiKhoanController())->deleteTKhoan($id),
+    'edit'=>(new adminTaiKhoanController())->formEditTK(),
+    'update'=>(new adminTaiKhoanController())->updateTK(),
+    'detail'=>(new adminTaiKhoanController())->detail(),
+    'formAddTK'=>(new adminTaiKhoanController())->formAdd(),
+    'add'=>(new adminTaiKhoanController())->addTK()
+
 };
