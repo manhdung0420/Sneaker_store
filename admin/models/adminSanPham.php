@@ -38,12 +38,29 @@ class adminSanPham
                 ':mo_ta' => $mo_ta,
                 ':hinh_anh' => $hinh_anh, // Pass the image variable
             ]);
-            return true;
+            return $this->conn->lastInsertId();
         } catch (PDOException $e) {
             // Output the SQL error for better debugging
             echo "Lỗi SQL: " . $e->getMessage();
             return false;
         }
+    }
+
+    public function insertAlbumAnhSanPham($san_pham_id,$link_hinh_anh) {
+        try {
+            $sql = "INSERT INTO hinh_anh_san_phams (san_pham_id,link_hinh_anh)
+            VALUES (:san_pham_id,:link_hinh_anh)";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([
+                ':san_pham_id'=>$san_pham_id,
+                ':link_hinh_anh'=>$link_hinh_anh        
+            ]);
+
+            // lấy id sản phẩm vừa thêm
+            return true;
+        } catch (Exception $e) {
+            echo "CÓ LỖI:".$e->getMessage();
+        } 
     }
 
     public function getDetailSanPham($id){
@@ -57,6 +74,19 @@ class adminSanPham
                 ':id'=>$id
             ]);
             return $stmt->fetch();
+        } catch (Exception $e) {
+            echo "CÓ LỖI:".$e->getMessage();
+        } 
+    }
+    
+    public function getListAnhSanPham($id){
+        try {
+            $sql = "SELECT * FROM hinh_anh_san_phams WHERE san_pham_id = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([
+                ':id'=>$id
+            ]);
+            return $stmt->fetchAll();
         } catch (Exception $e) {
             echo "CÓ LỖI:".$e->getMessage();
         } 
@@ -101,6 +131,53 @@ class adminSanPham
         } catch (Exception $e) {
             echo "CÓ LỖI:" . $e->getMessage();
         }
+    }
+
+    public function getDetailAnhSanPham($id){
+        try {
+            $sql = "SELECT * FROM hinh_anh_san_phams WHERE id = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([
+                ':id'=>$id
+            ]);
+            return $stmt->fetch();
+        } catch (Exception $e) {
+            echo "CÓ LỖI:".$e->getMessage();
+        } 
+    }
+
+    public function updateAnhSanPham($id, $new_file) {
+        try {
+            // var_dump('abc');die;
+            $sql = 'UPDATE `hinh_anh_san_phams` 
+                    SET 
+                        link_hinh_anh = :new_file
+                    WHERE id = :id';
+            // var_dump($sql);die;
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->execute([
+                ':new_file' => $new_file,
+                ':id' => $id
+            ]);
+    
+            return true;
+        } catch (Exception $e) {
+            echo "CÓ LỖI:" . $e->getMessage();
+        }
+    }
+
+    public function destroyAnhSanPham($id) {
+        try {
+            $sql = "DELETE FROM hinh_anh_san_phams WHERE id = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([
+                ':id'=>$id
+            ]);
+            return true;
+        } catch (Exception $e) {
+            echo "CÓ LỖI:".$e->getMessage();
+        } 
     }
 
     public function destroySanPham($id){

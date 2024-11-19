@@ -27,7 +27,11 @@ match ($act) {
 
     // route quản lý danh mục
     'danh-muc'=>   (new adminDanhMucController())->danhSachDanhMuc(),
-
+    'form-them-danh-muc'=>(new adminDanhMucController())->formAddDanhMuc(),
+    'them-danh-muc'=>(new adminDanhMucController())->postAddDanhMuc(),
+    'form-sua-danh-muc'=>(new adminDanhMucController())->formEditDanhMuc(),
+    'sua-danh-muc'=>(new adminDanhMucController())->postEditDanhMuc(),
+    'xoa-danh-muc'=>(new adminDanhMucController())->deleteDanhMuc(),
 
 
     // route quản lý sản phẩm
@@ -36,7 +40,7 @@ match ($act) {
     'them-san-pham'=>(new adminSanPhamController())->postAddSanPham(),
     'form-sua-san-pham'=>(new adminSanPhamController())->formEditSanPham(),
     'sua-san-pham'=>(new adminSanPhamController())->postEditSanPham(),
-    // 'sua-album-anh-san-pham'=>(new adminSanPhamController())->postEditAnhSanPham(),
+    'sua-album-anh-san-pham'=>(new adminSanPhamController())->postEditAnhSanPham(),
     'xoa-san-pham'=>(new adminSanPhamController())->deleteSanPham(),
     'chi-tiet-san-pham'=>(new adminSanPhamController())->detailSanPham(),
 
@@ -48,6 +52,7 @@ match ($act) {
     'update'=>(new adminTaiKhoanController())->updateTK(),
     'detail'=>(new adminTaiKhoanController())->detail(),
     'formAddTK'=>(new adminTaiKhoanController())->formAdd(),
-    'add'=>(new adminTaiKhoanController())->addTK()
+    'add'=>(new adminTaiKhoanController())->addTK(),
+    'trangthai'=>(new adminTaiKhoanController())->toggleStatus()
 
 };
