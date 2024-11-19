@@ -52,6 +52,7 @@ match ($act) {
     'update'=>(new adminTaiKhoanController())->updateTK(),
     'detail'=>(new adminTaiKhoanController())->detail(),
     'formAddTK'=>(new adminTaiKhoanController())->formAdd(),
-    'add'=>(new adminTaiKhoanController())->addTK()
+    'add'=>(new adminTaiKhoanController())->addTK(),
+    'trangthai'=>(new adminTaiKhoanController())->toggleStatus()
 
 };

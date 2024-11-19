@@ -49,4 +49,15 @@ class adminTaiKhoan extends BaseModel
          VALUES ( '$ho_ten', '$usename', '$email', '$mat_khau', '$so_dien_thoai', '$dia_chi', '$chuc_vu_id');";
         return $this->getRowData($sql);
     }
+    public function toggleStatus($id, $currentStatus)
+{
+    // Đảo ngược trạng thái (nếu hiện tại là 1 -> chuyển thành 0, và ngược lại)
+    $newStatus = $currentStatus ? 0 : 1;
+
+    // Câu lệnh SQL để cập nhật trạng thái
+    $sql = "UPDATE `tai_khoans` SET `trang_thai` = $newStatus WHERE `id` = $id";
+
+    // Thực thi truy vấn và trả về kết quả
+    return $this->getRowData($sql);
+}
 }

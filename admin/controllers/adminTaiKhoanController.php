@@ -58,5 +58,39 @@ class adminTaiKhoanController{
         );
         header('Location: http://localhost/Sneaker_store/admin/?act=tai-khoan');
     }
+    public function toggleStatus()
+    {
+        // Kiểm tra phương thức request
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Lấy dữ liệu từ form
+            $id = isset($_POST['id']) ? intval($_POST['id']) : null;
+            $currentStatus = isset($_POST['current_status']) ? intval($_POST['current_status']) : null;
+
+            if ($id === null || $currentStatus === null) {
+                // Trường hợp dữ liệu không hợp lệ
+                $_SESSION['error'] = 'Dữ liệu không hợp lệ!';
+                header('Location: http://localhost/Sneaker_store/admin/?act=tai-khoan'); // Redirect về trang danh sách
+                exit();
+            }
+
+            // Gọi model để đổi trạng thái
+            $result = $this->modelTaiKhoan->toggleStatus($id, $currentStatus);
+
+            // Kiểm tra kết quả
+            if ($result) {
+                $_SESSION['success'] = "Trạng thái tài khoản ID $id đã được cập nhật.";
+            } else {
+                $_SESSION['error'] = "Cập nhật trạng thái thất bại.";
+            }
+
+            // Redirect về trang danh sách
+            header('Location: http://localhost/Sneaker_store/admin/?act=tai-khoan');
+            exit();
+        } else {
+            // Trường hợp không phải phương thức POST
+            http_response_code(405); // Method Not Allowed
+            echo "Yêu cầu không hợp lệ.";
+        }
+    }
 }
 ?>
