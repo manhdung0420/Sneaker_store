@@ -16,40 +16,18 @@
                     <div class="header-top_nav">
                         <div class="row">
                             <div class="col-lg-6">
-                                <div class="ht-menu">
-                                    <ul>
-                                        <li><a href="#">Currency<i class="ion-chevron-down"></i></a>
-                                            <ul class="ht-dropdown ht-currency">
-                                                <li><a href="#">€ EUR</a></li>
-                                                <li class="active"><a href="#">£ Pound Sterling</a></li>
-                                                <li><a href="#">$ Us Dollar</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Language <i class="ion-chevron-down"></i></a>
-                                            <ul class="ht-dropdown">
-                                                <li class="active"><a href="#"><img src="assets/images/menu/icon/1.jpg" alt="Kenne Language Icon">English</a></li>
-                                                <li><a href="#"><img src="assets/images/menu/icon/2.jpg" alt="Kenne Language Icon">Français</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
+                           
                             </div>
                             <div class="col-lg-6">
                                 <div class="header-top_right">
                                     <ul>
                                         <li>
-                                            <a href="my-account.html">My Account</a>
+                                            <a href="<?= BASE_URL . '?act=' ?>">My Account</a>
                                         </li>
                                         <li>
-                                            <a href="wishlist.html">Wishlist</a>
+                                            <a href="<?= BASE_URL . '?act=' ?>">Login | Logout</a>
                                         </li>
-                                        <li>
-                                            <a href="login-register.html">Register or Sign in</a>
-                                        </li>
-                                        <li>
-                                            <a href="checkout.html">Checkout</a>
-                                        </li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -63,9 +41,9 @@
                         <div class="col-lg-12">
                             <div class="header-middle_nav">
                                 <div class="header-search_area d-none d-lg-block">
-                                    <form class="search-form" action="#">
-                                        <input type="text" placeholder="Search">
-                                        <button class="search-button"><i class="ion-ios-search"></i></button>
+                                    <form class="search-form" action="<?= BASE_URL . '?act=search'?>" method="POST">
+                                        <input type="text" name="keyword" placeholder="Nhập từ khóa..." required>
+                                        <button class="search-button" type="submit"><i class="ion-ios-search"></i></button>
                                     </form>
                                 </div>
                                 <div class="header-logo_area">
