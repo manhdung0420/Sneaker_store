@@ -22,6 +22,6 @@ match ($act) {
     '/'                 => (new HomeController())->index(),
 
     'danh-sach-san-pham' =>(new SanPhamController())->danhSachSanPham(),
-    // 'chi-tiet-danh-muc' =>(new HomeController())->chiTietDanhMuc(),
+    'chi-tiet-san-pham' =>(new HomeController())->chiTietSanPham(),
     // 'sp-danh-muc' =>(new spDanhMucController)->
 };

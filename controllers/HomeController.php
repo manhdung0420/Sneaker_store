@@ -14,6 +14,10 @@ class HomeController
         $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
         require_once './views/home.php';
     }
+
+    public function chiTietSanPham(){
+        require_once './views/trangChiTietSanPham.php';
+    }
     
 }
     
