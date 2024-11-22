@@ -18,6 +18,7 @@ class HomeController
     // public function chiTietSanPham(){
     //     require_once './views/trangChiTietSanPham.php';
     // }
+
     
 }
     
