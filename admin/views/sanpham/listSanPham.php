@@ -56,7 +56,7 @@
                       <td><?= $sanPham['ten_san_pham'] ?></td>
                       <td>
                         <img src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" style="width: 100px" alt=""
-                          onerror="this.onnerror=null; this.src='https://cdn.storims.com/api/v2/image/resize?path=https://storage.googleapis.com/storims_cdn/storims/uploads/92a72d6719f18a4a951cb3fa68eddbaf.jpeg&format=jpeg'">
+                          onerror="this.onnerror=null; this.src='https://sneakerhs.com/wp-content/uploads/2023/09/giay-nike-air-force-1-low-sp-ambush-phantom-dv3464-002-rep11-gia-re-2.jpg'">
                       </td>
                       <td><?= $sanPham['gia_san_pham'] ?></td>
                       <td><?= $sanPham['gia_khuyen_mai'] ?></td>

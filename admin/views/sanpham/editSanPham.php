@@ -225,7 +225,7 @@
 
     function addfaqs() {
         html = '<tr id="faqs-row-' + faqs_row + '">';
-        html += '<td><img src="https://cdn.mobilecity.vn/mobilecity-vn/images/2021/12/tong-hop-meo-giup-ban-chup-nhung-buc-anh-dep-hon-ve-thu-cung-cua-minh.jpg.webp" style="width: 50px; height: 50px;" alt=""></td>';
+        html += '<td><img src="https://sneakerhs.com/wp-content/uploads/2023/09/giay-nike-air-force-1-low-sp-ambush-phantom-dv3464-002-rep11-gia-re-2.jpg" style="width: 50px; height: 50px;" alt=""></td>';
         html += '<td><input type="file" name="img_array[]" class="form-control"></td>';
         html += '<td class="mt-10"><button type="button" class="badge badge-danger" onclick="removeRow(' + faqs_row + ', null);"><i class="fa fa-trash"></i> Delete</button></td>';
 
