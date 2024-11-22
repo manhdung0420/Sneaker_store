@@ -2,14 +2,17 @@
 include_once "models/ProductModel.php";
 class HomeController extends ProductModel
 {
+    public $modelSanPham;
     public $product;
     public function __construct()
     {
-        $this->product = new ProductModel();
+        $this->product = new ProductModel(); 
+        $this->modelSanPham = new SanPham();
     }
     public function index()
     {
         $products = $this->product->getAllProduct();
+        $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
         require_once "./views/home.php";
     }
     public function search() {
@@ -26,3 +29,16 @@ class HomeController extends ProductModel
     }
     
 }
+
+    
+
+     
+
+       
+
+
+    
+    
+
+    
+
