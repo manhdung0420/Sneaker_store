@@ -35,7 +35,7 @@ class SanPhamController
     }
     // public function chiTietSanPham(){
     //         require_once './views/trangChiTietSanPham.php';
-    //     }
+    //     }   
     public function chiTietSanPham($id)
     {
         $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
