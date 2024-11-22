@@ -44,6 +44,7 @@
                     <th>ID</th>
                     <th>Họ tên</th>
                     <th>Email</th>
+                    <th>User</th>
                     <th>Số điện thoại</th>
                     <th>Chức vụ</th>
                     <th>Địa chỉ</th>
@@ -57,6 +58,7 @@
                       <td><?= $quantri['id'] ?></td>
                       <td><?= $quantri['ho_ten'] ?></td>
                       <td><?= $quantri['email'] ?></td>
+                      <td><?= $quantri['usename'] ?></td>
                       <td><?= $quantri['so_dien_thoai'] ?></td>
                       <td><?= $quantri['ten_chuc_vu'] ?></td>
                       <td><?= $quantri['dia_chi'] ?></td>
@@ -92,6 +94,7 @@
                     <th>ID</th>
                     <th>Họ tên</th>
                     <th>Email</th>
+                    <th>User</th>
                     <th>Số điện thoại</th>
                     <th>Chức vụ</th>
                     <th>Địa chỉ</th>
