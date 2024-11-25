@@ -49,7 +49,22 @@
             </p>
           </a>
         </li>
-        
+        <li class="nav-item">
+          <a href="<?= BASE_URL_ADMIN . '?act=bien-the'  ?>" class="nav-link">
+            <i class="nav-icon fas fa-shoe-prints"></i>
+            <p>
+              Quản lý biến thể
+            </p>
+          </a>
+        </li>
+        <!-- <li class="nav-item">
+          <a href="" class="nav-link">
+            <i class="nav-icon fas fa-file-invoice-dollar"></i>
+            <p>
+              Đơn hàng
+            </p>
+          </a>
+        </li> -->
 
         <li class="nav-item">
           <a href="<?= BASE_URL_ADMIN . '?act=tai-khoan' ?>" class="nav-link">

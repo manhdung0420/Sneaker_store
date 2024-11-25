@@ -22,18 +22,19 @@ class BaseModel
     }
 
     // Hàm lấy một dòng dữ liệu
-    function getRowData($query)
+    function getRowData($query, $params = [])
     {
         try {
-            $pdo = connectDB();
-            $stmt = $pdo->prepare($query);
-            $stmt->execute();
-            return $stmt->fetch();
+            $pdo = connectDB();          // Kết nối tới cơ sở dữ liệu
+            $stmt = $pdo->prepare($query); // Chuẩn bị câu truy vấn
+            $stmt->execute($params);       // Thực thi với các tham số
+            return $stmt->fetch();         // Trả về kết quả (một dòng dữ liệu)
         } catch (PDOException $e) {
             echo "Lỗi truy vấn: " . $e->getMessage();
             return null;
         }
     }
+
 }
 
 ?>

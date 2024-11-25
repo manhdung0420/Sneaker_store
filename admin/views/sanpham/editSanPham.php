@@ -79,7 +79,6 @@
                                     <!--ở đây là toán tử 3 ngôi  -->
                                 </span>
                             </div>
-
                             <div class="form-group">
                                 <label for="inputStatus">Danh mục sản phẩm</label>
                                 <select id="inputStatus" name="danh_muc_id" class="form-control custom-select">
@@ -92,40 +91,6 @@
                                     <!--ở đây là toán tử 3 ngôi  -->
                                 </span>
                             </div>
-
-
-
-                            <!-- Thêm Size -->
-                            <div class="form-group">
-                                <label>Chọn Size</label>
-                                <select class="form-control" name="size">
-                                    <option selected disabled>Chọn size sản phẩm</option>
-                                    <option <?= $sanPham["size"] == 35 ? 'selected' : '' ?> value="35">35</option>
-                                    <option <?= $sanPham["size"] == 36 ? 'selected' : '' ?> value="36">36</option>
-                                    <option <?= $sanPham["size"] == 37 ? 'selected' : '' ?> value="37">37</option>
-                                    <option <?= $sanPham["size"] == 38 ? 'selected' : '' ?> value="38">38</option>
-                                    <option <?= $sanPham["size"] == 39 ? 'selected' : '' ?> value="39">39</option>
-                                    <option <?= $sanPham["size"] == 40 ? 'selected' : '' ?> value="40">40</option>
-                                    <option <?= $sanPham["size"] == 41 ? 'selected' : '' ?> value="41">41</option>
-                                    <option <?= $sanPham["size"] == 42 ? 'selected' : '' ?> value="42">42</option>
-                                </select>
-                            </div>
-
-                            <!-- Thêm Màu -->
-                            <div class="form-group">
-                                <label>Chọn Màu</label>
-                                <select class="form-control" name="mau">
-                                    <option selected disabled>Chọn màu sản phẩm</option>
-                                    <option <?= $sanPham["mau"] == 'Red' ? 'selected' : '' ?> value="Red">Red</option>
-                                    <option <?= $sanPham["mau"] == 'Green' ? 'selected' : '' ?> value="Green">Green</option>
-                                    <option <?= $sanPham["mau"] == 'yellow' ? 'selected' : '' ?> value="yellow">Yellow</option>
-                                    <option <?= $sanPham["mau"] == 'Black' ? 'selected' : '' ?> value="Black">Black</option>
-                                    <option <?= $sanPham["mau"] == 'White' ? 'selected' : '' ?> value="White">White</option>
-                                </select>
-                            </div>
-
-
-
                             <div class="form-group">
                                 <label for="ngay_nhap">Ngày nhập</label>
                                 <input type="date" id="ngay_nhap" name="ngay_nhap" class="form-control" value="<?= $sanPham['ngay_nhap'] ?>">
