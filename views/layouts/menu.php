@@ -61,58 +61,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="header-middle_nav">
-                            <div class="header-search_area d-none d-lg-block">
-                                <form class="search-form" action="<?= BASE_URL . '?act=search' ?>" method="POST">
-                                    <input type="text" name="keyword" placeholder="Nhập từ khóa..." required>
-                                    <button class="search-button" type="submit"><i class="ion-ios-search"></i></button>
-                                </form>
-
-                            </div>
-                            <div class="header-logo_area">
-                                <a href="index.html">
-                                    <img src="assets/images/menu/logo/1.png" alt="Header Logo">
-                                </a>
-                            </div>
-                            <div class="header-right_area d-none d-lg-block">
-                                <ul>
-                                    <li class="minicart-wrap">
-                                        <a href="#miniCart" class="minicart-btn toolbar-btn">
-                                            <div class="minicart-count_area">
-                                                <span class="item-count">03</span>
-                                                <i class="ion-bag"></i>
-                                            </div>
-                                            <div class="minicart-front_text">
-                                                <span>Cart:</span>
-                                                <span class="total-price">462.4</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="header-right_area header-right_area-2 d-block d-lg-none">
-                                <ul>
-                                    <li class="mobile-menu_wrap d-inline-block d-lg-none">
-                                        <a href="#mobileMenu" class="mobile-menu_btn toolbar-btn color--white">
-                                            <i class="ion-android-menu"></i>
-                                        </a>
-                                    </li>
-                                    <li class="minicart-wrap">
-                                        <a href="#miniCart" class="minicart-btn toolbar-btn">
-                                            <div class="minicart-count_area">
-                                                <span class="item-count">03</span>
-                                                <i class="ion-bag"></i>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#searchBar" class="search-btn toolbar-btn">
-                                            <i class="ion-android-search"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
