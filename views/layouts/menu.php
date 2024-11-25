@@ -67,6 +67,7 @@
                                     <input type="text" name="keyword" placeholder="Nhập từ khóa..." required>
                                     <button class="search-button" type="submit"><i class="ion-ios-search"></i></button>
                                 </form>
+
                             </div>
                             <div class="header-logo_area">
                                 <a href="index.html">
@@ -115,6 +116,62 @@
                     </div>
                 </div>
             </div>
+            <div class="header-middle_area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="header-middle_nav">
+                                <div class="header-search_area d-none d-lg-block">
+                                    <form class="search-form" action="<?= BASE_URL . '?act=search'?>" method="POST">
+                                        <input type="text" name="keyword" placeholder="Nhập từ khóa..." required>
+                                        <button class="search-button" type="submit"><i class="ion-ios-search"></i></button>
+                                    </form>
+                                </div>
+                                <div class="header-logo_area">
+                                    <a href="index.html">
+                                        <img src="assets/images/menu/logo/1.png" alt="Header Logo">
+                                    </a>
+                                </div>
+                                <div class="header-right_area d-none d-lg-block">
+                                    <ul>
+                                        <li class="minicart-wrap">
+                                            <a href="#miniCart" class="minicart-btn toolbar-btn">
+                                                <div class="minicart-count_area">
+                                                    <span class="item-count">03</span>
+                                                    <i class="ion-bag"></i>
+                                                </div>
+                                                <div class="minicart-front_text">
+                                                    <span>Cart:</span>
+                                                    <span class="total-price">462.4</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="header-right_area header-right_area-2 d-block d-lg-none">
+                                    <ul>
+                                        <li class="mobile-menu_wrap d-inline-block d-lg-none">
+                                            <a href="#mobileMenu" class="mobile-menu_btn toolbar-btn color--white">
+                                                <i class="ion-android-menu"></i>
+                                            </a>
+                                        </li>
+                                        <li class="minicart-wrap">
+                                            <a href="#miniCart" class="minicart-btn toolbar-btn">
+                                                <div class="minicart-count_area">
+                                                    <span class="item-count">03</span>
+                                                    <i class="ion-bag"></i>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#searchBar" class="search-btn toolbar-btn">
+                                                <i class="ion-android-search"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
         </div>
         <div class="header-bottom_area d-none d-lg-block">
             <div class="container">
@@ -123,76 +180,16 @@
                         <div class="main-menu_area position-relative">
                             <nav class="main-nav d-flex justify-content-center">
                                 <ul>
-                                    <li class="dropdown-holder"><a href="#">Home <i class="ion-chevron-down"></i></a>
-                                        <ul class="kenne-dropdown">
-                                            <li><a href="index.html">Home One</a></li>
-                                            <li><a href="index-2.html">Home Two</a></li>
-                                            <li><a href="index-3.html">Home Three</a></li>
-                                        </ul>
+                                    <li class="dropdown-holder"><a href="<?= BASE_URL ?>">Home</a>
+                                        
                                     </li>
-                                    <li class="megamenu-holder position-static"><a href="shop-left-sidebar.html">Shop <i
-                                                class="ion-chevron-down"></i></a>
-                                        <ul class="kenne-megamenu">
-                                            <li><span class="megamenu-title">Shop Page Layout</span>
-                                                <ul>
-                                                    <li><a href="shop-fullwidth.html">Grid Fullwidth</a></li>
-                                                    <li><a href="shop-left-sidebar.html">Left Sidebar</a></li>
-                                                    <li><a href="shop-right-sidebar.html">Right Sidebar</a></li>
-                                                    <li><a href="shop-list-fullwidth.html">List Fullwidth</a></li>
-                                                    <li><a href="shop-list-left-sidebar.html">List Left Sidebar</a>
-                                                    </li>
-                                                    <li><a href="shop-list-right-sidebar.html">List Right
-                                                            Sidebar</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li><span class="megamenu-title">Single Product Style</span>
-                                                <ul>
-                                                    <li><a href="single-product-gallery-left.html">Gallery Left</a>
-                                                    </li>
-                                                    <li><a href="single-product-gallery-right.html">Gallery
-                                                            Right</a>
-                                                    </li>
-                                                    <li><a href="single-product-tab-style-left.html">Tab Style
-                                                            Left</a>
-                                                    </li>
-                                                    <li><a href="single-product-tab-style-right.html">Tab Style
-                                                            Right</a>
-                                                    </li>
-                                                    <li><a href="single-product-sticky-left.html">Sticky Left</a>
-                                                    </li>
-                                                    <li><a href="single-product-sticky-right.html">Sticky Right</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li><span class="megamenu-title">Single Product Type</span>
-                                                <ul>
-                                                    <li><a href="single-product.html">Single Product</a></li>
-                                                    <li><a href="single-product-sale.html">Single Product Sale</a>
-                                                    </li>
-                                                    <li><a href="single-product-group.html">Single Product Group</a>
-                                                    </li>
-                                                    <li><a href="single-product-variable.html">Single Product
-                                                            Variable</a>
-                                                    </li>
-                                                    <li><a href="single-product-affiliate.html">Single Product
-                                                            Affiliate</a>
-                                                    </li>
-                                                    <li><a href="single-product-slider.html">Single Product
-                                                            Slider</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li><span class="megamenu-title">Shop Related Pages</span>
-                                                <ul>
-                                                    <li><a href="my-account.html">My Account</a></li>
-                                                    <li><a href="login-register.html">Login | Register</a></li>
-                                                    <li><a href="wishlist.html">Wishlist</a></li>
-                                                    <li><a href="cart.html">Cart</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
-                                                    <li><a href="compare.html">Compare</a></li>
-                                                </ul>
-                                            </li>
+                                    <li class="megamenu-holder position-static"><a href="<?= BASE_URL . '?act=danh-sach-san-pham' ?>">Shop <i class="ion-chevron-down"></i></a>
+                                        <ul class="kenne-dropdown">
+                                            <?php foreach ($listDanhMuc as $danhMuc): ?>
+                                                <li>
+                                                    <a href="<?= BASE_URL . '?act=danh-sach-san-pham&danh_muc_id=' . $danhMuc['id'] ?>" style="white-space: nowrap;"><?= $danhMuc['ten_danh_muc']; ?></a>
+                                                </li>
+                                            <?php endforeach; ?>
                                         </ul>
                                     </li>
                                     <li><a href="#">Pages <i class="ion-chevron-down"></i></a>
@@ -227,7 +224,8 @@
                     </div>
                     <ul class="minicart-list">
                         <li class="minicart-product">
-                            <a class="product-item_remove" href="#"><i class="ion-android-close"></i></a>
+                            <a class="product-item_remove" href="#"><i
+                                    class="ion-android-close"></i></a>
                             <div class="product-item_img">
                                 <img src="assets/images/product/1-1.jpg" alt="Kenne's Product Image">
                             </div>
@@ -237,7 +235,8 @@
                             </div>
                         </li>
                         <li class="minicart-product">
-                            <a class="product-item_remove" href="#"><i class="ion-android-close"></i></a>
+                            <a class="product-item_remove" href="#"><i
+                                    class="ion-android-close"></i></a>
                             <div class="product-item_img">
                                 <img src="assets/images/product/2-1.jpg" alt="Kenne's Product Image">
                             </div>
@@ -248,7 +247,8 @@
                             </div>
                         </li>
                         <li class="minicart-product">
-                            <a class="product-item_remove" href="#"><i class="ion-android-close"></i></a>
+                            <a class="product-item_remove" href="#"><i
+                                    class="ion-android-close"></i></a>
                             <div class="product-item_img">
                                 <img src="assets/images/product/3-1.jpg" alt="Kenne's Product Image">
                             </div>
