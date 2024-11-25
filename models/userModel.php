@@ -54,5 +54,16 @@ class UserModel extends BaseModel
         // Nếu thực thi thành công, trả về true
         return $result !== null;
     }
+
+    public function getTaiKhoanFromEMail($email) {
+        try {
+            $sql = "SELECT * FROM tai_khoans WHERE email = :email";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([':email' => $email]);
+            return $stmt->fetch();
+        } catch (Exception $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
 }
 ?>
