@@ -42,7 +42,6 @@
                                         <th>SĐT</th>
                                         <th>Địa chỉ</th>
                                         <th>Ngày đặt</th>
-                                        <th>Tổng tiền</th>
                                         <th>Trạng thái</th>
                                         <th>Thao tác</th>
                                     </tr>
@@ -56,7 +55,7 @@
                                             <td><?= $donhang['sdt_nguoi_nhan'] ?></td>
                                             <td><?= $donhang['dia_chi_nguoi_nhan'] ?></td>
                                             <td><?= date('d/m/Y', strtotime($donhang['ngay_dat'])) ?></td>
-                                            <td><?= number_format($donhang['tong_tien'], 0, ',', '.') ?> VND</td>
+                                           
                                             <td>
                                                 <span class="<?php
                                                                 if ($donhang['ten_trang_thai'] == 'Đã hủy') {
@@ -102,7 +101,6 @@
                                         <th>SĐT</th>
                                         <th>Địa chỉ</th>
                                         <th>Ngày đặt</th>
-                                        <th>Tổng tiền</th>
                                         <th>Trạng thái</th>
                                         <th>Thao tác</th>
                                     </tr>

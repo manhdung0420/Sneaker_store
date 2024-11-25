@@ -21,6 +21,10 @@ class adminDonHangController
         $id = $_GET["id"];
         $donHang = $this->modelDonHang->getDetailDonHang($id);
 
+        $sanPhamDonHang = $this->modelDonHang->getListSpDonHang($id);
+        
+
+        $listTrangThaiDonHang = $this->modelDonHang->getAllTrangThai();
         if ($donHang) {
             require_once './views/donhang/detailDonHang.php';
         } else {

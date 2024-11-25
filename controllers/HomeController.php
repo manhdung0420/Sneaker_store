@@ -18,8 +18,10 @@ class HomeController extends ProductModel
         $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
         require_once "./views/home.php";
     }
-    public function search()
-    {
+
+    public function search() {
+        $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
+
         // Lấy từ khóa từ yêu cầu GET hoặc POST
         $keyword = isset($_POST['keyword']) ? $_POST['keyword'] : '';
 

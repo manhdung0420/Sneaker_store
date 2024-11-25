@@ -15,6 +15,8 @@ require_once './controllers/GioHangController.php';
 require_once './models/GioHang.php';
 require_once './models/SanPham.php';
 
+require_once './models/userModel.php';
+
 
 
 
