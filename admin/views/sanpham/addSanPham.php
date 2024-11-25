@@ -72,7 +72,6 @@
                                     <label>Album ảnh</label>
                                     <input type="file" class="form-control" name="img_array[]" multiple>
                                 </div>
-
                                 <div class="form-group col-6">
                                     <label>Số lượng</label>
                                     <input type="number" class="form-control" name="so_luong" placeholder="Nhập Số lượng">
@@ -81,7 +80,6 @@
                                         <!--ở đây là toán tử 3 ngôi  -->
                                     </span>
                                 </div>
-
                                 <div class="form-group col-6">
                                     <label>Danh mục</label>
                                     <select class="form-control" name="danh_muc_id" id="exampleFormControlSelect1">
@@ -97,43 +95,7 @@
                                     </span>
                                 </div>
 
-                                <!-- Thêm Size -->
-                                <div class="form-group col-6">
-                                    <label>Chọn Size</label>
-                                    <select class="form-control" name="size">
-                                        <option selected disabled>Chọn size sản phẩm</option>
-                                        <option value="35">35</option>
-                                        <option value="36">36</option>
-                                        <option value="37">37</option>
-                                        <option value="38">38</option>
-                                        <option value="39">39</option>
-                                        <option value="40">40</option>
-                                        <option value="41">41</option>
-                                        <option value="42">42</option>
-                                    </select>
-                                    <span class="text-danger">
-                                        <?= !empty($_SESSION["errors"]["size"]) ? $_SESSION["errors"]["size"] : '' ?>
-                                        <!--ở đây là toán tử 3 ngôi  -->
-                                    </span>
-                                </div>
-
-                                <!-- Thêm Màu -->
-                                <div class="form-group col-6">
-                                    <label>Chọn Màu</label>
-                                    <select class="form-control" name="mau">
-                                        <option selected disabled>Chọn màu sản phẩm</option>
-                                        <option value="Red">Red</option>
-                                        <option value="Green">Green</option>
-                                        <option value="Yellow">Yellow</option>
-                                        <option value="Black">Black</option>
-                                        <option value="White">White</option>
-                                    </select>
-                                    <span class="text-danger">
-                                        <?= !empty($_SESSION["errors"]["mau"]) ? $_SESSION["errors"]["mau"] : '' ?>
-                                        <!--ở đây là toán tử 3 ngôi  -->
-                                    </span>
-                                </div>
-
+                                
                                 <div class="form-group col-6">
                                     <label>Ngày nhập</label>
                                     <input type="date" class="form-control" name="ngay_nhap" placeholder="Nhập Ngày nhập">

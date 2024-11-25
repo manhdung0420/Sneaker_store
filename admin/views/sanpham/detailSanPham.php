@@ -44,8 +44,31 @@
             <h4 class="mt-3">Giá tiền: <small><?= $sanPham['gia_san_pham']; ?></small></h4>
             <h4 class="mt-3">Giá khuyến mãi: <small><?= $sanPham['gia_khuyen_mai']; ?></small></h4>
             <h4 class="mt-3">Số Lượng: <small><?= $sanPham['so_luong']; ?></small></h4>
-            <h4 class="mt-3">Size: <small><?= $sanPham['size']; ?></small></h4>
-            <h4 class="mt-3">Màu: <small><?= $sanPham['mau']; ?></small></h4>
+
+            <h4>Màu :
+              <small>
+                <select class="" name="mau_id" id="">
+                  <option selected disabled>Chọn màu sản phẩm</option>
+                  <?php foreach ($listMauSP as $mau) : ?>
+                    <option value="<?= $mau["id"] ?>"><?= $mau["mau"] ?></option>
+                  <?php endforeach ?>
+                </select>
+              </small>
+            </h4>
+
+
+
+            <h4>Size :
+              <small>
+                <select class="" name="size_id" id="">
+                  <option selected disabled>Chọn Size</option>
+
+                  <?php foreach ($listSizeSP as $size) : ?>
+                    <option value="<?= $size["id"] ?>"><?= $size["size"] ?></option>
+                  <?php endforeach ?>
+                </select>
+              </small>
+            </h4>
             <h4 class="mt-3">Nhày Nhập: <small><?= $sanPham['ngay_nhap']; ?></small></h4>
             <h4 class="mt-3">Danh mục: <small><?= $sanPham['ten_danh_muc']; ?></small></h4>
             <h4 class="mt-3">Trạng thái: <small><?= $sanPham['trang_thai'] == 1 ? 'còn hàng' : 'Dừng bán' ?></small></h4>
@@ -53,7 +76,7 @@
 
           </div>
         </div>
-       
+
         <!-- <div class="col-12">
                     <hr>
                     <h2>Bình luận của sản phẩm</h2>
@@ -85,7 +108,7 @@
                                             <input type="hidden" name="id_binh_luan" value="<?= $binhLuan['id'] ?>">
                                             <input type="hidden" name="name_view" value="detail_sanpham">                                            <input type="hidden" name="id_khach_hang" value="<?= $binhLuan['tai_khoan_id'] ?>">
                                             <button onclick="return confirm('bạn có muốn ẩn bình luận này không')" class="btn btn-warning">
-                                                <?= $binhLuan['trang_thai'] ==1 ? 'Ẩn': 'Bỏ ẩn' ?>
+                                                <?= $binhLuan['trang_thai'] == 1 ? 'Ẩn' : 'Bỏ ẩn' ?>
                                             </button>
                                         </form>
                                     </td>
@@ -98,9 +121,9 @@
        
         
       </div> -->
-      <!-- /.card-body -->
-    </div>
-    <!-- /.card -->
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
 
   </section>
   <!-- /.content -->
