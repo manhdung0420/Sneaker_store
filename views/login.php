@@ -9,6 +9,7 @@ require_once './views/layouts/header.php'; ?>
             <div class="col-sm-12 col-md-12 col-xs-12 col-lg-6">
                 <!-- Login Form s-->
                 <form action="<?= BASE_URL . '?act=login' ?>" method="POST">
+                
                     <div class="login-form">
                         <h4 class="login-title">Login</h4>
                         <div class="row">
