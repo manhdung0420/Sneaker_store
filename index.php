@@ -22,4 +22,9 @@ match ($act) {
     // Trang chủ
     '/'                 => (new HomeController())->index(),
     'search' => (new HomeController())->search(),
+    'formlogin' => (new HomeController())->formlogin(),
+    'login'=> (new HomeController())->login(),
+    'logout'=> (new HomeController())->logout(),
+    'admin' => (new HomeController())->checkAdmin(),
+    'register'=> (new HomeController())->register(),
 };
