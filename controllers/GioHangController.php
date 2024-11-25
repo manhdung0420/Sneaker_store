@@ -3,129 +3,82 @@
 class GioHangController
 {
     public $modelSanPham;
-    // public $modelTaikhoan;
+    public $modelTaikhoan;
     public $modelGioHang;
+
     public function __construct()
     {
         $this->modelSanPham = new SanPham();
-        // $this->modelTaikhoan = new TaiKhoan();
+        $this->modelTaikhoan = new UserModel();
         $this->modelGioHang = new GioHang();
     }
 
     public function addGioHang()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            if (isset($_SESSION["user_client"])) {
-                // Đã đăng nhập
-                $mail = $this->modelGioHang->getTaiKhoanFromEMail($_SESSION['user_client']);
-                $gioHang = $this->modelGioHang->getGiohangFromUser($mail['id']);
+            if (isset($_SESSION["user_email"])) {
+                // Lấy thông tin tài khoản người dùng
+                $user = $this->modelTaikhoan->getTaiKhoanFromEMail($_SESSION["user_email"]);
 
+                // Lấy giỏ hàng hoặc tạo mới
+                $gioHang = $this->modelGioHang->getGioHangFromUser($user["id"]);
                 if (!$gioHang) {
-                    $gioHangId = $this->modelGioHang->addGioHang($mail["id"]);
-                    $gioHang = ['id' => $gioHangId];
+                    $gioHangId = $this->modelGioHang->addGioHang($user["id"]);
                 } else {
-                    $gioHang = $gioHang[0];
+                    $gioHangId = $gioHang[0]["id"];
                 }
-
-                $chiTietGioHang = $this->modelGioHang->getDetailGiohang($gioHang["id"]);
 
                 // Lấy thông tin sản phẩm từ form
                 $san_pham_id = $_POST["san_pham_id"];
                 $so_luong = $_POST["so_luong"];
                 $size_id = $_POST["size_id"];
 
-                // Kiểm tra sản phẩm đã có trong giỏ chưa
-                $checkSanPham = false;
-                foreach ($chiTietGioHang as &$item) {
+                // Kiểm tra sản phẩm trong chi tiết giỏ hàng
+                $chiTietGioHang = $this->modelGioHang->getDetailGiohang($gioHangId);
+                $productExists = false;
+
+                foreach ($chiTietGioHang as $item) {
                     if ($item["san_pham_id"] == $san_pham_id && $item["size_id"] == $size_id) {
-                        $item["so_luong"] += $so_luong;
-                        $checkSanPham = true;
+                        $newSoLuong = $item["so_luong"] + $so_luong;
+                        $this->modelGioHang->updateSoLuong($gioHangId, $san_pham_id, $newSoLuong, $size_id);
+                        $productExists = true;
                         break;
                     }
                 }
 
-                if (!$checkSanPham) {
-                    $this->modelGioHang->addDetailGioHang($gioHang["id"], $san_pham_id, $so_luong, $size_id);
+                if (!$productExists) {
+                    $this->modelGioHang->addDetailGioHang($gioHangId, $san_pham_id, $so_luong, $size_id);
                 }
+
+                header("Location: " . BASE_URL . "?act=gio-hang");
+                exit;
             } else {
-                // Chưa đăng nhập, xử lý với session
-                if (!isset($_SESSION["gio_hang"])) {
-                    $_SESSION["gio_hang"] = [];
-                }
-                $gioHang = $_SESSION["gio_hang"];
-                $san_pham_id = $_POST["san_pham_id"];
-                $so_luong = $_POST["so_luong"];
-                $size_id = $_POST["size_id"];
-
-                $checkSanPham = false;
-                foreach ($gioHang as &$item) {
-                    if ($item["san_pham_id"] == $san_pham_id && $item["size_id"] == $size_id) {
-                        $item["so_luong"] += $so_luong;
-                        $checkSanPham = true;
-                        break;
-                    }
-                }
-
-                if (!$checkSanPham) {
-                    $gioHang[] = [
-                        "san_pham_id" => $san_pham_id,
-                        "size_id" => $size_id,
-                        "so_luong" => $so_luong
-                    ];
-                }
-
-                $_SESSION["gio_hang"] = $gioHang;  // Cập nhật lại giỏ hàng vào session
+                echo "Bạn cần đăng nhập để thêm sản phẩm vào giỏ hàng.";
             }
-            header("Location: " . BASE_URL . '?act=gio-hang');
         }
     }
 
-
     public function gioHang()
     {
-        if (isset($_SESSION['user_client']) && !empty($_SESSION['user_client'])) { // Kiểm tra trạng thái đăng nhập
-            $mail = $this->modelGioHang->getTaiKhoanFromEMail($_SESSION['user_client']);
-
-            if (!$mail) {
-                // Nếu không tìm thấy tài khoản trong DB, xóa session và yêu cầu đăng nhập lại
-                unset($_SESSION['user_client']);
-                echo "Tài khoản không tồn tại. Vui lòng đăng nhập lại.";
+        if (isset($_SESSION["user_email"])) {
+            $user = $this->modelTaikhoan->getTaiKhoanFromEMail($_SESSION["user_email"]);
+            if (!$user) {
+                echo "User not found!";
                 return;
             }
 
-            // Lấy giỏ hàng từ tài khoản
-            $gioHang = $this->modelGioHang->getGiohangFromUser($mail['id']);
-
+            $gioHang = $this->modelGioHang->getGioHangFromUser($user["id"]);
             if (!$gioHang) {
-                $gioHangId = $this->modelGioHang->addGioHang($mail['id']);
-                $gioHang = ['id' => $gioHangId];
+                $gioHangId = $this->modelGioHang->addGioHang($user["id"]);
+                $chiTietGioHang = [];
             } else {
-                $gioHang = $gioHang[0];
+                $gioHangId = $gioHang[0]["id"];
+                $chiTietGioHang = $this->modelGioHang->getDetailGiohang($gioHangId);
             }
-
-            $chiTietGioHang = $this->modelGioHang->getDetailGiohang($gioHang['id']);
+            $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
             require_once './views/gioHang.php';
         } else {
-            // Xử lý giỏ hàng khi chưa đăng nhập
-            if (isset($_SESSION['gio_hang']) && !empty($_SESSION['gio_hang'])) {
-                $gioHang = $_SESSION['gio_hang'];
-                $chiTietGioHang = [];
-
-                foreach ($gioHang as $item) {
-                    $sanPham = $this->modelSanPham->getSanPhamById($item['san_pham_id']);
-                    $size = $this->modelGioHang->getSizeById($item['size_id']);
-                    $chiTietGioHang[] = [
-                        'san_pham' => $sanPham,
-                        'size' => $size,
-                        'so_luong' => $item['so_luong']
-                    ];
-                }
-                // var_dump($chiTietGioHang);die;
-
-                require_once './views/gioHang.php';
-            } else {
-                echo "Giỏ hàng trống!";
-            }
+            echo "Bạn cần đăng nhập để xem giỏ hàng.";
         }
     }
 }
