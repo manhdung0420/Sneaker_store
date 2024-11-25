@@ -3,11 +3,13 @@ class adminSanPhamController
 {
     public $modelSanPham;
     public $modelDanhMuc;
+    public $modelBienThe;
 
     public function __construct()
     {
         $this->modelSanPham = new adminSanPham();
         $this->modelDanhMuc = new adminDanhMuc();
+        $this->modelBienThe = new adminBienThe();
 
     }
     public function danhSachSanPham()
@@ -30,8 +32,6 @@ class adminSanPhamController
             $gia_san_pham = $_POST["gia_san_pham"];
             $gia_khuyen_mai = $_POST["gia_khuyen_mai"];
             $so_luong = $_POST["so_luong"];
-            $size = $_POST["size"];
-            $mau = $_POST["mau"];
             $ngay_nhap = $_POST["ngay_nhap"];
             $danh_muc_id = $_POST["danh_muc_id"] ;
             $trang_thai = $_POST["trang_thai"];
@@ -55,12 +55,6 @@ class adminSanPhamController
             if(empty($so_luong)){
                 $errors["so_luong"] = "Vui lòng nhập số lượng";
             }
-            if(empty($size)){
-                $errors["size"] = "Vui lòng chọn size";
-            }
-            if(empty($mau)){
-                $errors["mau"] = "Vui lòng chọn màu";
-            }
             if (empty($ngay_nhap)) {
                 $errors['ngay_nhap'] = 'Ngày nhập không được trống';
             }
@@ -79,7 +73,6 @@ class adminSanPhamController
                     $gia_san_pham,
                     $gia_khuyen_mai,
                     $so_luong,
-                    $size,$mau,
                     $ngay_nhap,
                     $danh_muc_id,
                     $trang_thai,
@@ -103,7 +96,7 @@ class adminSanPhamController
                         $this->modelSanPham->insertAlbumAnhSanPham($san_pham_id, $link_hinh_anh);
                     }
                 }
-                // var_dump($img_array);die;
+                // var_dump($_SERVER);die;
                 unset($_SESSION['errors']);
                 header("location:" . BASE_URL_ADMIN . '?act=san-pham');
             }else{
@@ -139,8 +132,6 @@ class adminSanPhamController
             $gia_san_pham = $_POST["gia_san_pham"];
             $gia_khuyen_mai = $_POST["gia_khuyen_mai"];
             $so_luong = $_POST["so_luong"];
-            $size = $_POST["size"];
-            $mau = $_POST["mau"];
             $ngay_nhap = $_POST["ngay_nhap"];
             $danh_muc_id = $_POST["danh_muc_id"] ?? '';
             $trang_thai = $_POST["trang_thai"];
@@ -162,12 +153,6 @@ class adminSanPhamController
             }
             if(empty($so_luong)){
                 $errors["so_luong"] = "Vui lòng nhập số lượng";
-            }
-            if(empty($size)){
-                $errors["size"] = "Vui lòng chọn size";
-            }
-            if(empty($mau)){
-                $errors["mau"] = "Vui lòng chọn màu";
             }
             if (empty($ngay_nhap)) {
                 $errors['ngay_nhap'] = 'Ngày nhập không được trống';
@@ -195,8 +180,6 @@ class adminSanPhamController
                     $gia_san_pham,
                     $gia_khuyen_mai,
                     $so_luong,
-                    $size,
-                    $mau,
                     $ngay_nhap,
                     $danh_muc_id,
                     $trang_thai,
@@ -292,7 +275,8 @@ class adminSanPhamController
     public function detailSanPham(){
         $id = $_GET["id_san_pham"];
         $sanPham = $this->modelSanPham->getDetailSanPham($id);
-        $listAnhSanPham = $this->modelSanPham->getListAnhSanPham($id);
+        $listAnhSanPham = $this->modelSanPham->getListAnhSanPham($id);       
+        $listSizeSP = $this->modelSanPham->getAllSizeSP($id);
 
         if($sanPham){
             require_once './views/sanpham/detailSanPham.php';

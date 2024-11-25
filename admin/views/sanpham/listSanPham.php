@@ -42,8 +42,6 @@
                     <th>Giá tiền</th>
                     <th>Giá Khuyễn mãi</th>
                     <th>Số lượng</th>
-                    <th>size</th>
-                    <th>Màu</th>
                     <th>Trạng thái</th>
                     <th>Thao tác</th>
                   </tr>
@@ -61,8 +59,6 @@
                       <td><?= $sanPham['gia_san_pham'] ?></td>
                       <td><?= $sanPham['gia_khuyen_mai'] ?></td>
                       <td><?= $sanPham['so_luong'] ?></td>
-                      <td><?= $sanPham['size'] ?></td>
-                      <td><?= $sanPham['mau'] ?></td>
                       <td><?= $sanPham['trang_thai'] == 1 ? 'còn bán' : 'Dừng bán'; ?></td>
                       <td>
                         <div class="btn-group">
@@ -89,8 +85,6 @@
                     <th>Giá tiền</th>
                     <th>Giá Khuyễn mãi</th>
                     <th>Số lượng</th>
-                    <th>Size</th>
-                    <th>Màu</th>
                     <th>Trạng thái</th>
                     <th>Thao tác</th>
                   </tr>

@@ -71,7 +71,7 @@
                         </div>
                         <div class="sp-essential_stuff">
                             <ul>
-                                
+
                                 <li>Mã sản phẩm: <a href="javascript:void(0)">Sản phẩm <?php echo $sanpham['id']; ?></a></li>
                                 <li>Tình trạng: <a href="javascript:void(0)"><?php echo $sanpham['trang_thai'] > 0 ? 'Còn bán' : 'Dừng bán'; ?></a></li>
                                 <li>Giá gốc: <a href="javascript:void(0)"><span>$<?php echo number_format($sanpham['gia_san_pham'], 2); ?></span></a></li>
@@ -80,45 +80,33 @@
                                 <?php endif; ?>
                             </ul>
                         </div>
+                        <form action="<?= BASE_URL . '?act=them-gio-hang' ?>" method="post">
+                        <input type="hidden" name="san_pham_id" value="<?= $sanpham['id']; ?>">
                         <div class="product-size_box">
                             <span>Size</span>
-                            <select class="myniceselect nice-select">
-                                <!-- Ví dụ size, bạn có thể tùy chỉnh thêm nếu cần -->
-                                <option value="36">36</option>
-                                <option value="37">37</option>
-                                <option value="38">38</option>
-                                <option value="39">39</option>
-                                <option value="40">40</option>
-                            </select>
-                        </div>
-                        <div class="product-size_box">
-                            <span>Màu</span>
-                            <select class="myniceselect nice-select">
-
-                                <option value="1">Trắng</option>
-                                <option value="2">Đen</option>
-                                <option value="3">Đỏ</option>
-                                <option value="4">vàng</option>
-                                <option value="5">Xanh</option>
+                            <!-- Ví dụ size, bạn có thể tùy chỉnh thêm nếu cần -->
+                            <select class="myniceselect nice-select" name="size_id" id="">
+                                <?php foreach ($listSizeSP as $size) : ?>
+                                    <option value="<?= $size["id"] ?>"><?= $size["size"] ?></option>
+                                <?php endforeach ?>
                             </select>
                         </div>
                         <div class="quantity">
                             <label>Quantity</label>
                             <div class="cart-plus-minus">
-                                <input class="cart-plus-minus-box" value="1" type="text">
+                                <input class="cart-plus-minus-box" value="1" type="text" name="so_luong">
                                 <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
                                 <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
                             </div>
                         </div>
                         <div class="qty-btn_area">
                             <ul>
-                                <li><a class="qty-cart_btn" href="cart.html">Add To Cart</a></li>
-                                <li><a class="qty-wishlist_btn" href="wishlist.html" data-bs-toggle="tooltip" title="Add To Wishlist"><i class="ion-android-favorite-outline"></i></a></li>
-                                <li><a class="qty-compare_btn" href="compare.html" data-bs-toggle="tooltip" title="Compare This Product"><i class="ion-ios-shuffle-strong"></i></a></li>
+                                <li><button class="qty-cart_btn">Add To Cart</button></li>
                             </ul>
                         </div>
-                        
-                        <div class="kenne-social_link">
+                        </form>
+
+                        <!-- <div class="kenne-social_link">
                             <ul>
                                 <li class="facebook"><a href="https://www.facebook.com/" data-bs-toggle="tooltip" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a></li>
                                 <li class="twitter"><a href="https://twitter.com/" data-bs-toggle="tooltip" target="_blank" title="Twitter"><i class="fab fa-twitter-square"></i></a></li>
@@ -126,7 +114,7 @@
                                 <li class="google-plus"><a href="https://www.plus.google.com/discover" data-bs-toggle="tooltip" target="_blank" title="Google Plus"><i class="fab fa-google-plus"></i></a></li>
                                 <li class="instagram"><a href="https://rss.com/" data-bs-toggle="tooltip" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a></li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
