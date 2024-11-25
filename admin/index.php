@@ -11,12 +11,14 @@ require_once 'controllers/adminDanhMucController.php';
 require_once 'controllers/adminSanPhamController.php';
 require_once 'controllers/adminTaiKhoanController.php';
 require_once 'controllers/adminBienTheController.php';
+require_once 'controllers/adminDonHangController.php';
 
 // Require toàn bộ file Models
 require_once 'models/adminDanhMuc.php';
 require_once 'models/adminSanPham.php';
 require_once 'models/adminTaiKhoan.php';
 require_once 'models/adminBienThe.php';
+require_once 'models/adminDonHang.php';
 // Route
 $act = $_GET['act'] ?? '/';
 
@@ -63,4 +65,11 @@ match ($act) {
     'form-them-size'=>(new adminBienTheController())->formAddSize(),
     'them-size'=>(new adminBienTheController())->postAddSize(),
 
+    
+    // route quản lý đơn hàng
+    'don-hang'=>(new adminDonHangController())->danhSachDonHang(),
+    'form-sua-don-hang'=>(new adminDonHangController())->formEditDonHang(),
+    'sua-don-hang'=>(new adminDonHangController())->postEditDonHang(),
+    'xoa-don-hang'=>(new adminDonHangController())->xoaDonHang(),
+    'detail-don-hang'=>(new adminDonHangController())->chiTietDonHang(),
 };
