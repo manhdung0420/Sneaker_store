@@ -27,6 +27,7 @@ class HomeController extends ProductModel
             echo "Vui lòng nhập từ khóa tìm kiếm.";
         }
     }
+
     
 }
 

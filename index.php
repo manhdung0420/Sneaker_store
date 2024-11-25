@@ -31,6 +31,7 @@ match ($act) {
 
     'danh-sach-san-pham' =>(new SanPhamController())->danhSachSanPham(),
     'chi-tiet-san-pham' =>(new SanPhamController())->chiTietSanPham($_GET['id']),
+
     // 'sp-danh-muc' =>(new spDanhMucController)->
 
     'them-gio-hang' =>(new GioHangController())->addGioHang(),
