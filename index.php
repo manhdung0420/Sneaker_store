@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 // Require file Common
 require_once './commons/env.php'; // Khai báo biến môi trường
 require_once './commons/function.php'; // Hàm hỗ trợ
@@ -7,10 +7,12 @@ require_once './commons/function.php'; // Hàm hỗ trợ
 // Require toàn bộ file Controllers
 require_once './controllers/HomeController.php';
 require_once './controllers/SanPhamController.php';
+require_once './controllers/GioHangController.php';
 
 
 
 // Require toàn bộ file Models
+require_once './models/GioHang.php';
 require_once './models/SanPham.php';
 
 
@@ -30,4 +32,8 @@ match ($act) {
     'danh-sach-san-pham' =>(new SanPhamController())->danhSachSanPham(),
     'chi-tiet-san-pham' =>(new SanPhamController())->chiTietSanPham($_GET['id']),
 
+    // 'sp-danh-muc' =>(new spDanhMucController)->
+
+    'them-gio-hang' =>(new GioHangController())->addGioHang(),
+    'gio-hang' =>(new GioHangController())->gioHang(),
 };

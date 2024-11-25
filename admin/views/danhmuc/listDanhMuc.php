@@ -42,7 +42,7 @@
                     <th>Thao tác</th>
                   </tr>
                   
-                  </thead>
+                </thead>
                   
                   <tbody>
                   <?php foreach($listDanhMuc as $key=>$danhmuc):?>

@@ -19,19 +19,17 @@ class adminSanPham
         }
     }
 
-    public function insertSanPham($ten_san_pham, $gia_san_pham, $gia_khuyen_mai, $so_luong, $size, $mau, $ngay_nhap, $danh_muc_id, $trang_thai, $mo_ta, $hinh_anh)
+    public function insertSanPham($ten_san_pham, $gia_san_pham, $gia_khuyen_mai, $so_luong, $ngay_nhap, $danh_muc_id, $trang_thai, $mo_ta, $hinh_anh)
     {
         try {
-            $sql = "INSERT INTO san_phams (ten_san_pham, gia_san_pham, gia_khuyen_mai, so_luong, size, mau, ngay_nhap, danh_muc_id, trang_thai, mo_ta, hinh_anh)
-                    VALUES (:ten_san_pham, :gia_san_pham, :gia_khuyen_mai, :so_luong, :size, :mau, :ngay_nhap, :danh_muc_id, :trang_thai, :mo_ta, :hinh_anh)";
+            $sql = "INSERT INTO san_phams (ten_san_pham, gia_san_pham, gia_khuyen_mai, so_luong, ngay_nhap, danh_muc_id, trang_thai, mo_ta, hinh_anh)
+                    VALUES (:ten_san_pham, :gia_san_pham, :gia_khuyen_mai, :so_luong, :ngay_nhap, :danh_muc_id, :trang_thai, :mo_ta, :hinh_anh)";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute([
                 ':ten_san_pham' => $ten_san_pham,
                 ':gia_san_pham' => $gia_san_pham,
                 ':gia_khuyen_mai' => $gia_khuyen_mai,
                 ':so_luong' => $so_luong,
-                ':size' => $size,
-                ':mau' => $mau,
                 ':ngay_nhap' => $ngay_nhap,
                 ':danh_muc_id' => $danh_muc_id,
                 ':trang_thai' => $trang_thai,
@@ -92,7 +90,7 @@ class adminSanPham
         } 
     }
 
-    public function updateSanPham($san_pham_id, $ten_san_pham, $gia_san_pham, $gia_khuyen_mai, $so_luong, $size, $mau, $ngay_nhap, $danh_muc_id, $trang_thai, $mo_ta, $hinh_anh) {
+    public function updateSanPham($san_pham_id, $ten_san_pham, $gia_san_pham, $gia_khuyen_mai, $so_luong, $ngay_nhap, $danh_muc_id, $trang_thai, $mo_ta, $hinh_anh) {
         try {
             // var_dump('abc');die;
             $sql = 'UPDATE `san_phams` 
@@ -101,8 +99,6 @@ class adminSanPham
                         gia_san_pham = :gia_san_pham,
                         gia_khuyen_mai = :gia_khuyen_mai,
                         so_luong = :so_luong,
-                        size = :size,
-                        mau = :mau,
                         ngay_nhap = :ngay_nhap,
                         danh_muc_id = :danh_muc_id,
                         trang_thai = :trang_thai,
@@ -117,8 +113,6 @@ class adminSanPham
                 ':gia_san_pham' => $gia_san_pham,
                 ':gia_khuyen_mai' => $gia_khuyen_mai,
                 ':so_luong' => $so_luong,
-                ':size' => $size,
-                ':mau' => $mau,
                 ':ngay_nhap' => $ngay_nhap,
                 ':danh_muc_id' => $danh_muc_id,
                 ':trang_thai' => $trang_thai,
@@ -191,6 +185,20 @@ class adminSanPham
         } catch (Exception $e) {
             echo "CÓ LỖI:".$e->getMessage();
         } 
+    }
+
+    public function getAllSizeSP($san_pham_id) {
+        try {
+            $sql = "SELECT size_sp.*, san_phams.ten_san_pham
+                    FROM size_sp
+                    INNER JOIN san_phams ON size_sp.san_pham_id = san_phams.id
+                    WHERE size_sp.san_pham_id = :san_pham_id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([':san_pham_id' => $san_pham_id]);
+            return $stmt->fetchAll();
+        } catch (Exception $e) {
+            echo "CÓ LỖI: " . $e->getMessage();
+        }
     }
 
 }

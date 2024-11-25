@@ -65,24 +65,24 @@
                 <div class="col-lg-4 col-md-4">
                     <div class="service-item">
                         <div class="content">
-                            <h4>Free Shipping</h4>
-                            <p>Free shipping on all order</p>
+                            <h6>Giao hàng</h6>
+                            <p>Miễn phí giao hàng</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4">
                     <div class="service-item">
                         <div class="content">
-                            <h4>Money Return</h4>
-                            <p>30 days for free return</p>
+                            <h6>Hoàn tiền</h6>
+                            <p>Hoàn tiền trong 30 ngày khi lỗi</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4">
                     <div class="service-item">
                         <div class="content">
-                            <h4>Online Support</h4>
-                            <p>Support 24 hours a day</p>
+                            <h6>Hỗ trợ</h6>
+                            <p>Hỗ trợ 24/7</p>
                         </div>
                     </div>
                 </div>
@@ -133,7 +133,7 @@
 <?php
 if (isset($keyword)) {
 
-    ?>
+?>
     <div class="product-area ">
         <div class="container">
             <div class="row">
@@ -165,8 +165,6 @@ if (isset($keyword)) {
                         "slidesToShow": 1
                         }}
                     ]'>
-
-
 
                         <?php
 

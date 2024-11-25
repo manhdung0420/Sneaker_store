@@ -31,29 +31,9 @@
                                 "swipe": false,
                                 "asNavFor": ".sp-img_slider-nav"
                                 }'>
-<<<<<<< HEAD
                             <!-- Hiển thị hình ảnh sản phẩm -->
                             <div class="single-slide">
                                 <img src="<?= BASE_URL . $sanpham['hinh_anh']; ?>" alt="Product Image">
-=======
-                            <div class="single-slide red zoom">
-                                <img src="assets/images/product/1-1.jpg" alt="Kenne's Product Image">
-                            </div>
-                            <div class="single-slide orange zoom">
-                                <img src="assets/images/product/1-2.jpg" alt="Kenne's Product Image">
-                            </div>
-                            <div class="single-slide brown zoom">
-                                <img src="assets/images/product/2-1.jpg" alt="Kenne's Product Image">
-                            </div>
-                            <div class="single-slide umber zoom">
-                                <img src="assets/images/product/2-2.jpg" alt="Kenne's Product Image">
-                            </div>
-                            <div class="single-slide black zoom">
-                                <img src="assets/images/product/3-1.jpg" alt="Kenne's Product Image">
-                            </div>
-                            <div class="single-slide green zoom">
-                                <img src="assets/images/product/3-2.jpg" alt="Kenne's Product Image">
->>>>>>> 6144e40 (themChitietSP)
                             </div>
                         </div>
                         <div class="sp-img_slider-nav slick-slider-nav kenne-element-carousel arrow-style-2 arrow-style-3" data-slick-options='{
@@ -92,71 +72,51 @@
                         </div>
                         <div class="sp-essential_stuff">
                             <ul>
-<<<<<<< HEAD
-                                
+
                                 <li>Mã sản phẩm: <a href="javascript:void(0)">Sản phẩm <?php echo $sanpham['id']; ?></a></li>
                                 <li>Tình trạng: <a href="javascript:void(0)"><?php echo $sanpham['trang_thai'] > 0 ? 'Còn bán' : 'Dừng bán'; ?></a></li>
                                 <li>Giá gốc: <a href="javascript:void(0)"><span>$<?php echo number_format($sanpham['gia_san_pham'], 2); ?></span></a></li>
                                 <?php if ($sanpham['gia_khuyen_mai'] > 0): ?>
                                     <li>Giá khuyến mãi: <a href="javascript:void(0)"><span>$<?php echo number_format($sanpham['gia_khuyen_mai'], 2); ?></span></a></li>
                                 <?php endif; ?>
-=======
-                                <li>Brands <a href="javascript:void(0)">Buxton</a></li>
-                                <li>Product Code: <a href="javascript:void(0)">Product 16</a></li>
-                                <li>Reward Points: <a href="javascript:void(0)">100</a></li>
-                                <li>Availability: <a href="javascript:void(0)">In Stock</a></li>
-                                <li>EX Tax: <a href="javascript:void(0)"><span>$453.35</span></a></li>
-                                <li>Price in reward points: <a href="javascript:void(0)">400</a></li>
->>>>>>> 6144e40 (themChitietSP)
+
                             </ul>
                         </div>
+                        <form action="<?= BASE_URL . '?act=them-gio-hang' ?>" method="post">
+                        <input type="hidden" name="san_pham_id" value="<?= $sanpham['id']; ?>">
                         <div class="product-size_box">
                             <span>Size</span>
-                            <select class="myniceselect nice-select">
-<<<<<<< HEAD
-                                <!-- Ví dụ size, bạn có thể tùy chỉnh thêm nếu cần -->
-                                <option value="36">36</option>
-                                <option value="37">37</option>
-                                <option value="38">38</option>
-                                <option value="39">39</option>
-                                <option value="40">40</option>
-                            </select>
-                        </div>
-                        <div class="product-size_box">
-                            <span>Màu</span>
-                            <select class="myniceselect nice-select">
 
-                                <option value="1">Trắng</option>
-                                <option value="2">Đen</option>
-                                <option value="3">Đỏ</option>
-                                <option value="4">vàng</option>
-                                <option value="5">Xanh</option>
-=======
-                                <option value="1">S</option>
-                                <option value="2">M</option>
-                                <option value="3">L</option>
-                                <option value="4">XL</option>
->>>>>>> 6144e40 (themChitietSP)
+                            <!-- Ví dụ size, bạn có thể tùy chỉnh thêm nếu cần -->
+                            <select class="myniceselect nice-select" name="size_id" id="">
+                                <?php foreach ($listSizeSP as $size) : ?>
+                                    <option value="<?= $size["id"] ?>"><?= $size["size"] ?></option>
+                                <?php endforeach ?>
                             </select>
                         </div>
                         <div class="quantity">
                             <label>Quantity</label>
                             <div class="cart-plus-minus">
-                                <input class="cart-plus-minus-box" value="1" type="text">
+                                <input class="cart-plus-minus-box" value="1" type="text" name="so_luong">
                                 <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
                                 <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
                             </div>
                         </div>
                         <div class="qty-btn_area">
                             <ul>
+<<<<<<< HEAD
                                 <li><a class="qty-cart_btn" href="cart.html">Add To Cart</a></li>
 <<<<<<< HEAD
                                 <li><a class="qty-wishlist_btn" href="wishlist.html" data-bs-toggle="tooltip" title="Add To Wishlist"><i class="ion-android-favorite-outline"></i></a></li>
                                 <li><a class="qty-compare_btn" href="compare.html" data-bs-toggle="tooltip" title="Compare This Product"><i class="ion-ios-shuffle-strong"></i></a></li>
+=======
+                                <li><button class="qty-cart_btn">Add To Cart</button></li>
+>>>>>>> a891dc668c7531a22bf358735068156125570670
                             </ul>
                         </div>
-                        
-                        <div class="kenne-social_link">
+                        </form>
+
+                        <!-- <div class="kenne-social_link">
                             <ul>
                                 <li class="facebook"><a href="https://www.facebook.com/" data-bs-toggle="tooltip" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a></li>
                                 <li class="twitter"><a href="https://twitter.com/" data-bs-toggle="tooltip" target="_blank" title="Twitter"><i class="fab fa-twitter-square"></i></a></li>
@@ -204,7 +164,7 @@
                                 </li>
 >>>>>>> 6144e40 (themChitietSP)
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

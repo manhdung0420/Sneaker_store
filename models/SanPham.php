@@ -23,8 +23,7 @@ class SanPham
         }
     }
 
-
-    // Lấy sản phẩm theo danh mục có phân trang
+    // Lấy sản phẩm theo danh mục
     public function getSanPhamByDanhMuc($danhMucId, $start, $limit)
     {
         try {
@@ -44,20 +43,63 @@ class SanPham
         }
     }
 
-
-    // Lấy tổng số sản phẩm
-    public function getTotalSanPham($danhMucId = null)
+    // Lọc sản phẩm theo kích thước
+    public function getSanPhamBySize($size, $start, $limit)
     {
         try {
-            if ($danhMucId) {
-                $sql = "SELECT COUNT(*) FROM san_phams WHERE danh_muc_id = :danh_muc_id";
-                $stmt = $this->conn->prepare($sql);
-                $stmt->execute([":danh_muc_id" => $danhMucId]);
-            } else {
-                $sql = "SELECT COUNT(*) FROM san_phams";
-                $stmt = $this->conn->prepare($sql);
-                $stmt->execute();
-            }
+            $sql = "SELECT san_phams.*, size_sp.size
+                FROM san_phams
+                JOIN size_sp ON san_phams.id = size_sp.san_pham_id
+                WHERE size_sp.size = :size
+                LIMIT :start, :limit";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':size', $size, PDO::PARAM_STR);
+            $stmt->bindValue(':start', $start, PDO::PARAM_INT);
+            $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            echo "Có lỗi: " . $e->getMessage();
+        }
+    }
+
+    // Lấy tổng số sản phẩm
+    public function getTotalSanPham()
+    {
+        try {
+            $sql = "SELECT COUNT(*) FROM san_phams";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchColumn();
+        } catch (Exception $e) {
+            echo "Có lỗi: " . $e->getMessage();
+        }
+    }
+
+    // Lấy tổng số sản phẩm theo danh mục
+    public function getTotalSanPhamByDanhMuc($danhMucId)
+    {
+        try {
+            $sql = "SELECT COUNT(*) FROM san_phams WHERE danh_muc_id = :danh_muc_id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([":danh_muc_id" => $danhMucId]);
+            return $stmt->fetchColumn();
+        } catch (Exception $e) {
+            echo "Có lỗi: " . $e->getMessage();
+        }
+    }
+
+    // Lấy tổng số sản phẩm theo kích thước
+    public function getTotalSanPhamBySize($size)
+    {
+        try {
+            $sql = "SELECT COUNT(*) 
+                FROM san_phams 
+                JOIN size_sp ON san_phams.id = size_sp.san_pham_id
+                WHERE size_sp.size = :size";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':size', $size, PDO::PARAM_STR);
+            $stmt->execute();
             return $stmt->fetchColumn();
         } catch (Exception $e) {
             echo "Có lỗi: " . $e->getMessage();
@@ -65,19 +107,24 @@ class SanPham
     }
 
 
+
+
+
+
+
     // Lấy tổng số sản phẩm theo danh mục
-    public function getTotalSanPhamByDanhMuc($danhMucId)
-    {
-        try {
-            $sql = "SELECT COUNT(*) AS total FROM san_phams WHERE danh_muc_id = :danh_muc_id";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(':danh_muc_id', $danhMucId, PDO::PARAM_INT);
-            $stmt->execute();
-            return $stmt->fetchColumn();  // Trả về tổng số sản phẩm trong danh mục
-        } catch (Exception $e) {
-            echo "Lỗi: " . $e->getMessage();
-        }
-    }
+    // public function getTotalSanPhamByDanhMuc($danhMucId)
+    // {
+    //     try {
+    //         $sql = "SELECT COUNT(*) AS total FROM san_phams WHERE danh_muc_id = :danh_muc_id";
+    //         $stmt = $this->conn->prepare($sql);
+    //         $stmt->bindParam(':danh_muc_id', $danhMucId, PDO::PARAM_INT);
+    //         $stmt->execute();
+    //         return $stmt->fetchColumn();  // Trả về tổng số sản phẩm trong danh mục
+    //     } catch (Exception $e) {
+    //         echo "Lỗi: " . $e->getMessage();
+    //     }
+    // }
 
     // Lấy tất cả danh mục
     public function getAllDanhMuc()
@@ -91,6 +138,7 @@ class SanPham
             echo "Lỗi: " . $e->getMessage();
         }
     }
+
 
     public function getProductById($id)
     {
@@ -140,4 +188,70 @@ class SanPham
             echo "Có lỗi: " . $e->getMessage();
         }
     }
+
+
+
+    public function getSizeById($size_id)
+    {
+        try {
+            $sql = "SELECT * FROM size_sp WHERE id = :size_id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([':size_id' => $size_id]);
+            return $stmt->fetch();  // Trả về thông tin size
+        } catch (Exception $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+
+    public function getTaiKhoanFromEMail($email) {
+        try {
+            $sql = "SELECT * FROM tai_khoans WHERE email = :email";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([':email' => $email]);
+            return $stmt->fetch();
+        } catch (Exception $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+
+
+
+    public function getSanPhamById($san_pham_id)
+    {
+        try {
+            $sql = "SELECT * FROM san_phams WHERE id = :san_pham_id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([':san_pham_id' => $san_pham_id]);
+            return $stmt->fetch();  // Trả về thông tin sản phẩm
+        } catch (Exception $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+
+
+    public function getAllSizeSP()
+    {
+        try {
+            $sql = "SELECT * FROM size_sp";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (Exception $e) {
+            echo "CÓ LỖI:" . $e->getMessage();
+        }
+    }
+    public function getSizeSP($san_pham_id) {
+        try {
+            $sql = "SELECT size_sp.*, san_phams.ten_san_pham
+                    FROM size_sp
+                    INNER JOIN san_phams ON size_sp.san_pham_id = san_phams.id
+                    WHERE size_sp.san_pham_id = :san_pham_id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([':san_pham_id' => $san_pham_id]);
+            return $stmt->fetchAll();
+        } catch (Exception $e) {
+            echo "CÓ LỖI: " . $e->getMessage();
+        }
+    }
+
 }

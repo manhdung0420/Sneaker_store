@@ -37,6 +37,25 @@
                             </ul>
                         </div>
                     </div>
+                    <div class="kenne-sidebar_categories category-module">
+                        <div class="kenne-categories_title">
+                            <h5>Size</h5>
+                        </div>
+                        <div class="sidebar-categories_menu">
+                            <ul>
+                                <?php
+                                // Lọc các kích thước duy nhất
+                                $uniqueSizes = array_unique(array_column($listSizeSP, 'size'));
+                                foreach ($uniqueSizes as $size):
+                                ?>
+                                    <li>
+                                        <a href="<?= BASE_URL . '?act=danh-sach-san-pham&size=' . urlencode($size) ?>" style="white-space: nowrap;"><?= $size; ?></a>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    </div>
+
 
                 </div>
             </div>
@@ -72,7 +91,7 @@
                             <div class="product-item">
                                 <div class="single-product">
                                     <div class="product-img">
-                                        <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id= ' .$sanPham['id'] ?>">
+                                        <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id= ' . $sanPham['id'] ?>">
                                             <img class="primary-img" src="<?= BASE_URL . $sanPham["hinh_anh"]; ?>" alt="Kenne's Product Image">
                                             <img class="secondary-img" src="<?= BASE_URL . $sanPham["hinh_anh"]; ?>" alt="Kenne's Product Image">
                                         </a>
@@ -190,24 +209,42 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <ul class="kenne-pagination-box primary-color">
+                                        <!-- Phân trang các trang số -->
                                         <?php for ($i = 1; $i <= $totalPages; $i++): ?>
                                             <li class="<?= $i == $currentPage ? 'active' : '' ?>">
-                                                <a href="<?= BASE_URL . '?act=danh-sach-san-pham' . ($danhMucId ? '&danh_muc_id=' . $danhMucId : '') . '&page=' . $i ?>">
-                                                    <?= $i ?>
-                                                </a>
+                                                <a href="
+                                    <?php
+                                            if (isset($danhMucId) && !empty($danhMucId)) {
+                                                echo BASE_URL . '?act=danh-sach-san-pham&danh_muc_id=' . $danhMucId . '&page=' . $i;
+                                            } else {
+                                                echo BASE_URL . '?act=danh-sach-san-pham&page=' . $i;
+                                            }
+                                    ?>
+                                "><?= $i ?></a>
                                             </li>
                                         <?php endfor; ?>
-                                        <li>
-                                            <a class="Next" href="<?= BASE_URL . '?act=danh-sach-san-pham' . ($danhMucId ? '&danh_muc_id=' . $danhMucId : '') . '&page=' . ($currentPage + 1) ?>">
-                                                Next
-                                            </a>
-                                        </li>
+
+                                        <!-- Liên kết Next (Chuyển sang trang tiếp theo) -->
+                                        <?php if ($currentPage < $totalPages): ?>
+                                            <li>
+                                                <a class="Next" href="
+                                    <?php
+                                            if (isset($danhMucId) && !empty($danhMucId)) {
+                                                echo BASE_URL . '?act=danh-sach-san-pham&danh_muc_id=' . $danhMucId . '&page=' . ($currentPage + 1);
+                                            } else {
+                                                echo BASE_URL . '?act=danh-sach-san-pham&page=' . ($currentPage + 1);
+                                            }      
+                                    ?>
+                                ">Next</a>
+                                            </li>
+                                        <?php endif; ?>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
 
 
             </div>
