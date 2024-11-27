@@ -83,31 +83,31 @@
                             </ul>
                         </div>
                         <form action="<?= BASE_URL . '?act=them-gio-hang' ?>" method="post">
-                        <input type="hidden" name="san_pham_id" value="<?= $sanpham['id']; ?>">
-                        <div class="product-size_box">
-                            <span>Size</span>
+                            <input type="hidden" name="san_pham_id" value="<?= $sanpham['id']; ?>">
+                            <div class="product-size_box">
+                                <span>Size</span>
 
-                            <!-- Ví dụ size, bạn có thể tùy chỉnh thêm nếu cần -->
-                            <select class="myniceselect nice-select" name="size_id" id="">
-                                <?php foreach ($listSizeSP as $size) : ?>
-                                    <option value="<?= $size["id"] ?>"><?= $size["size"] ?></option>
-                                <?php endforeach ?>
-                            </select>
-                        </div>
-                        <div class="quantity">
-                            <label>Quantity</label>
-                            <div class="cart-plus-minus">
-                                <input class="cart-plus-minus-box" value="1" type="text" name="so_luong">
-                                <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
-                                <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
+                                <!-- Ví dụ size, bạn có thể tùy chỉnh thêm nếu cần -->
+                                <select class="myniceselect nice-select" name="size_id" id="">
+                                    <?php foreach ($listSizeSP as $size) : ?>
+                                        <option value="<?= $size["id"] ?>"><?= $size["size"] ?></option>
+                                    <?php endforeach ?>
+                                </select>
                             </div>
-                        </div>
-                        <div class="qty-btn_area">
-                            <ul>
-                                <li><button class="qty-cart_btn">Add To Cart</button></li>
+                            <div class="quantity">
+                                <label>Quantity</label>
+                                <div class="cart-plus-minus">
+                                    <input class="cart-plus-minus-box" value="1" type="text" name="so_luong">
+                                    <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
+                                    <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
+                                </div>
+                            </div>
+                            <div class="qty-btn_area">
+                                <ul>
+                                    <li><button class="qty-cart_btn">Add To Cart</button></li>
 
-                            </ul>
-                        </div>
+                                </ul>
+                            </div>
                         </form>
 
                         <!-- <div class="kenne-social_link">
@@ -137,7 +137,7 @@
                         <ul class="nav product-menu">
                             <li><a class="active" data-bs-toggle="tab" href="#description"><span>Description</span></a>
                             </li>
-                            <li><a data-bs-toggle="tab" href="#reviews"><span>Reviews (1)</span></a></li>
+                            <li><a data-bs-toggle="tab" href="#reviews"><span>Reviews</span></a></li>
                         </ul>
                     </div>
                     <div class="tab-content uren-tab_content">
@@ -152,39 +152,46 @@
                         </div>
                         <div id="reviews" class="tab-pane" role="tabpanel">
                             <div class="tab-pane active" id="tab-review">
-                                <form class="form-horizontal" id="form-review">
-                                    <div id="review">
-                                        <table class="table table-striped table-bordered">
-                                            <tbody>
-                                                <tr>
-                                                    <td style="width: 50%;"><strong>Customer</strong></td>
-                                                    <td class="text-right">26/10/19</td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2">
-                                                        <p>Good product! Thank you very much</p>
-                                                        <div class="rating-box">
-                                                            <ul>
-                                                                <li><i class="ion-android-star"></i></li>
-                                                                <li><i class="ion-android-star"></i></li>
-                                                                <li><i class="ion-android-star"></i></li>
-                                                                <li><i class="ion-android-star"></i></li>
-                                                                <li><i class="ion-android-star"></i></li>
-                                                            </ul>
+                                <div id="review">
+                                    <table class="table table-striped table-bordered">
+                                        <tbody>
+
+                                            <div class="binh-luan">
+                                                <h3>Để lại bình luận của bạn:</h3>
+                                                <form method="POST" action="index.php?act=addComment">
+                                                    <textarea name="noi_dung" id="noi_dung" rows="4" cols="100" placeholder="Nhập bình luận của bạn"></textarea><br>
+                                                    <input type="hidden" name="san_pham_id" value="<?= $sanpham['id'] ?>"> <!-- ID sản phẩm -->
+                                                    <button type="submit" class="btn btn-primary">Gửi bình luận</button>
+                                                </form>
+                                            </div><hr>
+
+                                            <div class="binh-luan">
+                                                <h3>Bình luận của khách hàng:</h3>
+                                                <?php if (!empty($comments)) : ?>
+                                                    <?php foreach ($comments as $comment): ?>
+                                                        <div class="binh-luan-item">
+                                                            <strong><?= $comment['ho_ten'] ?></strong><br>
+                                                            <p><i class="fas fa-comment"></i>: <?= $comment['noi_dung'] ?></p>
+                                                            <small>Ngày đăng: <?= $comment['ngay_dang'] ?></small><hr>
                                                         </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <h2>Write a review</h2>
-                                    <div class="form-group required">
+                                                    <?php endforeach; ?>
+                                                <?php endif; ?>
+
+                                            </div>
+
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- <h2>Write a review</h2> -->
+                                <!-- <div class="form-group required">
                                         <div class="col-sm-12 p-0">
                                             <label>Your Email <span class="required">*</span></label>
                                             <input class="review-input" type="email" name="con_email" id="con_email" required>
                                         </div>
-                                    </div>
-                                    <div class="form-group required second-child">
+                                    </div> -->
+                                <!-- <div class="form-group required second-child">
                                         <div class="col-sm-12 p-0">
                                             <label class="control-label">Share your opinion</label>
                                             <textarea class="review-textarea" name="con_message" id="con_message"></textarea>
@@ -192,8 +199,8 @@
                                                 not
                                                 translated!</div>
                                         </div>
-                                    </div>
-                                    <div class="form-group last-child required">
+                                    </div> -->
+                                <!-- <div class="form-group last-child required">
                                         <div class="col-sm-12 p-0">
                                             <div class="your-opinion">
                                                 <label>Your Rating</label>
@@ -211,8 +218,7 @@
                                         <div class="kenne-btn-ps_right">
                                             <button class="kenne-btn">Continue</button>
                                         </div>
-                                    </div>
-                                </form>
+                                    </div> -->
                             </div>
                         </div>
                     </div>
@@ -381,6 +387,49 @@
     </div>
 </div>
 <!-- Brand Area End Here -->
+<script>
+    $(document).ready(function() {
+        // Xử lý form gửi bình luận
+        $("#binhLuanForm").submit(function(event) {
+            event.preventDefault(); // Ngừng form gửi dữ liệu mặc định
+
+            var formData = $(this).serialize(); // Lấy dữ liệu từ form
+
+            $.ajax({
+                url: 'binh_luan_handler.php', // Đường dẫn đến file xử lý PHP
+                type: 'POST',
+                data: formData,
+                success: function(response) {
+                    if (response.success) {
+                        // Thêm bình luận vào danh sách bình luận
+                        loadBinhLuan();
+                        alert("Bình luận của bạn đã được gửi!");
+                    } else {
+                        alert("Đã có lỗi xảy ra, vui lòng thử lại.");
+                    }
+                }
+            });
+        });
+
+        // Hàm tải danh sách bình luận
+        function loadBinhLuan() {
+            var san_pham_id = $("#san_pham_id").val(); // Lấy ID sản phẩm
+            $.ajax({
+                url: 'load_binh_luan.php', // Đường dẫn đến file lấy danh sách bình luận
+                type: 'GET',
+                data: {
+                    san_pham_id: san_pham_id
+                },
+                success: function(data) {
+                    $('#binhLuanList').html(data);
+                }
+            });
+        }
+
+        // Tải bình luận ngay khi trang tải
+        loadBinhLuan();
+    });
+</script>
 
 <?php require_once './views/layouts/footer.php' ?>
 
