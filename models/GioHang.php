@@ -14,7 +14,7 @@ class GioHang
             $sql = "SELECT * FROM gio_hangs WHERE tai_khoan_id = :tai_khoan_id";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute([':tai_khoan_id' => $tai_khoan_id]);
-            return $stmt->fetchAll();
+            return $stmt->fetch();
         } catch (Exception $e) {
             echo "Lỗi " . $e->getMessage();
             
@@ -84,5 +84,55 @@ class GioHang
         } catch (Exception $e) {
             echo "Loi" . $e->getMessage();
         }
+    }
+
+    public function clearDetailGioHang($gioHangId,)
+    {
+        try {
+            $sql = "DELETE FROM chi_tiet_gio_hangs WHERE gio_hang_id = :gio_hang_id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([':gio_hang_id' => $gioHangId]);
+            return true;
+        } catch (Exception $e) {
+            echo "Loi" . $e->getMessage();
+        }
+    }
+
+    public function clearGioHang($taiKhoanID)
+    {
+        try {
+            $sql = "DELETE FROM gio_hangs WHERE tai_khoan_id = :tai_khoan_id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([':tai_khoan_id' => $taiKhoanID]);
+            return true;
+        } catch (Exception $e) {
+            echo "Loi" . $e->getMessage();
+        }
+    }
+
+    public function getDetailChiTietGioHang($id) {
+        try {
+            $sql = "SELECT * FROM chi_tiet_gio_hangs WHERE id = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([
+                ':id'=>$id
+            ]);
+            return $stmt->fetch();
+        } catch (Exception $e) {
+            echo "CÓ LỖI:".$e->getMessage();
+        } 
+    }
+
+    public function destroyGioHang($id) {
+        try {
+            $sql = "DELETE FROM chi_tiet_gio_hangs WHERE id = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([
+                ':id'=>$id
+            ]);
+            return true;
+        } catch (Exception $e) {
+            echo "CÓ LỖI:".$e->getMessage();
+        } 
     }
 }

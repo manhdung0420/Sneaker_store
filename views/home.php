@@ -172,7 +172,7 @@ if (isset($keyword)) {
 
                                 <div class="single-product">
                                     <div class="product-img">
-                                        <a href="single-product.html">
+                                        <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id= ' . $value['id'] ?>">
                                             <img class="primary-img" src="<?= $value['hinh_anh'] ?>"
                                                 style="width: 200px; height: 250px; object-fit: cover;"
                                                 alt="Kenne's Product Image">
@@ -200,7 +200,7 @@ if (isset($keyword)) {
                                     <div class="product-content">
                                         <div class="product-desc_info">
                                             <h3 class="product-name"><a
-                                                    href="single-product.html"><?= $value['ten_san_pham'] ?></a></h3>
+                                                    href="<?= BASE_URL . '?act=chi-tiet-san-pham&id= ' . $value['id'] ?>"><?= $value['ten_san_pham'] ?></a></h3>
                                             <div class="price-box">
                                                 <span class="new-price"><?= $value['gia_san_pham'] ?></span>
                                                 <span class="old-price"><?= $value['gia_khuyen_mai'] ?></span>
@@ -279,7 +279,7 @@ if (isset($keyword)) {
 
                             <div class="single-product">
                                 <div class="product-img">
-                                    <a href="single-product.html">
+                                    <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id= ' . $value['id'] ?>">
                                         <img class="primary-img" src="<?= $value['hinh_anh'] ?>"
                                             style="width: 200px; height: 250px; object-fit: cover;"
                                             alt="Kenne's Product Image">
@@ -307,7 +307,7 @@ if (isset($keyword)) {
                                 <div class="product-content">
                                     <div class="product-desc_info">
                                         <h3 class="product-name"><a
-                                                href="single-product.html"><?= $value['ten_san_pham'] ?></a></h3>
+                                                href="<?= BASE_URL . '?act=chi-tiet-san-pham&id= ' . $value['id'] ?>"><?= $value['ten_san_pham'] ?></a></h3>
                                         <div class="price-box">
                                             <span class="new-price"><?= $value['gia_san_pham'] ?></span>
                                             <span class="old-price"><?= $value['gia_khuyen_mai'] ?></span>
@@ -666,6 +666,7 @@ if (isset($keyword)) {
     </div>
 </div>
 <!-- Brand Area End Here -->
+
 
 <?php require_once './views/layouts/footer.php' ?>
 

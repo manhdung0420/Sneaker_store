@@ -245,7 +245,8 @@ class SanPham
             $sql = "SELECT size_sp.*, san_phams.ten_san_pham
                     FROM size_sp
                     INNER JOIN san_phams ON size_sp.san_pham_id = san_phams.id
-                    WHERE size_sp.san_pham_id = :san_pham_id";
+                    WHERE size_sp.san_pham_id = :san_pham_id
+                    ORDER BY size_sp.size ASC";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute([':san_pham_id' => $san_pham_id]);
             return $stmt->fetchAll();
