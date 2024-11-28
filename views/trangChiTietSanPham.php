@@ -1,15 +1,14 @@
 <?php require_once './views/layouts/header.php' ?>
-
 <?php require_once './views/layouts/menu.php' ?>
 
 <!-- Begin Kenne's Breadcrumb Area -->
 <div class="breadcrumb-area">
     <div class="container">
         <div class="breadcrumb-content">
-            <h2>Single Product Type</h2>
+            <h2>Chi tiết sản phẩm</h2>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li class="active">Single Product</li>
+                <li class="active">Chi tiết sản phẩm</li>
             </ul>
         </div>
     </div>
@@ -383,7 +382,6 @@
 <!-- Brand Area End Here -->
 
 <?php require_once './views/layouts/footer.php' ?>
-
 
 <!-- Mirrored from htmldemo.net/kenne/kenne/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Nov 2023 10:13:37 GMT -->
 

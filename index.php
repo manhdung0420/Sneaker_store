@@ -8,13 +8,15 @@ require_once './commons/function.php'; // Hàm hỗ trợ
 require_once './controllers/HomeController.php';
 require_once './controllers/SanPhamController.php';
 require_once './controllers/GioHangController.php';
+require_once './controllers/DonHangController.php';
+
 
 
 
 // Require toàn bộ file Models
 require_once './models/GioHang.php';
 require_once './models/SanPham.php';
-
+require_once './models/DonHang.php';
 require_once './models/userModel.php';
 
 
@@ -39,8 +41,14 @@ match ($act) {
     'danh-sach-san-pham' =>(new SanPhamController())->danhSachSanPham(),
     'chi-tiet-san-pham' =>(new SanPhamController())->chiTietSanPham($_GET['id']),
 
-    // 'sp-danh-muc' =>(new spDanhMucController)->
-
     'them-gio-hang' =>(new GioHangController())->addGioHang(),
     'gio-hang' =>(new GioHangController())->gioHang(),
+    'xoa-gio-hang' => (new GioHangController())->deleteSPGioHang(),
+
+    'thanh-toan' =>(new DonHangController())->thanhToan(),
+    'xu-ly-thanh-toan' =>(new DonHangController())->postThanhToan(),
+    'lich-su-mua-hang' =>(new DonHangController())->lichSuMuaHang(),
+    'chi-tiet-mua-hang' =>(new DonHangController())->chiTietMuaHang(),
+    'huy-don-hang' =>(new DonHangController())->huyDonHang(),
+    
 };
