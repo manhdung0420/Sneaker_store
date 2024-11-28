@@ -39,7 +39,7 @@ class adminTaiKhoanController{
     }
     public function detail(){
         $obj = $this->modelTaiKhoan->getById($_GET['id']);
-        $lstGV = $this->modelTaiKhoan->getChucVu();
+        $lstCV = $this->modelTaiKhoan->getChucVu();
         require_once './views/taikhoan/detail.php';
     }
     public function formAdd(){
@@ -91,6 +91,19 @@ class adminTaiKhoanController{
             http_response_code(405); // Method Not Allowed
             echo "Yêu cầu không hợp lệ.";
         }
+    }
+    public function formPQ(){
+        $getChucVu = $this->modelTaiKhoan->getChucVu();
+        $getTaiKhoan = $this->modelTaiKhoan->getAllTaiKhoan();
+        $obj = $this->modelTaiKhoan->getById($_GET['id']); 
+        require_once './views/taikhoan/phanquyen.php';
+    }
+    public function PhanQuyen(){
+        $this->modelTaiKhoan->phanQuyen(
+            $_POST['id'],
+            $_POST['chuc_vu_id']
+        );
+        header( 'Location:http://localhost/Sneaker_store/admin/?act=tai-khoan');
     }
 }
 ?>

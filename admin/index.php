@@ -58,6 +58,9 @@ match ($act) {
     'formAddTK'=>(new adminTaiKhoanController())->formAdd(),
     'add'=>(new adminTaiKhoanController())->addTK(),
     'trangthai'=>(new adminTaiKhoanController())->toggleStatus(),
+    'formphanquyen'=>(new adminTaiKhoanController())->formPQ(),
+    'phanquyen'=>(new adminTaiKhoanController())->PhanQuyen(),
+
 
 
     // bien the
