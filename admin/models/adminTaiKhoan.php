@@ -60,4 +60,8 @@ class adminTaiKhoan extends BaseModel
     // Thực thi truy vấn và trả về kết quả
     return $this->getRowData($sql);
 }
+public function phanQuyen($id,$chuc_vu_id){
+    $sql = "UPDATE `tai_khoans` SET `chuc_vu_id` = '$chuc_vu_id' WHERE `tai_khoans`.`id` = $id;";
+    return $this->getRowData($sql);
+}
 }
