@@ -11,6 +11,7 @@ require_once './controllers/GioHangController.php';
 require_once './controllers/DonHangController.php';
 
 
+require_once './controllers/CommentController.php';
 
 
 // Require toàn bộ file Models
@@ -18,6 +19,7 @@ require_once './models/GioHang.php';
 require_once './models/SanPham.php';
 require_once './models/DonHang.php';
 require_once './models/userModel.php';
+require_once './models/Comment.php';
 
 
 
@@ -40,6 +42,11 @@ match ($act) {
 
     'danh-sach-san-pham' =>(new SanPhamController())->danhSachSanPham(),
     'chi-tiet-san-pham' =>(new SanPhamController())->chiTietSanPham($_GET['id']),
+
+
+    'addComment' => (new CommentController())->addComment(),
+
+    // 'sp-danh-muc' =>(new spDanhMucController)->
 
     'them-gio-hang' =>(new GioHangController())->addGioHang(),
     'gio-hang' =>(new GioHangController())->gioHang(),

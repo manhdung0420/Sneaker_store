@@ -13,7 +13,7 @@
                 "dots": false,
                 "autoplay" : true,
                 "fade" : true,
-                "autoplaySpeed" : 7000,
+                "autoplaySpeed" : 5000,
                 "pauseOnHover" : false,
                 "pauseOnFocus" : false
                 }' data-slick-responsive='[

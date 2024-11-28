@@ -3,10 +3,12 @@
 class SanPhamController
 {
     private $modelSanPham;
+    private $commentModel;
 
     public function __construct()
     {
         $this->modelSanPham = new SanPham();
+        $this->commentModel = new Comment();
     }
 
     public function danhSachSanPham()
@@ -69,6 +71,8 @@ class SanPhamController
         //Lấy hình ảnh thu nhỏ sản phẩm
         $imageSanPham = $productModel->getProductImages($id);
 
+        //Lấy comment của sản phẩm 
+        $comments = $this->commentModel->getCommentsByProductId($id);
 
         if ($sanpham) {
             //Lấy các sản phẩm liên quan

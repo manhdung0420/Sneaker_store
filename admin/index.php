@@ -12,6 +12,7 @@ require_once 'controllers/adminSanPhamController.php';
 require_once 'controllers/adminTaiKhoanController.php';
 require_once 'controllers/adminBienTheController.php';
 require_once 'controllers/adminDonHangController.php';
+require_once 'controllers/adminBinhLuanController.php';
 
 // Require toàn bộ file Models
 require_once 'models/adminDanhMuc.php';
@@ -19,6 +20,7 @@ require_once 'models/adminSanPham.php';
 require_once 'models/adminTaiKhoan.php';
 require_once 'models/adminBienThe.php';
 require_once 'models/adminDonHang.php';
+require_once 'models/adminBinhLuan.php';
 // Route
 $act = $_GET['act'] ?? '/';
 
@@ -58,6 +60,9 @@ match ($act) {
     'formAddTK'=>(new adminTaiKhoanController())->formAdd(),
     'add'=>(new adminTaiKhoanController())->addTK(),
     'trangthai'=>(new adminTaiKhoanController())->toggleStatus(),
+    'formphanquyen'=>(new adminTaiKhoanController())->formPQ(),
+    'phanquyen'=>(new adminTaiKhoanController())->PhanQuyen(),
+
 
 
     // bien the
@@ -72,4 +77,10 @@ match ($act) {
     'sua-don-hang'=>(new adminDonHangController())->postEditDonHang(),
     'xoa-don-hang'=>(new adminDonHangController())->xoaDonHang(),
     'detail-don-hang'=>(new adminDonHangController())->chiTietDonHang(),
+
+    //bình luận
+     // route quản lý đơn hàng
+     'binh-luan'=>(new adminBinhLuanController())->danhSachBinhLuan(),
+     'xoa-binh-luan'=>(new adminBinhLuanController())->xoaBinhLuan(),
+     'detail-binh-luan'=>(new adminBinhLuanController())->chiTietBinhLuan(),
 };
