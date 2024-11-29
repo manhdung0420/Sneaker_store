@@ -13,6 +13,7 @@ require_once 'controllers/adminTaiKhoanController.php';
 require_once 'controllers/adminBienTheController.php';
 require_once 'controllers/adminDonHangController.php';
 require_once 'controllers/adminBinhLuanController.php';
+require_once 'controllers/adminLienHeController.php';
 
 // Require toàn bộ file Models
 require_once 'models/adminDanhMuc.php';
@@ -21,6 +22,7 @@ require_once 'models/adminTaiKhoan.php';
 require_once 'models/adminBienThe.php';
 require_once 'models/adminDonHang.php';
 require_once 'models/adminBinhLuan.php';
+require_once 'models/adminLienHe.php';
 // Route
 $act = $_GET['act'] ?? '/';
 
@@ -80,4 +82,10 @@ match ($act) {
      'binh-luan'=>(new adminBinhLuanController())->danhSachBinhLuan(),
      'xoa-binh-luan'=>(new adminBinhLuanController())->xoaBinhLuan(),
      'detail-binh-luan'=>(new adminBinhLuanController())->chiTietBinhLuan(),
+
+
+
+     // liên hệ
+     'lien-he'=>(new adminLienHeController())->danhsachLienHe(),
+     'xoa-lien-he'=>(new adminLienHeController())->deleteLienHe(),
 };

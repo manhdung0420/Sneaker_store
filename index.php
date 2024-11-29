@@ -45,4 +45,5 @@ match ($act) {
 
     'them-gio-hang' =>(new GioHangController())->addGioHang(),
     'gio-hang' =>(new GioHangController())->gioHang(),
+    // 'contact' => (new HomeController())->contact(),
 };
