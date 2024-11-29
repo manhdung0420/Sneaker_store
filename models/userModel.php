@@ -55,6 +55,7 @@ class UserModel extends BaseModel
         return $result !== null;
     }
 
+
     public function getTaiKhoanFromEMail($email) {
         try {
             $sql = "SELECT * FROM tai_khoans WHERE email = :email";

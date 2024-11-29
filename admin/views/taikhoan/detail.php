@@ -52,6 +52,16 @@
                     <strong>Số Điện Thoại:</strong>
                     <p><?php echo isset($obj['so_dien_thoai']) ? htmlspecialchars($obj['so_dien_thoai']) : 'N/A'; ?></p>
                 </div>
+                <div class="mb-3">
+                    <strong>Chức vụ:</strong>
+                    <p><?php
+                    if ($obj['chuc_vu_id']== 1 ) {
+                      echo"admin";
+                    }else{
+                      echo"User";
+                    }
+                 ?></p>
+                </div>
 
                 <!-- Địa chỉ -->
                 <div class="mb-3">

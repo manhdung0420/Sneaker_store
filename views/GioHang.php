@@ -40,7 +40,7 @@
                                 foreach ($chiTietGioHang as $key => $sanPham):
                                 ?>
                                     <tr>
-                                        <td class="kenne-product-remove"><a href="#"><i class="fa fa-trash"
+                                        <td class="kenne-product-remove"><a href="<?= BASE_URL . '?act=xoa-gio-hang&id=' . $sanPham['id'] ?>"><i class="fa fa-trash"
                                                     title="Remove"></i></a></td>
                                         <td class="kenne-product-thumbnail"><a href="#"><img src="<?= $sanPham["hinh_anh"] ?>" style="width: 70px; height: 70px" alt="Uren's Cart Thumbnail"></a></td>
                                         <td class="kenne-product-name"><a href="#"><?= $sanPham["ten_san_pham"] ?></a></td>
@@ -98,7 +98,7 @@
                                     <li>Vận chuyển<span>30.000 VNĐ</span></li>
                                     <li>Tổng Thanh Toán<span><?= formatPrice($tongGioHang + 30000) . 'đ' ?></span></li>
                                 </ul>
-                                <a href="#" class="button">Proceed to checkout</a>
+                                <a href="<?= BASE_URL . '?act=thanh-toan' ?>" class="button">Proceed to checkout</a>
                             </div>
                         </div>
                     </div>
