@@ -109,7 +109,7 @@
                                                 <li><a href="#">Blog </a>
 
                                                 </li>
-                                                <li><a href="contact-us.html">Contact Us</a></li>
+                                                <li><a href="<?= BASE_URL . '?act=contact' ?>">Contact Us</a></li>
                                                 <li><a href="about-us.html">About Us</a></li>
                                             </ul>
                                         </nav>

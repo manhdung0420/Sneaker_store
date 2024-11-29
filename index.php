@@ -50,6 +50,8 @@ match ($act) {
 
     'them-gio-hang' =>(new GioHangController())->addGioHang(),
     'gio-hang' =>(new GioHangController())->gioHang(),
+    // 'contact' => (new HomeController())->contact(),
+
     'xoa-gio-hang' => (new GioHangController())->deleteSPGioHang(),
 
     'thanh-toan' =>(new DonHangController())->thanhToan(),
