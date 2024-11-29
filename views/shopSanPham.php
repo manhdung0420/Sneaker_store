@@ -6,10 +6,10 @@
 <div class="breadcrumb-area">
     <div class="container">
         <div class="breadcrumb-content">
-            <h2>Grid View</h2>
+            <h2>Trang sản phẩm</h2>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li class="active">Shop</li>
+                <li class="active">sản phẩm</li>
             </ul>
         </div>
     </div>
@@ -25,7 +25,7 @@
 
                     <div class="kenne-sidebar_categories category-module">
                         <div class="kenne-categories_title">
-                            <h5>Product Categories</h5>
+                            <h5>Danh mục sản phẩm</h5>
                         </div>
                         <div class="sidebar-categories_menu">
                             <ul>
@@ -65,25 +65,8 @@
                         <a class="active grid-3" data-target="gridview-3" data-toggle="tooltip" data-placement="top" title="Grid View"><i class="fa fa-th"></i></a>
                         <a class="list" data-target="listview" data-toggle="tooltip" data-placement="top" title="List View"><i class="fa fa-th-list"></i></a>
                     </div>
-                    <div class="product-page_count">
-                        <p>Showing 1–9 of 40 results</p>
-                    </div>
-                    <div class="product-item-selection_area">
-                        <div class="product-short">
-                            <label class="select-label">Short By:</label>
-                            <select class="nice-select myniceselect">
-                                <option value="1">Default sorting</option>
-                                <option value="2">Name, A to Z</option>
-                                <option value="3">Name, Z to A</option>
-                                <option value="4">Price, low to high</option>
-                                <option value="5">Price, high to low</option>
-                                <option value="5">Rating (Highest)</option>
-                                <option value="5">Rating (Lowest)</option>
-                                <option value="5">Model (A - Z)</option>
-                                <option value="5">Model (Z - A)</option>
-                            </select>
-                        </div>
-                    </div>
+
+
                 </div>
                 <div class="shop-product-wrap grid gridview-3 row">
                     <?php foreach ($listSanPham as $sanPham): ?>
@@ -95,43 +78,38 @@
                                             <img class="primary-img" src="<?= BASE_URL . $sanPham["hinh_anh"]; ?>" alt="Kenne's Product Image">
                                             <img class="secondary-img" src="<?= BASE_URL . $sanPham["hinh_anh"]; ?>" alt="Kenne's Product Image">
                                         </a>
-                                        <span class="sticker">
-                                            <?php
-                                            // Tính số ngày từ ngày nhập đến hiện tại
-                                            $ngayNhap = new DateTime($sanPham["ngay_nhap"]);
-                                            $ngayHienTai = new DateTime();
-                                            $tinhNgay = $ngayHienTai->diff($ngayNhap);
 
-                                            // Hiển thị nhãn "Mới" nếu sản phẩm nhập trong vòng 7 ngày
-                                            if ($tinhNgay->days <= 7) {
-                                            ?>
-                                                <div class="product-label new">
-                                                    <span>Mới</span>
-                                                </div>
-                                            <?php
+                                        <?php
+                                        // Tính số ngày từ ngày nhập đến hiện tại
+                                        $ngayNhap = new DateTime($sanPham["ngay_nhap"]);
+                                        $ngayHienTai = new DateTime();
+                                        $tinhNgay = $ngayHienTai->diff($ngayNhap);
+
+                                        // Hiển thị nhãn "Mới" nếu sản phẩm nhập trong vòng 7 ngày
+                                        if ($tinhNgay->days <= 7) {
+                                        ?>
+                                            <span class="sticker">Mới</span>
+                                        <?php
+                                        }
+                                        ?>
+                                        <?php
+                                        // Kiểm tra và tính phần trăm giảm giá
+                                        if ($sanPham["gia_khuyen_mai"] && $sanPham["gia_san_pham"]) {
+                                            $giaGoc = $sanPham["gia_san_pham"];
+                                            $giaKhuyenMai = $sanPham["gia_khuyen_mai"];
+                                            $phanTramGiam = (($giaGoc - $giaKhuyenMai) / $giaGoc) * 100;
+
+                                            // Hiển thị nhãn giảm giá nếu phần trăm giảm > 0
+                                            if ($phanTramGiam > 0) {
+                                        ?>
+                                            <span class="sticker-2">
+                                                Giảm <?= round($phanTramGiam) ?>%
+                                            </span>
+                                        <?php
                                             }
-                                            ?>
+                                        }
+                                        ?>
 
-                                            <?php
-                                            // Kiểm tra và tính phần trăm giảm giá
-                                            if ($sanPham["gia_khuyen_mai"] && $sanPham["gia_san_pham"]) {
-                                                $giaGoc = $sanPham["gia_san_pham"];
-                                                $giaKhuyenMai = $sanPham["gia_khuyen_mai"];
-                                                $phanTramGiam = (($giaGoc - $giaKhuyenMai) / $giaGoc) * 100;
-
-                                                // Hiển thị nhãn giảm giá nếu phần trăm giảm > 0
-                                                if ($phanTramGiam > 0) {
-                                            ?>
-                                                    <div class="product-label discount">
-                                                        <span style=" background-color: #ff5722; color: #fff; padding: 5px;  border-radius: 5px 10px;">
-                                                            Giảm <?= round($phanTramGiam) ?>%
-                                                        </span>
-                                                    </div>
-                                            <?php
-                                                }
-                                            }
-                                            ?>
-                                        </span>
                                         <div class="add-actions">
                                             <ul>
                                                 <li class="quick-view-btn" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><a href="#" data-bs-toggle="tooltip" data-placement="right" title="Quick View"><i class="ion-ios-search"></i></a>
@@ -233,7 +211,7 @@
                                                 echo BASE_URL . '?act=danh-sach-san-pham&danh_muc_id=' . $danhMucId . '&page=' . ($currentPage + 1);
                                             } else {
                                                 echo BASE_URL . '?act=danh-sach-san-pham&page=' . ($currentPage + 1);
-                                            }      
+                                            }
                                     ?>
                                 ">Next</a>
                                             </li>
@@ -244,9 +222,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
         </div>
     </div>
