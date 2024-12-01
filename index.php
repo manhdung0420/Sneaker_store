@@ -34,6 +34,7 @@ $act = $_GET['act'] ?? '/';
 match ($act) {
     // Trang chủ
     '/'                 => (new HomeController())->index(),
+    'thong-tin' => (new HomeController()) ->getAllKhachHang(),
 
     'search' => (new HomeController())->search(),
     'formlogin' => (new HomeController())->formlogin(),

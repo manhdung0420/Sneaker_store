@@ -7,10 +7,16 @@ class HomeController extends ProductModel
 {
     public $modelSanPham;
     public $product;
+    public $modelTaikhoan;
+    public $modelGioHang;
+    public $modelDonHang;
     public function __construct()
     {
         $this->product = new ProductModel(); 
         $this->modelSanPham = new SanPham();
+        $this->modelTaikhoan = new UserModel();
+        $this->modelGioHang = new GioHang();
+        $this->modelDonHang = new DonHang();
     }
     public function index()
     {
@@ -139,6 +145,13 @@ class HomeController extends ProductModel
 
         // Hiển thị view đăng ký với thông báo lỗi hoặc thành công
         require_once "./views/login.php";
+    }
+
+    public function getAllKhachHang(){
+        $userModel = new UserModel();
+        $email = $_SESSION["user_email"];
+        $thongTin = $userModel->getTaiKhoanFromEMail($email);
+        require_once "./views/thongTinKhachHang.php";
     }
 
 

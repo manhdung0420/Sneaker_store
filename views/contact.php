@@ -30,6 +30,11 @@
     <!-- Contact Main Page Area -->
     <div class="contact-main-page">
         <div class="container">
+            <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.8050743583904!2d105.73617257503177!3d21.04048408061179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134550ab1db2433%3A0x9febb50e17509deb!2zMTMgUC4gVHLhu4tuaCBWxINuIELDtCwgWHXDom4gUGjGsMahbmcsIE5hbSBU4burIExpw6ptLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1733062929250!5m2!1svi!2s" width="1105" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        <div class="container">
             <div class="row">
                 <!-- Contact Information -->
                 <div class="col-lg-5 offset-lg-1 col-md-12 order-1 order-lg-2">
@@ -39,11 +44,11 @@
                         <div class="single-contact-block">
                             <h4><i class="fa fa-fax"></i> Address</h4>
                             <h5>HÀ NỘI:</h5>
-                            <p>261 Phố Huế, Hai Bà Trưng  </p>
+                            <p>261 Phố Huế, Hai Bà Trưng </p>
                             <h5>THÀNH PHỐ HỒ CHÍ MINH:</h5>
-                            <p>73 Lý Tự Trọng, Phường Bến Thành, Quận 1  </p>
+                            <p>73 Lý Tự Trọng, Phường Bến Thành, Quận 1 </p>
                             <h5>ĐÀ NẴNG:</h5>
-                            <p>371 Lê Duẩn, Phường Tân Chính, Quận Thanh Khê  </p>
+                            <p>371 Lê Duẩn, Phường Tân Chính, Quận Thanh Khê </p>
                         </div>
                         <div class="single-contact-block">
                             <h4><i class="fa fa-phone"></i> Phone</h4>

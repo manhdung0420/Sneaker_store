@@ -277,7 +277,7 @@ if (isset($keyword)) {
                     <?php foreach ($products as $value): ?>
                         <div class="product-item">
 
-                            <div class="single-product">
+                            <div class="single-product" style="width: 255px; height: 390px;">
                                 <div class="product-img">
                                     <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id= ' . $value['id'] ?>">
                                         <img class="primary-img" src="<?= $value['hinh_anh'] ?>"
@@ -309,17 +309,8 @@ if (isset($keyword)) {
                                         <h3 class="product-name"><a
                                                 href="<?= BASE_URL . '?act=chi-tiet-san-pham&id= ' . $value['id'] ?>"><?= $value['ten_san_pham'] ?></a></h3>
                                         <div class="price-box">
-                                            <span class="new-price"><?= $value['gia_san_pham'] ?></span>
-                                            <span class="old-price"><?= $value['gia_khuyen_mai'] ?></span>
-                                        </div>
-                                        <div class="rating-box">
-                                            <ul>
-                                                <li><i class="ion-ios-star"></i></li>
-                                                <li><i class="ion-ios-star"></i></li>
-                                                <li><i class="ion-ios-star"></i></li>
-                                                <li class="silver-color"><i class="ion-ios-star-half"></i></li>
-                                                <li class="silver-color"><i class="ion-ios-star-outline"></i></li>
-                                            </ul>
+                                            <span class="new-price"><?= formatPrice($value['gia_san_pham']) ?>đ</span>
+                                            <span class="old-price"><?= formatPrice($value['gia_khuyen_mai']) ?>đ</span>
                                         </div>
                                     </div>
                                 </div>
@@ -431,17 +422,8 @@ if (isset($keyword)) {
                                                 <h3 class="product-name"><a
                                                         href="single-product.html"><?= $value['ten_san_pham'] ?></a></h3>
                                                 <div class="price-box">
-                                                    <span class="new-price"><?= $value['gia_san_pham'] ?></span>
-                                                    <span class="old-price"><?= $value['gia_khuyen_mai'] ?></span>
-                                                </div>
-                                                <div class="rating-box">
-                                                    <ul>
-                                                        <li><i class="ion-ios-star"></i></li>
-                                                        <li><i class="ion-ios-star"></i></li>
-                                                        <li><i class="ion-ios-star"></i></li>
-                                                        <li class="silver-color"><i class="ion-ios-star-half"></i></li>
-                                                        <li class="silver-color"><i class="ion-ios-star-outline"></i></li>
-                                                    </ul>
+                                                    <span class="new-price"><?= formatPrice($value['gia_san_pham']) ?>đ</span>
+                                                    <span class="old-price"><?= formatPrice($value['gia_khuyen_mai']) ?>đ</span>
                                                 </div>
                                             </div>
                                         </div>

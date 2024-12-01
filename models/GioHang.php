@@ -25,7 +25,7 @@ class GioHang
     {
         try {
             $sql = "SELECT chi_tiet_gio_hangs.*, san_phams.ten_san_pham, san_phams.hinh_anh, san_phams.gia_san_pham, san_phams.gia_khuyen_mai, size.size
-                    FROM chi_tiet_gio_hangs chi_tiet_gio_hangs
+                    FROM chi_tiet_gio_hangs 
                     INNER JOIN san_phams ON chi_tiet_gio_hangs.san_pham_id = san_phams.id
                     INNER JOIN size_SP size ON chi_tiet_gio_hangs.size_id = size.id
                     WHERE chi_tiet_gio_hangs.gio_hang_id = :gio_hang_id";

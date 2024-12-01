@@ -21,7 +21,7 @@
                             <div class="header-top_right">
                                 <ul>
                                     <li>
-                                        <a href="<?= BASE_URL . '?act=' ?>">My Account</a>
+                                        <a href="<?= BASE_URL . '?act=thong-tin' ?>">My Account</a>
                                     </li>
                                     <?php
                                     if (!isset($_SESSION['user_id'])) { ?>

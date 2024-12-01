@@ -27,56 +27,6 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <a href="<?= BASE_URL_ADMIN . '?act=form-them-mau'  ?>">
-                                <button class="btn btn-success">Thêm màu</button>
-                            </a>
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>STT</th>
-                                        <th>Màu sắc</th>
-                                        <th>Thao tác</th>
-                                    </tr>
-
-                                </thead>
-
-                                <tbody>
-                                    <?php foreach ($listMauSP as $key => $mau): ?>
-                                        <tr>
-                                            <td><?= $key + 1 ?></td>
-                                            <td><?= $mau['mau'] ?></td>
-
-                                            <td>
-                                                <a href="<?= BASE_URL_ADMIN . '?act=form-sua-danh-muc&id_danh_muc=' . $danhmuc['id'] ?>">
-                                                    <button class="btn btn-warning"><i class="fas fa-cogs"></i></button>
-                                                </a>
-                                                <a href="<?= BASE_URL_ADMIN . '?act=xoa-danh-muc&id_danh_muc=' . $danhmuc['id'] ?>"
-                                                    onclick="return confirm('bạn có đồng ý xóa hay không')">
-                                                    <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>STT</th>
-                                        <th>Màu sắc</th>
-                                        <th>Thao tác</th>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
-                    <!-- /.card -->
-                </div>
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
                             <a href="<?= BASE_URL_ADMIN . '?act=form-them-size'  ?>">
                                 <button class="btn btn-success">Thêm Size</button>
                             </a>

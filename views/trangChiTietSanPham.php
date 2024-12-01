@@ -30,10 +30,11 @@
                                 "swipe": false,
                                 "asNavFor": ".sp-img_slider-nav"
                                 }'>
-                            <!-- Hiển thị hình ảnh sản phẩm -->
-                            <div class="single-slide">
-                                <img src="<?= BASE_URL . $sanpham['hinh_anh']; ?>" alt="Product Image">
-                            </div>
+                            <?php foreach ($imageSanPham as $image): ?>
+                                <div class="single-slide red zoom">
+                                    <img src="<?= BASE_URL . $image['link_hinh_anh']; ?>" alt="Product Thumbnail">
+                                </div>
+                            <?php endforeach; ?>
                         </div>
                         <div class="sp-img_slider-nav slick-slider-nav kenne-element-carousel arrow-style-2 arrow-style-3" data-slick-options='{
                                 "slidesToShow": 3,
@@ -41,15 +42,18 @@
                                 "focusOnSelect": true,
                                 "arrows" : true,
                                 "spaceBetween": 30
-                                }'>
-                            <!-- Hiển thị hình thu nhỏ -->
-                            <?php if ($imageSanPham) : ?>
-                                <?php foreach ($imageSanPham as $image): ?>
-                                    <div class="single-slide">
-                                        <img src="<?= BASE_URL . $image['link_hinh_anh']; ?>" alt="Product Thumbnail">
-                                    </div>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
+                                }' data-slick-responsive='[
+                                        {"breakpoint":1501, "settings": {"slidesToShow": 3}},
+                                        {"breakpoint":1200, "settings": {"slidesToShow": 2}},
+                                        {"breakpoint":992, "settings": {"slidesToShow": 4}},
+                                        {"breakpoint":768, "settings": {"slidesToShow": 3}},
+                                        {"breakpoint":575, "settings": {"slidesToShow": 2}}
+                                    ]'>
+                            <?php foreach ($imageSanPham as $image): ?>
+                                <div class="single-slide red">
+                                    <img src="<?= BASE_URL . $image['link_hinh_anh']; ?>" alt="Product Thumbnail">
+                                </div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
@@ -58,25 +62,15 @@
                         <div class="sp-heading">
                             <h5><a href="#"><?php echo $sanpham['ten_san_pham']; ?></a></h5>
                         </div>
-                        <span class="reference">Số lượng: <?php echo $sanpham['id']; ?></span>
-
-                        <div class="rating-box">
-                            <ul>
-                                <li><i class="ion-android-star"></i></li>
-                                <li><i class="ion-android-star"></i></li>
-                                <li><i class="ion-android-star"></i></li>
-                                <li class="silver-color"><i class="ion-android-star"></i></li>
-                                <li class="silver-color"><i class="ion-android-star"></i></li>
-                            </ul>
-                        </div>
+                        <span class="reference"><b>Số lượng:</b> <?php echo $sanpham['id']; ?></span>
                         <div class="sp-essential_stuff">
                             <ul>
 
-                                <li>Mã sản phẩm: <a href="javascript:void(0)">Sản phẩm <?php echo $sanpham['id']; ?></a></li>
-                                <li>Tình trạng: <a href="javascript:void(0)"><?php echo $sanpham['trang_thai'] > 0 ? 'Còn bán' : 'Dừng bán'; ?></a></li>
-                                <li>Giá gốc: <a href="javascript:void(0)"><span>$<?php echo number_format($sanpham['gia_san_pham'], 2); ?></span></a></li>
+                                <li><b>Mã sản phẩm:</b> <a href="javascript:void(0)">Sản phẩm <?php echo $sanpham['id']; ?></a></li>
+                                <li><b>Tình trạng:</b> <a href="javascript:void(0)"><?php echo $sanpham['trang_thai'] > 0 ? 'Còn bán' : 'Dừng bán'; ?></a></li>
+                                <li><b>Giá gốc:</b> <a href="javascript:void(0)"><span><?= formatPrice($sanpham['gia_san_pham']); ?></span>đ</a></li>
                                 <?php if ($sanpham['gia_khuyen_mai'] > 0): ?>
-                                    <li>Giá khuyến mãi: <a href="javascript:void(0)"><span>$<?php echo number_format($sanpham['gia_khuyen_mai'], 2); ?></span></a></li>
+                                    <li><b>Giá khuyến mãi:</b> <a href="javascript:void(0)"><span><?= formatPrice($sanpham['gia_khuyen_mai']); ?>đ</span></a></li>
                                 <?php endif; ?>
 
                             </ul>
@@ -84,7 +78,7 @@
                         <form action="<?= BASE_URL . '?act=them-gio-hang' ?>" method="post">
                             <input type="hidden" name="san_pham_id" value="<?= $sanpham['id']; ?>">
                             <div class="product-size_box">
-                                <span>Size</span>
+                                <span><b>Size</b></span>
 
                                 <!-- Ví dụ size, bạn có thể tùy chỉnh thêm nếu cần -->
                                 <select class="myniceselect nice-select" name="size_id" id="">
@@ -94,7 +88,7 @@
                                 </select>
                             </div>
                             <div class="quantity">
-                                <label>Quantity</label>
+                                <label><b>Quantity</b></label>
                                 <div class="cart-plus-minus">
                                     <input class="cart-plus-minus-box" value="1" type="text" name="so_luong">
                                     <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
@@ -162,7 +156,8 @@
                                                     <input type="hidden" name="san_pham_id" value="<?= $sanpham['id'] ?>"> <!-- ID sản phẩm -->
                                                     <button type="submit" class="btn btn-primary">Gửi bình luận</button>
                                                 </form>
-                                            </div><hr>
+                                            </div>
+                                            <hr>
 
                                             <div class="binh-luan">
                                                 <h3>Bình luận của khách hàng:</h3>
@@ -171,7 +166,8 @@
                                                         <div class="binh-luan-item">
                                                             <strong><?= $comment['ho_ten'] ?></strong><br>
                                                             <p><i class="fas fa-comment"></i>: <?= $comment['noi_dung'] ?></p>
-                                                            <small>Ngày đăng: <?= $comment['ngay_dang'] ?></small><hr>
+                                                            <small>Ngày đăng: <?= $comment['ngay_dang'] ?></small>
+                                                            <hr>
                                                         </div>
                                                     <?php endforeach; ?>
                                                 <?php endif; ?>

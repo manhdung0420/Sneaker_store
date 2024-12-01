@@ -8150,6 +8150,7 @@ i, .tab-content .tab-pane.active, .scroll-to-top i, .quantity .cart-plus-minus >
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  
 }
 
 @media (max-width: 1199px) {
