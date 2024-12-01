@@ -21,7 +21,7 @@
                             <div class="header-top_right">
                                 <ul>
                                     <li>
-                                        <a href="<?= BASE_URL . '?act=' ?>">My Account</a>
+                                        <a href="<?= BASE_URL . '?act=thong-tin' ?>">My Account</a>
                                     </li>
                                     <?php
                                     if (!isset($_SESSION['user_id'])) { ?>
@@ -109,7 +109,7 @@
                                                 <li><a href="#">Blog </a>
 
                                                 </li>
-                                                <li><a href="contact-us.html">Contact Us</a></li>
+                                                <li><a href="<?= BASE_URL . '?act=form-add-contact' ?>">Contact Us</a></li>
                                                 <li><a href="about-us.html">About Us</a></li>
                                             </ul>
                                         </nav>

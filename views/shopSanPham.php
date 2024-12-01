@@ -41,11 +41,13 @@
                         <div class="kenne-categories_title">
                             <h5>Size</h5>
                         </div>
+                        
                         <div class="sidebar-categories_menu">
                             <ul>
                                 <?php
                                 // Lọc các kích thước duy nhất
                                 $uniqueSizes = array_unique(array_column($listSizeSP, 'size'));
+                                sort($uniqueSizes);
                                 foreach ($uniqueSizes as $size):
                                 ?>
                                     <li>
@@ -71,9 +73,9 @@
                 <div class="shop-product-wrap grid gridview-3 row">
                     <?php foreach ($listSanPham as $sanPham): ?>
                         <div class="col-lg-4 col-md-4 col-sm-6">
-                            <div class="product-item">
-                                <div class="single-product">
-                                    <div class="product-img">
+                            <div class="product-item" >
+                                <div class="single-product" style="width: 255px; height: 360px; ">
+                                    <div class="product-img" style="width: 213.4px; height: 213.4px; ">
                                         <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id= ' . $sanPham['id'] ?>">
                                             <img class="primary-img" src="<?= BASE_URL . $sanPham["hinh_anh"]; ?>" alt="Kenne's Product Image">
                                             <img class="secondary-img" src="<?= BASE_URL . $sanPham["hinh_anh"]; ?>" alt="Kenne's Product Image">
@@ -130,10 +132,10 @@
                                             <h3 class="product-name"><a href="single-product.html"><?= $sanPham["ten_san_pham"] ?></a></h3>
                                             <div class="price-box">
                                                 <?php if ($sanPham["gia_khuyen_mai"]) { ?>
-                                                    <span class="new-price"><?= formatPrice($sanPham["gia_khuyen_mai"])  ?> VNĐ</span>
-                                                    <span class="old-price"><del><?= formatPrice($sanPham["gia_san_pham"]) ?> VNĐ</del></span>
+                                                    <span class="new-price"><?= formatPrice($sanPham["gia_khuyen_mai"])  ?>đ</span>
+                                                    <span class="old-price"><del><?= formatPrice($sanPham["gia_san_pham"]) ?>đ</del></span>
                                                 <?php } else { ?>
-                                                    <span class="new-price"><?= formatPrice($sanPham["gia_san_pham"]) ?> VNĐ</span>
+                                                    <span class="new-price"><?= formatPrice($sanPham["gia_san_pham"]) ?>đ</span>
                                                 <?php } ?>
                                             </div>
 
@@ -143,7 +145,7 @@
                             </div>
 
                             <div class="list-product_item">
-                                <div class="single-product">
+                                <div class="single-product" >
                                     <div class="product-img">
                                         <a href="single-product.html">
                                             <img src="<?= BASE_URL . $sanPham["hinh_anh"]; ?>" alt="Kenne's Product Image">
@@ -152,8 +154,8 @@
                                     <div class="product-content">
                                         <div class="product-desc_info">
                                             <div class="price-box">
-                                                <span class="new-price"><?= formatPrice($sanPham["gia_khuyen_mai"]) ?> VNĐ</span>
-                                                <span class="old-price"><?= formatPrice($sanPham["gia_san_pham"]) ?> VNĐ</span>
+                                                <span class="new-price"><?= formatPrice($sanPham["gia_khuyen_mai"]) ?>đ</span>
+                                                <span class="old-price"><?= formatPrice($sanPham["gia_san_pham"]) ?>đ</span>
                                             </div>
                                             <h6 class="product-name"><a href="single-product.html"><?= $sanPham["ten_san_pham"] ?></a></h6>
                                             <div class="product-short_desc">
@@ -306,6 +308,7 @@
 <!-- Brand Area End Here -->
 
 <?php require_once './views/layouts/footer.php' ?>
+
 
 
 <!-- Mirrored from htmldemo.net/kenne/kenne/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Nov 2023 10:13:37 GMT -->

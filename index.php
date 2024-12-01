@@ -12,6 +12,7 @@ require_once './controllers/DonHangController.php';
 
 
 require_once './controllers/CommentController.php';
+require_once './controllers/LienHeController.php';
 
 
 // Require toàn bộ file Models
@@ -20,6 +21,7 @@ require_once './models/SanPham.php';
 require_once './models/DonHang.php';
 require_once './models/userModel.php';
 require_once './models/Comment.php';
+require_once './models/LienHe.php';
 
 
 
@@ -32,6 +34,7 @@ $act = $_GET['act'] ?? '/';
 match ($act) {
     // Trang chủ
     '/'                 => (new HomeController())->index(),
+    'thong-tin' => (new HomeController()) ->getAllKhachHang(),
 
     'search' => (new HomeController())->search(),
     'formlogin' => (new HomeController())->formlogin(),
@@ -50,6 +53,13 @@ match ($act) {
 
     'them-gio-hang' =>(new GioHangController())->addGioHang(),
     'gio-hang' =>(new GioHangController())->gioHang(),
+
+    //liên hệ
+    'form-add-contact' => (new LienHeController())->formAddLienHe(),
+    'contact' => (new LienHeController())->addLienHe(),
+
+
+
     'xoa-gio-hang' => (new GioHangController())->deleteSPGioHang(),
 
     'thanh-toan' =>(new DonHangController())->thanhToan(),
@@ -58,4 +68,5 @@ match ($act) {
     'chi-tiet-mua-hang' =>(new DonHangController())->chiTietMuaHang(),
     'huy-don-hang' =>(new DonHangController())->huyDonHang(),
     
+
 };
