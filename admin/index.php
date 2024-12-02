@@ -23,6 +23,7 @@ require_once 'models/adminBienThe.php';
 require_once 'models/adminDonHang.php';
 require_once 'models/adminBinhLuan.php';
 require_once 'models/adminLienHe.php';
+require_once 'models/adminThongKe.php';
 // Route
 $act = $_GET['act'] ?? '/';
 
