@@ -93,6 +93,8 @@
                                     <thead>
                                         <tr>
                                             <th>Sản phẩm</th>
+                                            <th>Size</th>
+                                            <th>Số lượng</th>
                                             <th>Tổng</th>
                                         </tr>
                                     </thead>
@@ -102,8 +104,9 @@
                                         foreach ($chiTietGioHang as $key => $sanPham):
                                         ?>
                                             <tr>
-                                                <td><a href=""><?= $sanPham['ten_san_pham'] ?></strong> x <?= $sanPham['so_luong'] ?></a>
-                                                </td>
+                                                <td><a href=""><?= $sanPham['ten_san_pham'] ?></a></td>
+                                                <td><?= $sanPham['size'] ?></td>
+                                                <td><?= $sanPham['so_luong'] ?></td>
                                                 <td>
                                                     <?php
                                                     $tongTien = 0;
@@ -121,23 +124,22 @@
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <td>Tổng tiền sản phẩm</td>
+                                            <td colspan="3">Tổng tiền sản phẩm</td>
                                             <td><strong><?= formatPrice($tongGioHang) . 'đ' ?></strong></td>
                                         </tr>
                                         <tr>
-                                            <td>Shipping</td>
-                                            <td class="d-flex justify-content-center">
-                                                <strong>30.000 đ</strong>
-                                            </td>
+                                            <td colspan="3">Shipping</td>
+                                            <td><strong>30.000 đ</strong></td>
                                         </tr>
                                         <tr>
-                                            <td>Tổng đơn hàng</td>
+                                            <td colspan="3">Tổng đơn hàng</td>
                                             <input type="hidden" name="tong_tien" value="<?= $tongGioHang + 30000 ?>">
                                             <td><strong><?= formatPrice($tongGioHang + 30000) . 'đ' ?></strong></td>
                                         </tr>
                                     </tfoot>
                                 </table>
                             </div>
+
                             <!-- Order Payment Method -->
                             <div class="order-payment-method">
                                 <div class="single-payment-method show">
