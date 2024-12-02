@@ -110,6 +110,15 @@
             </p>
           </a>
         </li>
+        <!-- bình luận -->
+        <li class="nav-item">
+          <a href="<?= BASE_URL_ADMIN . '?act=binh-luan'  ?>" class="nav-link">
+            <i class="nav-icon fas fa-file-invoice-dollar"></i>
+            <p>
+              Bình luận
+            </p>
+          </a>
+        </li>
 
       </ul>
     </nav>
