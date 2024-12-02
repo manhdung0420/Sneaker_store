@@ -143,6 +143,7 @@
                       <th>#</th>
                       <th>Tên sản phẩm</th>
                       <th>Đơn giá</th>
+                      <th>Size</th>
                       <th>Số lượng</th>
                       <th>Thành tiền</th>
                     </tr>
@@ -154,6 +155,7 @@
                         <td><?= $key + 1 ?></td>
                         <td><?= $sanpham['ten_san_pham'] ?></td>
                         <td><?= number_format($sanpham['don_gia'], 0, ',', '.') ?> VND </td>
+                        <td><?= $sanpham['size'] ?></td>
                         <td><?= $sanpham['so_luong'] ?></td>
                         <td><?= number_format($sanpham['thanh_tien'], 0, ',', '.') ?> VND</td>
                       </tr>
