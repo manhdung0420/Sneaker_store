@@ -66,5 +66,27 @@ class UserModel extends BaseModel
             echo "Error: " . $e->getMessage();
         }
     }
+
+    public function resetPassword($id, $mat_khau) {
+        try {
+            // var_dump($trang_thai_id);die;
+            $sql = 'UPDATE `tai_khoans` 
+                    SET 
+                        mat_khau = :mat_khau
+                    WHERE id = :id';
+            // var_dump($sql);die;
+            $stmt = $this->conn->prepare($sql);
+            // var_dump($stmt);die;
+            $stmt->execute([
+                ':mat_khau' => $mat_khau,
+                ':id' => $id
+
+            ]);
+    
+            return true;
+        } catch (Exception $e) {
+            echo "CÓ LỖI:" . $e->getMessage();
+        }
+    }
 }
 ?>

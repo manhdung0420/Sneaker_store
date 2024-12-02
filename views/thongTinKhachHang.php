@@ -21,122 +21,111 @@
                 <div class="col-lg-3">
                     <ul class="nav myaccount-tab-trigger" id="account-page-tab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="account-dashboard-tab" data-bs-toggle="tab" href="#account-dashboard" role="tab" aria-controls="account-dashboard" aria-selected="true">Dashboard</a>
+                            <a class="nav-link active" id="account-dashboard-tab" data-bs-toggle="tab" href="#account-dashboard" role="tab" aria-controls="account-dashboard" aria-selected="true">Bảng điều khiển</a>
                         </li>
                         <!-- <li class="nav-item">
                             <a class="nav-link" id="account-orders-tab" data-bs-toggle="tab" href="#account-orders" role="tab" aria-controls="account-orders" aria-selected="false">Orders</a>
                         </li> -->
                         <li class="nav-item">
-                            <a class="nav-link" id="account-address-tab" data-bs-toggle="tab" href="#account-address" role="tab" aria-controls="account-address" aria-selected="false">Addresses</a>
+                            <a class="nav-link" id="account-address-tab" data-bs-toggle="tab" href="#account-address" role="tab" aria-controls="account-address" aria-selected="false">Thông tin</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="account-details-tab" data-bs-toggle="tab" href="#account-details" role="tab" aria-controls="account-details" aria-selected="false">Account Details</a>
+                            <a class="nav-link" id="account-details-tab" data-bs-toggle="tab" href="#account-details" role="tab" aria-controls="account-details" aria-selected="false">Đổi mật khẩu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="account-logout-tab" href="<?= BASE_URL . '?act=logout' ?>" role="tab" aria-selected="false">Logout</a>
+                            <a class="nav-link" id="account-logout-tab" href="<?= BASE_URL . '?act=logout' ?>" role="tab" aria-selected="false">Đăng Xuất</a>
                         </li>
                     </ul>
                 </div>
                 <div class="col-lg-9">
+                    <?php if (isset($_SESSION["success"])) { ?>
+                        <div class="alert alert-success"><?= $_SESSION["success"] ?></div>
+                        <?php unset($_SESSION["success"]); ?>
+                    <?php } ?>
+                    <?php if (isset($_SESSION["error"]) && !empty($_SESSION["error"])) { ?>
+                        <div class="alert alert-danger">
+                            <ul>
+                                <?php foreach ($_SESSION["error"] as $error) { ?>
+                                    <li><?= $error ?></li>
+                                <?php } ?>
+                            </ul>
+                        </div>
+                        <?php unset($_SESSION["error"]); ?>
+                    <?php } ?>
                     <div class="tab-content myaccount-tab-content" id="account-page-tab-content">
                         <div class="tab-pane fade show active" id="account-dashboard" role="tabpanel" aria-labelledby="account-dashboard-tab">
                             <div class="myaccount-dashboard">
-                                <p>Hello <b><?= $thongTin["ho_ten"] ?></b> (Không phải <?= $thongTin["ho_ten"] ?>? <a href="<?= BASE_URL . '?act=logout' ?>">Sign
+                                <p>Xin chào <b><?= $thongTin["ho_ten"] ?></b> (Không phải <?= $thongTin["ho_ten"] ?>? <a href="<?= BASE_URL . '?act=logout' ?>">Sign
                                         out</a>)</p>
-                                <p>From your account dashboard you can view your recent orders, manage your shipping and
-                                    billing addresses and <a href="#">edit your password and account
-                                        details</a>.</p>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="account-orders" role="tabpanel" aria-labelledby="account-orders-tab">
-                            <div class="myaccount-orders">
-                                <h4 class="small-title">MY ORDERS</h4>
-                                <div class="table-responsive">
-                                    <table class="table table-bordered table-hover">
-                                        <tbody>
-                                            <tr>
-                                                <th>ORDER</th>
-                                                <th>DATE</th>
-                                                <th>STATUS</th>
-                                                <th>TOTAL</th>
-                                                <th></th>
-                                            </tr>
-                                            <tr>
-                                                <td><a class="account-order-id" href="#">#5364</a></td>
-                                                <td>Mar 27, 2019</td>
-                                                <td>On Hold</td>
-                                                <td>£162.00 for 2 items</td>
-                                                <td><a href="#" class="kenne-btn kenne-btn_sm"><span>View</span></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><a class="account-order-id" href="#">#5356</a></td>
-                                                <td>Mar 27, 2019</td>
-                                                <td>On Hold</td>
-                                                <td>£162.00 for 2 items</td>
-                                                <td><a href="#" class="kenne-btn kenne-btn_sm"><span>View</span></a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                <p>Từ bảng điều khiển tài khoản, bạn có thể xem các đơn hàng gần đây, quản lý địa chỉ giao hàng và thanh toán cũng như chỉnh sửa mật khẩu và thông tin tài khoản.</p>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="account-address" role="tabpanel" aria-labelledby="account-address-tab">
                             <div class="myaccount-address">
-                                <p>The following addresses will be used on the checkout page by default.</p>
+                                <p>Các địa chỉ sau đây sẽ được sử dụng trên trang thanh toán theo mặc định.</p>
                                 <div class="row">
                                     <div class="col">
-                                        <h4 class="small-title">Billing Adress</h4>
-                                        <address>
-                                            1234 Heaven Stress, Beverly Hill OldYork UnitedState of Lorem
-                                        </address>
+                                        <h4 class="small-title">Thông tin thanh toán</h4>
+                                        <p><b>Họ tên: </b><?= $thongTin["ho_ten"] ?></p>
+                                        <p><b>Email: </b><?= $thongTin["email"] ?></p>
+                                        <p><b>Phone: </b><?= $thongTin["so_dien_thoai"] ?></p>
+                                        <p><b>Địa chỉ: </b><?= $thongTin["dia_chi"] ?></p>
                                     </div>
                                     <div class="col">
-                                        <h4 class="small-title">Shipping Address</h4>
-                                        <address>
-                                            1234 Heaven Stress, Beverly Hill OldYork UnitedState of Lorem
-                                        </address>
+                                        <h4 class="small-title">Thông tin giao hàng</h4>
+                                        <p><b>Họ tên: </b><?= $thongTin["ho_ten"] ?></p>
+                                        <p><b>Email: </b><?= $thongTin["email"] ?></p>
+                                        <p><b>Phone: </b><?= $thongTin["so_dien_thoai"] ?></p>
+                                        <p><b>Địa chỉ: </b><?= $thongTin["dia_chi"] ?></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="account-details" role="tabpanel" aria-labelledby="account-details-tab">
                             <div class="myaccount-details">
-                                <form action="<?= BASE_URL_ADMIN . '?act=thong-tin' ?>" method="post">
-                                    <div class="kenne-form-inner">
-                                        <div class="single-input single-input-half">
-                                            <label for="account-details-firstname">First Name*</label>
-                                            <input type="text" id="account-details-firstname">
-                                        </div>
-                                        <div class="single-input single-input-half">
-                                            <label for="account-details-lastname">Last Name*</label>
-                                            <input type="text" id="account-details-lastname">
-                                        </div>
+                                <div class="myaccount-details">
+                                    <form action="<?= BASE_URL . '?act=sua-mat-khau' ?>" method="post">
+                                        <!-- Mật khẩu cũ -->
                                         <div class="single-input">
-                                            <label for="account-details-email">Email*</label>
-                                            <input type="email" id="account-details-email">
+                                            <label class="col-md-3 control-label">Mật khẩu cũ</label>
+                                            <div class="col-md-12">
+                                                <input class="form-control" type="password" name="old_pass" value="">
+                                                <?php if (isset($_SESSION['error']['old_pass'])) { ?>
+                                                    <p class="text-danger"><?= $_SESSION['error']['old_pass'] ?></p>
+                                                <?php } ?>
+                                            </div>
                                         </div>
+
+                                        <!-- Mật khẩu mới -->
                                         <div class="single-input">
-                                            <label for="account-details-oldpass">Current Password(leave blank to leave
-                                                unchanged)</label>
-                                            <input type="password" id="account-details-oldpass">
+                                            <label class="col-md-3 control-label">Mật khẩu mới</label>
+                                            <div class="col-md-12">
+                                                <input class="form-control" type="password" name="new_pass" value="">
+                                                <?php if (isset($_SESSION['error']['new_pass'])) { ?>
+                                                    <p class="text-danger"><?= $_SESSION['error']['new_pass'] ?></p>
+                                                <?php } ?>
+                                            </div>
                                         </div>
+
+                                        <!-- Nhập lại mật khẩu mới -->
                                         <div class="single-input">
-                                            <label for="account-details-newpass">New Password (leave blank to leave
-                                                unchanged)</label>
-                                            <input type="password" id="account-details-newpass">
+                                            <label class="col-md-3 control-label">Nhập lại mật khẩu mới</label>
+                                            <div class="col-md-12">
+                                                <input class="form-control" type="password" name="confirm_pass" value="">
+                                                <?php if (isset($_SESSION['error']['confirm_pass'])) { ?>
+                                                    <p class="text-danger"><?= $_SESSION['error']['confirm_pass'] ?></p>
+                                                <?php } ?>
+                                            </div>
                                         </div>
+                                        <!-- Nút lưu thay đổi -->
                                         <div class="single-input">
-                                            <label for="account-details-confpass">Confirm New Password</label>
-                                            <input type="password" id="account-details-confpass">
+                                            <label class="col-md-3 control-label"></label>
+                                            <div class="col-md-12">
+                                                <input type="submit" class="btn btn-primary" value="Lưu thay đổi">
+                                            </div>
                                         </div>
-                                        <div class="single-input">
-                                            <button class="kenne-btn kenne-btn_dark" type="submit"><span>SAVE
-                                                    CHANGES</span></button>
-                                        </div>
-                                    </div>
-                                </form>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -145,4 +134,4 @@
         </div>
     </div>
     <!-- Kenne's Account Page Area End Here -->
-<?php require_once './views/layouts/footer.php' ?>
+    <?php require_once './views/layouts/footer.php' ?>
