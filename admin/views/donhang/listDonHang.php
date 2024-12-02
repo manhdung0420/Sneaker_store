@@ -55,7 +55,7 @@
                                             <td><?= $donhang['sdt_nguoi_nhan'] ?></td>
                                             <td><?= $donhang['dia_chi_nguoi_nhan'] ?></td>
                                             <td><?= date('d/m/Y', strtotime($donhang['ngay_dat'])) ?></td>
-                                           
+
                                             <td>
                                                 <span class="<?php
                                                                 if ($donhang['ten_trang_thai'] == 'Đã hủy') {
@@ -76,14 +76,9 @@
                                                 <a href="<?= BASE_URL_ADMIN . '?act=detail-don-hang&id=' . $donhang['id'] ?>">
                                                     <button class="btn btn-info"><i class="fas fa-eye"></i></button>
                                                 </a>
-                                                <?php if ($donhang['trang_thai_id'] != 5 && $donhang['trang_thai_id'] != 4): ?>
-                                                    <a href="<?= BASE_URL_ADMIN . '?act=form-sua-don-hang&id_don_hang=' . $donhang['id'] ?>">
-                                                        <button class="btn btn-warning"><i class="fas fa-cogs"></i></button>
-                                                    </a>
-                                                <?php endif; ?>
 
                                                 <!-- Nếu trạng thái đơn hàng là "Đã hủy" thì mới hiển thị nút Xóa -->
-                                                <?php if ($donhang['ten_trang_thai'] == 'Đã hủy' || $donhang['ten_trang_thai'] == 'Đã giao hàng'): ?>
+                                                <?php if ($donhang['ten_trang_thai'] == 'Hủy đơn' || $donhang['ten_trang_thai'] == 'Giao hàng thành công'): ?>
                                                     <a href="<?= BASE_URL_ADMIN . '?act=xoa-don-hang&id=' . $donhang['id'] ?>"
                                                         onclick="return confirm('Bạn có muốn xóa đơn hàng này không?')">
                                                         <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>

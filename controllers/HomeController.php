@@ -40,6 +40,7 @@ class HomeController extends ProductModel
     // Form login 
     public function formlogin()
     {
+        $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
         require_once "./views/login.php";
     }
 
