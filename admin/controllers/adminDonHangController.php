@@ -22,8 +22,8 @@ class adminDonHangController
         $donHang = $this->modelDonHang->getDetailDonHang($id);
 
         $sanPhamDonHang = $this->modelDonHang->getListSpDonHang($id);
+        // var_dump($sanPhamDonHang);die;
         
-
         $listTrangThaiDonHang = $this->modelDonHang->getAllTrangThai();
         $trangThaiOptions = $this->modelDonHang->getAllTrangThai();
         if ($donHang) {

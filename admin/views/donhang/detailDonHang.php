@@ -76,6 +76,7 @@
 
                       <div class="form-group">
                         <label for="trang_thai_don_hang">Trạng thái đơn hàng</label>
+                        <select name="trang_thai" id="trang_thai">
 <select name="trang_thai" id="trang_thai">
                           <?php foreach ($trangThaiOptions as $option): ?>
                             <option value="<?= $option['id'] ?>" <?= $donHang['trang_thai_id'] == $option['id'] ? 'selected' : '' ?>>

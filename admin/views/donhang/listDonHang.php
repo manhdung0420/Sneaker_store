@@ -60,9 +60,9 @@
                                                 <span class="<?php
                                                                 if ($donhang['ten_trang_thai'] == 'Đã hủy') {
                                                                     echo 'status-cancel';
-                                                                } elseif ($donhang['ten_trang_thai'] == 'Đã giao hàng') {
+                                                                } elseif ($donhang['ten_trang_thai'] == 'Giao hàng thành công') {
                                                                     echo 'status-completed';
-                                                                } elseif (in_array($donhang['ten_trang_thai'], ['Đã đặt', 'Đã xác nhận', 'Đang giao hàng'])) {
+                                                                } elseif (in_array($donhang['ten_trang_thai'], ['Chưa xác nhận', 'Đã xác nhận', 'Đang giao hàng'])) {
                                                                     echo 'status-pending';
                                                                 }
                                                                 ?>">
