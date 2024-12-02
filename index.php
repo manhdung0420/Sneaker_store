@@ -35,6 +35,7 @@ match ($act) {
     // Trang chủ
     '/'                 => (new HomeController())->index(),
     'thong-tin' => (new HomeController()) ->getAllKhachHang(),
+    'sua-mat-khau'=>(new HomeController())->postEditMatKhauCaNhan(),
 
     'search' => (new HomeController())->search(),
     'formlogin' => (new HomeController())->formlogin(),

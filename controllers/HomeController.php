@@ -7,16 +7,10 @@ class HomeController extends ProductModel
 {
     public $modelSanPham;
     public $product;
-    public $modelTaikhoan;
-    public $modelGioHang;
-    public $modelDonHang;
     public function __construct()
     {
-        $this->product = new ProductModel(); 
+        $this->product = new ProductModel();
         $this->modelSanPham = new SanPham();
-        $this->modelTaikhoan = new UserModel();
-        $this->modelGioHang = new GioHang();
-        $this->modelDonHang = new DonHang();
     }
     public function index()
     {
@@ -25,7 +19,8 @@ class HomeController extends ProductModel
         require_once "./views/home.php";
     }
 
-    public function search() {
+    public function search()
+    {
         $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
 
         // Lấy từ khóa từ yêu cầu GET hoặc POST
@@ -91,8 +86,6 @@ class HomeController extends ProductModel
         // Chuyển hướng về trang login
         header('Location: http://localhost/Sneaker_store/?act=formlogin');
         exit();
-
-
     }
 
     // Phân quyền trang admin
@@ -134,11 +127,11 @@ class HomeController extends ProductModel
                 $isRegistered = $userModel->registerUser($hoTen, $username, $email, $matKhau, $soDienThoai,);
 
                 if ($isRegistered) {
-                    $success= "Đăng ký thành công. Vui lòng đăng nhập.";
+                    $success = "Đăng ký thành công. Vui lòng đăng nhập.";
                     header('Location:http://localhost/Sneaker_store/?act=formlogin ');
                     exit();
                 } else {
-                    $error= "Không thể đăng ký. Vui lòng thử lại sau.";
+                    $error = "Không thể đăng ký. Vui lòng thử lại sau.";
                 }
             }
         }
@@ -147,13 +140,65 @@ class HomeController extends ProductModel
         require_once "./views/login.php";
     }
 
-    public function getAllKhachHang(){
+    public function getAllKhachHang()
+    {
         $userModel = new UserModel();
         $email = $_SESSION["user_email"];
         $thongTin = $userModel->getTaiKhoanFromEMail($email);
+        $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
         require_once "./views/thongTinKhachHang.php";
     }
 
+    public function postEditMatKhauCaNhan()
+    {
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $old_pass = $_POST["old_pass"];
+            $new_pass = $_POST["new_pass"];
+            $confirm_pass = $_POST["confirm_pass"];
 
+            $userModel = new UserModel();
+            $user = $userModel->getTaiKhoanFromEmail($_SESSION["user_email"]);
+
+            // Kiểm tra mật khẩu cũ
+            $checkPass = ($old_pass === $user["mat_khau"]);
+            $errors = [];
+
+            // Kiểm tra các điều kiện lỗi
+            if (empty($old_pass)) {
+                $errors['old_pass'] = 'Vui lòng nhập mật khẩu cũ.';
+            } elseif (!$checkPass) {
+                $errors['old_pass'] = 'Mật khẩu cũ không đúng.';
+            }
+
+            if (empty($new_pass)) {
+                $errors['new_pass'] = 'Vui lòng nhập mật khẩu mới.';
+            }
+
+            if (empty($confirm_pass)) {
+                $errors['confirm_pass'] = 'Vui lòng nhập lại mật khẩu mới.';
+            } elseif ($new_pass !== $confirm_pass) {
+                $errors['confirm_pass'] = 'Mật khẩu nhập lại không khớp.';
+            }
+
+            $_SESSION["error"] = $errors;
+
+            if (empty($errors)) {
+                // Cập nhật mật khẩu mới
+                $status = $userModel->resetPassword($user["id"], $new_pass);
+                if ($status) {
+                    $_SESSION["success"] = "Đã đổi mật khẩu thành công.";
+                    $_SESSION["flash"] = true;
+
+                    // Chuyển hướng đến tab Account Details sau khi thành công
+                    header("Location: " . BASE_URL . "?act=thong-tin");
+                    exit();
+                }
+            } else {
+                $_SESSION["flash"] = true;
+                // Chuyển hướng về trang thông tin và ở lại phần Account Details
+                header("Location: " . BASE_URL. "?act=thong-tin");
+                exit();
+            }
+        }
+    }
 }
-

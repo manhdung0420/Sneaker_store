@@ -19,33 +19,27 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="header-top_right">
-                                <ul>
-                                    <li>
-                                        <a href="<?= BASE_URL . '?act=thong-tin' ?>">My Account</a>
-                                    </li>
-                                    <?php
-                                    if (!isset($_SESSION['user_id'])) { ?>
-                                        <li>
-                                            <a href="<?= BASE_URL . '?act=formlogin' ?>"> Login | Logout</a>
-                                        </li>
-                                    <?php } ?>
-                                    <?php
+                                    <ul>
+                                        <?php if (!isset($_SESSION['user_email'])) { ?>
+                                            <li><a href="<?= BASE_URL . '?act=formlogin' ?>"> Login | Logout</a></li>
+                                            
+                                        <?php } else { ?>
+                                            <li><a href="<?= BASE_URL . '?act=lich-su-mua-hang' ?>">Đơn Hàng</a></li>
+                                            <li><a href="<?= BASE_URL . '?act=thong-tin' ?>">Tài khoản</a></li>
+                                            <li>
+                                                <a href="<?= BASE_URL . '?act=logout' ?>"> Logout</a>
+                                            </li>  
+                                        <?php } ?>
 
-                                    if (isset($_SESSION['user_id'])) { ?>
-                                        <li>
-                                            <a href="<?= BASE_URL . '?act=logout' ?>"> Logout</a>
-                                        </li>
-                                    <?php } ?>
+                                        <?php
 
-                                    <?php
+                                        if (isset($_SESSION['user_chuc_vu'])  &&  $_SESSION['user_chuc_vu'] == 1) { ?>
+                                            <li>
+                                                <a href="<?= BASE_URL . '?act=admin' ?>"> Admin</a>
+                                            </li>
+                                        <?php } ?>
 
-                                    if (isset($_SESSION['user_chuc_vu'])  &&  $_SESSION['user_chuc_vu'] == 1) { ?>
-                                        <li>
-                                            <a href="<?= BASE_URL . '?act=admin' ?>"> Admin</a>
-                                        </li>
-                                    <?php } ?>
-
-                                </ul>
+                                    </ul>
                             </div>
                         </div>
                     </div>
