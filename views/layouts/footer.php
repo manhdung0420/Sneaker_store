@@ -80,7 +80,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="payment">
-                                <img src="assets/images/footer/payment/1.png" alt="Kenne's Payment Method">
+                                <img src="assets/images/footer/payment/1.png" alt="Sneaker Store">
                             </div>
                         </div>
                     </div>

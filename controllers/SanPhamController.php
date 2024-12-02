@@ -79,7 +79,7 @@ class SanPhamController
             $sanPhamsByDanhMuc = $productModel->getSanPhamLienQuan($sanpham, 0, 8);
 
             // Truyền dữ liệu sản phẩm vào view
-            include_once 'views/trangChiTietSanPham.php';
+            require_once 'views/trangChiTietSanPham.php';
         } else {
             echo "Sản phẩm không tồn tại!";
         }
