@@ -110,6 +110,7 @@
 
                                                 </li>
                                                 <li><a href="<?= BASE_URL . '?act=form-add-contact' ?>">Contact Us</a></li>
+
                                                 <li><a href="about-us.html">About Us</a></li>
                                             </ul>
                                         </nav>

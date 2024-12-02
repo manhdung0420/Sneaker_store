@@ -25,6 +25,7 @@ class adminDonHangController
         
 
         $listTrangThaiDonHang = $this->modelDonHang->getAllTrangThai();
+        $trangThaiOptions = $this->modelDonHang->getAllTrangThai();
         if ($donHang) {
             require_once './views/donhang/detailDonHang.php';
         } else {
@@ -45,7 +46,7 @@ class adminDonHangController
     $trangThaiOptions = $this->modelDonHang->getAllTrangThai();
 
     if ($donHang) {
-        require_once './views/donhang/editDonHang.php';
+        require_once './views/donhang/detailDonHang.php';
     } else {
         header("location:" . BASE_URL_ADMIN . '?act=don-hang');
         exit();
