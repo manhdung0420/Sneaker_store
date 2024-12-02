@@ -22,8 +22,8 @@ class adminDonHangController
         $donHang = $this->modelDonHang->getDetailDonHang($id);
 
         $sanPhamDonHang = $this->modelDonHang->getListSpDonHang($id);
+        // var_dump($sanPhamDonHang);die;
         
-
         $listTrangThaiDonHang = $this->modelDonHang->getAllTrangThai();
         $trangThaiOptions = $this->modelDonHang->getAllTrangThai();
         if ($donHang) {
@@ -94,7 +94,7 @@ public function postEditDonHang()
     {
         $id = $_GET["id"];
         $this->modelDonHang->destroyDonHang($id);
-        header("location: " . BASE_URL_ADMIN . "?act=don-hang");
+header("location: " . BASE_URL_ADMIN . "?act=don-hang");
         exit();
     }
 }

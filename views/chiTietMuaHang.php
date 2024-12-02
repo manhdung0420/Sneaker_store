@@ -1,5 +1,5 @@
 <?php require_once './views/layouts/header.php' ?>
-<link rel="stylesheet" href="assets/css/donHang.css"> 
+<link rel="stylesheet" href="assets/css/donHang.css">
 <?php require_once './views/layouts/menu.php' ?>
 
 <!-- Begin Kenne's Breadcrumb Area -->
@@ -26,13 +26,14 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th colspan="5">Thông tin sản phẩm</th>
+                                    <th colspan="6">Thông tin sản phẩm</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr class="text-center">
                                     <th>Hình ảnh</th>
-                                    <th>Tên sản phẩm</th>
+                                    <th style="width: 210px;">Tên sản phẩm</th>
+                                    <th>Size</th>
                                     <th>Đơn giá</th>
                                     <th>Số lượng</th>
                                     <th>Thành Tiền</th>
@@ -41,6 +42,7 @@
                                     <tr>
                                         <td><img class="img-fluid" src="<?= BASE_URL . $item["hinh_anh"] ?>" alt="Product" width="100px" /></td>
                                         <td><?= $item["ten_san_pham"] ?></td>
+                                        <td><?= $item["size"] ?></td>
                                         <td><?= number_format($item["don_gia"], 0, ',' . ',') ?>đ</td>
                                         <td><?= $item["so_luong"] ?></td>
                                         <td><?= number_format($item["thanh_tien"], 0, ',' . ',') ?>đ</td>
@@ -90,7 +92,7 @@
                                     <td><?= number_format($donHang["tong_tien"], 0, ',' . ',') ?>đ</td>
                                 </tr>
                                 <tr>
-                                    <th>Phương thức thanh toánc</th>
+                                    <th>Phương thức thanh toán</th>
                                     <td><?= $PhuongThucThanhToan[$donHang['phuong_thuc_thanh_toan_id']] ?></td>
                                 </tr>
                                 <tr>
@@ -181,17 +183,40 @@
 </div>
 <!-- Brand Area End Here -->
 <style>
-    .btn-sqr {
-        color: #fff;
-        font-size: 15px;
-        border-radius: 0;
-        background-color: #c29958;
-        padding: 12px 25px;
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        /* Loại bỏ tràn ngang */
+        font-family: Arial, sans-serif;
     }
 
-    .btn-sqr:hover {
-        color: #fff;
-        background-color: #222222;
+    .container {
+        max-width: 100%;
+        padding: 15px;
+        margin: 0 auto;
+    }
+
+    th,
+    td {
+        word-wrap: break-word;
+        /* Cho phép nội dung xuống dòng */
+        white-space: normal;
+        /* Tự động xuống dòng khi quá dài */
+        text-align: center;
+    }
+
+    thead th {
+        background-color: #d4a559;
+        /* Màu nền của tiêu đề */
+        color: white;
+        font-weight: bold;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        /* Bảo đảm các cột co lại khi không đủ chỗ */
     }
 </style>
 

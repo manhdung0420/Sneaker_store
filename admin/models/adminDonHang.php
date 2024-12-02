@@ -27,7 +27,7 @@ class adminDonHang
     public function getDetailDonHang($id)
     {
         try {
-            $sql = "SELECT don_hangs.*, trang_thai_don_hangs.ten_trang_thai,tai_khoans.ho_ten,tai_khoans.email,tai_khoans.so_dien_thoai,phuong_thuc_thanh_toans.ten_phuong_thuc, size_sp.size
+            $sql = "SELECT don_hangs.*, trang_thai_don_hangs.ten_trang_thai,tai_khoans.ho_ten,tai_khoans.email,tai_khoans.so_dien_thoai,phuong_thuc_thanh_toans.ten_phuong_thuc
                     FROM don_hangs
                     INNER JOIN trang_thai_don_hangs ON don_hangs.trang_thai_id = trang_thai_don_hangs.id
                     INNER JOIN tai_khoans ON don_hangs.tai_khoan_id = tai_khoans.id

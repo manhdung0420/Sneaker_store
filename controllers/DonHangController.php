@@ -87,8 +87,8 @@ class DonHangController
                         $item['san_pham_id'], // ID sản phẩm
                         $donGia, // Đơn giá láy được từ sản phẩm
                         $item['so_luong'], // Số lượng 
-                        $donGia * $item['so_luong'] // Thành tiền
-
+                        $donGia * $item['so_luong'],// Thành tiền
+                        $item['size']
                     );
                 }
 

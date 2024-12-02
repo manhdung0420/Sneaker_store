@@ -2,14 +2,17 @@
 class LienHeController
 {
     public $model;
+    public $modelSanPham;
 
     public function __construct()
     {
         $this->model = new LienHeModel();
+        $this->modelSanPham = new SanPham();
     }
 
     public function formAddLienHe()
     {
+        $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
         require_once 'views/contact.php';
     }
     public function addLienHe()
