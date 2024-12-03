@@ -1,3 +1,4 @@
+<?php require './views/layouts/auth.php'; ?>
 <!-- header -->
 <?php require './views/layouts/header.php'; ?>
 
