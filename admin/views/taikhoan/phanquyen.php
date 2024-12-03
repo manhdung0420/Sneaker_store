@@ -63,14 +63,14 @@
                         <label for="ho_ten" class="form-label fw-bold">Họ và Tên:</label>
                         <div class="input-group">
                             <span class="input-group-text bg-light"><i class="bi bi-person-fill"></i></span>
-                            <input type="text" class="form-control bg-light" value="<?= $obj['ho_ten'] ?>" readonly>
+                            <span class="input-group-text bg-light form-control" readonly><i ><?= $obj['ho_ten'] ?></i></span>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="usename" class="form-label fw-bold">Username:</label>
                         <div class="input-group">
                             <span class="input-group-text bg-light"><i class="bi bi-person-badge-fill"></i></span>
-                            <input type="text" class="form-control bg-light" value="<?= $obj['usename'] ?>" readonly>
+                            <span class="input-group-text bg-light form-control" readonly><i ><?= $obj['usename'] ?></i></span>
                         </div>
                     </div>
                 </div>
@@ -80,21 +80,21 @@
                         <label for="email" class="form-label fw-bold">Email:</label>
                         <div class="input-group">
                             <span class="input-group-text bg-light"><i class="bi bi-envelope-fill"></i></span>
-                            <input type="email" class="form-control bg-light" value="<?= $obj['email'] ?>" readonly>
+                            <span class="input-group-text bg-light form-control" readonly><i ><?= $obj['email'] ?></i></span>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="so_dien_thoai" class="form-label fw-bold">Số Điện Thoại:</label>
                         <div class="input-group">
                             <span class="input-group-text bg-light"><i class="bi bi-telephone-fill"></i></span>
-                            <input type="text" class="form-control bg-light" value="<?= $obj['so_dien_thoai'] ?>" readonly>
+                            <span class="input-group-text bg-light form-control" readonly><i ><?= $obj['so_dien_thoai'] ?></i></span>
                         </div>
                     </div>
                 </div>
 
                 <div class="mt-3">
                     <label for="dia_chi" class="form-label fw-bold">Địa chỉ:</label>
-                    <textarea class="form-control bg-light" rows="2" readonly><?= $obj['dia_chi'] ?></textarea>
+                    <span class="input-group-text bg-light form-control" readonly><i ><?= $obj['dia_chi'] ?></i></span>
                 </div>
 
                 <!-- Dropdown phân quyền -->
