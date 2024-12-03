@@ -6,10 +6,10 @@
 <div class="breadcrumb-area">
     <div class="container">
         <div class="breadcrumb-content">
-            <h2>Shop Related</h2>
+            <h2>Giỏ Hàng</h2>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li class="active">Cart</li>
+                <li><a href="<?= BASE_URL ?>">Trang chủ</a></li>
+                <li class="active">Giỏ hàng</li>
             </ul>
         </div>
     </div>
@@ -45,9 +45,9 @@
                                         <td class="kenne-product-thumbnail"><a href="#"><img src="<?= $sanPham["hinh_anh"] ?>" style="width: 70px; height: 70px" alt="Uren's Cart Thumbnail"></a></td>
                                         <td class="kenne-product-name"><a href="#"><?= $sanPham["ten_san_pham"] ?></a></td>
                                         <td class="kenne-product-price"><span class="amount"><?php if ($sanPham["gia_khuyen_mai"]) { ?>
-                                                    <?= formatPrice($sanPham["gia_khuyen_mai"]) . 'VNĐ' ?></span></td>
+                                                    <?= formatPrice($sanPham["gia_khuyen_mai"]) . 'đ' ?></span></td>
                                     <?php } else { ?>
-                                        <?= formatPrice($sanPham["gia_san_pham"]) . 'VNĐ' ?></span></td>
+                                        <?= formatPrice($sanPham["gia_san_pham"]) . 'đ' ?></span></td>
                                     <?php } ?>
                                     <td class="kenne-product-size"><span class="amount"><?= $sanPham["size"] ?></span></td>
                                     <td class="quantity">
@@ -67,7 +67,7 @@
                                                 $tongTien = $sanPham["gia_san_pham"] * $sanPham["so_luong"];
                                             }
                                             $tongGioHang += $tongTien;
-                                            echo formatPrice($tongTien) . 'VNĐ';
+                                            echo formatPrice($tongTien) . 'đ';
                                             ?></span>
                                     </td>
                                     </tr>
@@ -94,11 +94,11 @@
                             <div class="cart-page-total">
                                 <h2>Tổng đơn hàng</h2>
                                 <ul>
-                                    <li>Tổng tiền sản phẩm <span><?= formatPrice($tongGioHang) . 'VNĐ' ?></span></li>
-                                    <li>Vận chuyển<span>30.000 VNĐ</span></li>
+                                    <li>Tổng tiền sản phẩm <span><?= formatPrice($tongGioHang) . 'đ' ?></span></li>
+                                    <li>Vận chuyển<span>30.000 đ</span></li>
                                     <li>Tổng Thanh Toán<span><?= formatPrice($tongGioHang + 30000) . 'đ' ?></span></li>
                                 </ul>
-                                <a href="<?= BASE_URL . '?act=thanh-toan' ?>" class="button">Proceed to checkout</a>
+                                <a href="<?= BASE_URL . '?act=thanh-toan' ?>" class="button">Tiến hành đặt hàng</a>
                             </div>
                         </div>
                     </div>
