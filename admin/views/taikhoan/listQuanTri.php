@@ -1,3 +1,4 @@
+<?php require './views/layouts/auth.php'; ?>
 <!-- header -->
 <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css">
