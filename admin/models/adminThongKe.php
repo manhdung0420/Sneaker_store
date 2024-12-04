@@ -18,7 +18,7 @@ class adminThongKe extends BaseModel
       AND YEAR(dh.ngay_dat) = YEAR(CURRENT_DATE())
     GROUP BY ct.san_pham_id
     ORDER BY total_quantity DESC
-    LIMIT 1";
+    LIMIT 3";
      return $this->getRowData($sql);
     }
     public function TongHoaDon(){
