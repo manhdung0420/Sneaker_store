@@ -13,7 +13,7 @@ class DashboardController {
         $DonHangThang = $this->modelTK->TongHoaDon();
         // Lấy dữ liệu doanh thu trong tháng
         $DoanhThuThang = $this->modelTK->TongDoanhThu();
-        $formattedRevenue = number_format($DoanhThuThang['total_revenue'], 0, ',', '.') . " VND";
+        $DinhDangTien = number_format($DoanhThuThang['total_revenue'], 0, ',', '.') . " VND";
 
         // Load view dashboard
 

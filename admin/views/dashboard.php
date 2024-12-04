@@ -32,7 +32,7 @@ require_once './views/layouts/sidebar.php';
       <div class="container-fluid">
         <div class="row mb-4">
           <div class="col-12 text-center">
-            <h2 class="text-uppercase font-weight-bold">BẢNG THỐNG KÊ THÁNG 12</h2>
+            <h2 class="text-uppercase font-weight-bold">BẢNG THỐNG KÊ THÁNG <?= date('m') ?></h2>
             <p class="text-muted">Tổng quan hoạt động trong tháng</p>
           </div>
         </div>
@@ -79,7 +79,7 @@ if (strlen($productName) > $maxLength) {
               <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-dollar-sign"></i></span>
               <div class="info-box-content">
                 <span class="info-box-text">Doanh thu</span>
-                <span class="info-box-number"><?= $formattedRevenue ?></span>
+                <span class="info-box-number"><?= $DinhDangTien ?></span>
               </div>
             </div>
           </div>
