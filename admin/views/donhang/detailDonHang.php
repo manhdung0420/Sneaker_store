@@ -49,11 +49,28 @@
                 <input type="hidden" name="id_don_hang" value="<?= $donHang['id'] ?>">
                 <select name="trang_thai" id="trang_thai" class="form-control mr-3" style="width: 200px;">
                   <?php foreach ($trangThaiOptions as $option): ?>
-                    <option value="<?= $option['id'] ?>" <?= $donHang['trang_thai_id'] == $option['id'] ? 'selected' : '' ?>>
+                    <option
+                      <?php
+                      // Nếu trạng thái hiện tại là 5, disable tất cả các trạng thái
+                      if ($donHang['trang_thai_id'] == 5) {
+                        echo 'disabled';
+                      }
+                      // Nếu trạng thái hiện tại lớn hơn trạng thái của option hoặc trạng thái không cho phép sửa
+                      elseif ($donHang["trang_thai_id"] > $option["id"] || $donHang['trang_thai_id'] == 4) {
+                        echo 'disabled';
+                      }
+                      // Nếu trạng thái hiện tại là 2 hoặc 3, disable trạng thái có id = 5
+                      elseif (($donHang['trang_thai_id'] == 2 || $donHang['trang_thai_id'] == 3) && $option['id'] == 5) {
+                        echo 'disabled';
+                      }
+                      ?>
+                      value="<?= $option['id'] ?>" <?= $donHang['trang_thai_id'] == $option['id'] ? 'selected' : '' ?>>
                       <?= $option['ten_trang_thai'] ?>
                     </option>
                   <?php endforeach; ?>
                 </select>
+
+
                 <button type="submit" class="btn btn-warning" style="min-width: 120px;">
                   <i class="fas fa-cogs"></i> Sửa
                 </button>
@@ -155,7 +172,7 @@
                         <td><?= $key + 1 ?></td>
                         <td><?= $sanpham['ten_san_pham'] ?></td>
                         <td><?= number_format($sanpham['don_gia'], 0, ',', '.') ?> VND </td>
-                        <td><?= $sanpham["size"] ?></td>
+                        <td><?= $sanpham['size'] ?></td>
                         <td><?= $sanpham['so_luong'] ?></td>
                         <td><?= number_format($sanpham['thanh_tien'], 0, ',', '.') ?> VND</td>
                       </tr>
