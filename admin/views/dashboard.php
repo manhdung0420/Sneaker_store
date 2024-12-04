@@ -77,7 +77,7 @@ if (strlen($productName) > $maxLength) {
               <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-dollar-sign"></i></span>
               <div class="info-box-content">
                 <span class="info-box-text">Doanh thu</span>
-                <span class="info-box-number"><?= $formattedRevenue ?></span>
+                <span class="info-box-number"><?= $DinhDangTien ?></span>
               </div>
             </div>
           </div>
