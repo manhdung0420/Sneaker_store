@@ -4995,7 +4995,7 @@ i, .tab-content .tab-pane.active, .scroll-to-top i, .quantity .cart-plus-minus >
 
 .bg-1,
 .bg-2 {
-  background-image: url("../images/slider/1-1.jpg");
+  background-image: url("../images/slider/1-6.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -5017,7 +5017,7 @@ i, .tab-content .tab-pane.active, .scroll-to-top i, .quantity .cart-plus-minus >
 }
 
 .bg-2 {
-  background-image: url("../images/slider/1-2.jpg");
+  background-image: url("../images/slider/2-2.jpg");
 }
 
 .bg-3,
@@ -5044,16 +5044,16 @@ i, .tab-content .tab-pane.active, .scroll-to-top i, .quantity .cart-plus-minus >
 }
 
 .bg-4 {
-  background-image: url("../images/slider/2-2.jpg");
+  background-image: url("../images/slider/1-4.jpg");
 }
 
-.bg-5,
-.bg-6 {
-  background-image: url("../images/slider/1-1.jpg");
+.bg-5 {
+  background-image: url("../images/slider/1-6.jpg");
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: cover;
-  min-height: 635px;
+  background-size: contain;
+  min-height: 500px;
+  width: 100%;
 }
 
 @media (max-width: 991px) {
@@ -5071,7 +5071,11 @@ i, .tab-content .tab-pane.active, .scroll-to-top i, .quantity .cart-plus-minus >
 }
 
 .bg-6 {
-  background-image: url("../images/slider/1-2.jpg");
+  background-image: url("../images/slider/1-4.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  min-height: 500px;
 }
 
 /* ---Slider Progress Bar--- */
@@ -5238,6 +5242,7 @@ i, .tab-content .tab-pane.active, .scroll-to-top i, .quantity .cart-plus-minus >
 
 .banner-area .banner-item > .banner-img > a img {
   width: 100%;
+  height: 325px;
 }
 
 @media (max-width: 767px) {

@@ -1,4 +1,12 @@
 <?php require_once './views/layouts/header.php' ?>
+<?php
+if (isset($_SESSION['error_message'])) {
+    $errorMessage = $_SESSION['error_message'];
+    echo "<script>alert('$errorMessage');</script>";
+    unset($_SESSION['error_message']); // Xóa thông báo sau khi hiển thị
+}
+?>
+
 
 <?php require_once './views/layouts/menu.php' ?>
 
@@ -28,12 +36,11 @@
             <div class="slider-progress"></div>
             <div class="container">
                 <div class="slide-content">
-                    <span>Exclusive Offer -20% Off This Week</span>
-                    <h2>Accessories <br> Explore Trending</h2>
-                    <p class="short-desc">Aliquam error eos cumque aut repellat quasi accusantium inventore
-                        necessitatibus. Vel quisquam distinctio in inventore dolorum.</p>
+                    <span>Ưu Đãi Đặc Biệt - Giảm 20% Tuần Này</span>
+                    <h2>Giày Thể Thao <br> Khám Phá Mẫu Mới</h2>
+                    <p class="short-desc">Được thiết kế cho mọi hoạt động, giày thể thao bền đẹp và mang lại cảm giác thoải mái mỗi khi vận động.</p>
                     <div class="slide-btn">
-                        <a class="kenne-btn" href="shop-left-sidebar.html">shop now</a>
+                        <a class="kenne-btn" href="<?= BASE_URL . '?act=danh-sach-san-pham' ?>">Mua ngay</a>
                     </div>
                 </div>
             </div>
@@ -42,11 +49,11 @@
             <div class="slider-progress"></div>
             <div class="container">
                 <div class="slide-content">
-                    <span>Exclusive Offer -10% Off This Week</span>
-                    <h2>Stylist <br> Female Clothes</h2>
-                    <p class="short-desc-2">Made from Soft, Durable, US-grown Supima cotton.</p>
+                    <span>Ưu Đãi Đặc Biệt - Giảm 10% Tuần Này</span>
+                    <h2>Giày Dành Cho Nữ <br> Phong Cách & Tiện Dụng</h2>
+                    <p class="short-desc-2">Giày nữ thiết kế hiện đại, chất liệu da cao cấp mang đến sự thoải mái và bền bỉ.</p>
                     <div class="slide-btn">
-                        <a class="kenne-btn" href="shop-left-sidebar.html">shop now</a>
+                        <a class="kenne-btn" href="<?= BASE_URL . '?act=danh-sach-san-pham' ?>">Mua ngay</a>
                     </div>
                 </div>
             </div>
@@ -100,7 +107,7 @@
                 <div class="banner-item img-hover_effect">
                     <div class="banner-img">
                         <a href="javascrip:void(0)">
-                            <img src="assets/images/banner/1-1.jpg" alt="Banner">
+                            <img src="assets/images/banner/4-1.jpg" alt="Banner" width="350px" height="250px">
                         </a>
                     </div>
                 </div>
@@ -109,7 +116,7 @@
                 <div class="banner-item img-hover_effect">
                     <div class="banner-img">
                         <a href="javascrip:void(0)">
-                            <img src="assets/images/banner/1-2.jpg" alt="Banner">
+                            <img src="assets/images/banner/3-4.jpg" alt="Banner" width="350px" height="250px">
                         </a>
                     </div>
                 </div>
@@ -118,7 +125,7 @@
                 <div class="banner-item img-hover_effect">
                     <div class="banner-img">
                         <a href="javascrip:void(0)">
-                            <img src="assets/images/banner/1-3.jpg" alt="Banner">
+                            <img src="assets/images/banner/4-2.jpg" alt="Banner" width="350px" height="250px">
                         </a>
                     </div>
                 </div>
@@ -177,23 +184,23 @@ if (isset($keyword)) {
                                                 style="width: 200px; height: 250px; object-fit: cover;"
                                                 alt="Kenne's Product Image">
                                         </a>
-                                        <span class="sticker">Bestseller</span>
+                                        <span class="sticker">Mới</span>
                                         <div class="add-actions">
                                             <ul>
-                                                <li class="quick-view-btn" data-bs-toggle="modal"
+                                                <!-- <li class="quick-view-btn" data-bs-toggle="modal"
                                                     data-bs-target="#exampleModalCenter"><a href="#" data-bs-toggle="tooltip"
                                                         data-placement="right" title="Quick View"><i
                                                             class="ion-ios-search"></i></a>
-                                                </li>
-                                                <li><a href="wishlist.html" data-bs-toggle="tooltip" data-placement="right"
+                                                </li> -->
+                                                <!-- <li><a href="wishlist.html" data-bs-toggle="tooltip" data-placement="right"
                                                         title="Add To Wishlist"><i class="ion-ios-heart-outline"></i></a>
                                                 </li>
                                                 <li><a href="compare.html" data-bs-toggle="tooltip" data-placement="right"
                                                         title="Add To Compare"><i class="ion-ios-reload"></i></a>
-                                                </li>
-                                                <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right"
+                                                </li> -->
+                                                <!-- <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right"
                                                         title="Add To cart"><i class="ion-bag"></i></a>
-                                                </li>
+                                                </li> -->
                                             </ul>
                                         </div>
                                     </div>
@@ -204,15 +211,6 @@ if (isset($keyword)) {
                                             <div class="price-box">
                                                 <span class="new-price"><?= $value['gia_san_pham'] ?></span>
                                                 <span class="old-price"><?= $value['gia_khuyen_mai'] ?></span>
-                                            </div>
-                                            <div class="rating-box">
-                                                <ul>
-                                                    <li><i class="ion-ios-star"></i></li>
-                                                    <li><i class="ion-ios-star"></i></li>
-                                                    <li><i class="ion-ios-star"></i></li>
-                                                    <li class="silver-color"><i class="ion-ios-star-half"></i></li>
-                                                    <li class="silver-color"><i class="ion-ios-star-outline"></i></li>
-                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -239,23 +237,23 @@ if (isset($keyword)) {
     </div>
     <!-- Product Area End Here -->
 
-<?php 
-} else { 
+<?php
+} else {
 ?>
 
 
-<!-- Begin Product Area -->
-<div class="product-area ">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title">
-                    <h3>New Product</h3>
-                    <div class="product-arrow"></div>
+    <!-- Begin Product Area -->
+    <div class="product-area ">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h3>Sản phẩm mới</h3>
+                        <div class="product-arrow"></div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-12">
-                <div class="kenne-element-carousel product-slider slider-nav" data-slick-options='{
+                <div class="col-lg-12">
+                    <div class="kenne-element-carousel product-slider slider-nav" data-slick-options='{
                         "slidesToShow": 4,
                         "slidesToScroll": 1,
                         "infinite": false,
@@ -274,55 +272,55 @@ if (isset($keyword)) {
                         "slidesToShow": 1
                         }}
                     ]'>
-                    <?php foreach ($products as $value): ?>
-                        <div class="product-item">
+                        <?php foreach ($products as $value): ?>
+                            <div class="product-item">
 
-                            <div class="single-product" style="width: 255px; height: 390px;">
-                                <div class="product-img">
-                                    <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id= ' . $value['id'] ?>">
-                                        <img class="primary-img" src="<?= $value['hinh_anh'] ?>"
-                                            style="width: 200px; height: 250px; object-fit: cover;"
-                                            alt="Kenne's Product Image">
-                                    </a>
-                                    <span class="sticker">Bestseller</span>
-                                    <div class="add-actions">
-                                        <ul>
-                                            <li class="quick-view-btn" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModalCenter"><a href="#" data-bs-toggle="tooltip"
-                                                    data-placement="right" title="Quick View"><i
-                                                        class="ion-ios-search"></i></a>
-                                            </li>
-                                            <li><a href="wishlist.html" data-bs-toggle="tooltip" data-placement="right"
-                                                    title="Add To Wishlist"><i class="ion-ios-heart-outline"></i></a>
-                                            </li>
-                                            <li><a href="compare.html" data-bs-toggle="tooltip" data-placement="right"
-                                                    title="Add To Compare"><i class="ion-ios-reload"></i></a>
-                                            </li>
-                                            <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right"
-                                                    title="Add To cart"><i class="ion-bag"></i></a>
-                                            </li>
-                                        </ul>
+                                <div class="single-product" style="width: 255px; height: 390px;">
+                                    <div class="product-img">
+                                        <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id= ' . $value['id'] ?>">
+                                            <img class="primary-img" src="<?= $value['hinh_anh'] ?>"
+                                                style="width: 200px; height: 250px; object-fit: cover;"
+                                                alt="Kenne's Product Image">
+                                        </a>
+                                        <span class="sticker">Mới</span>
+                                        <div class="add-actions">
+                                            <ul>
+                                                <!-- <li class="quick-view-btn" data-bs-toggle="modal"
+                                                    data-bs-target=""><a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id= ' . $value['id'] ?>" data-bs-toggle="tooltip"
+                                                        data-placement="right" title="Chi tiết sản phẩm"><i
+                                                            class="ion-ios-search"></i></a>
+                                                </li> -->
+                                                <!-- <li><a href="wishlist.html" data-bs-toggle="tooltip" data-placement="right"
+                                                        title="Add To Wishlist"><i class="ion-ios-heart-outline"></i></a>
+                                                </li>
+                                                <li><a href="compare.html" data-bs-toggle="tooltip" data-placement="right"
+                                                        title="Add To Compare"><i class="ion-ios-reload"></i></a>
+                                                </li> -->
+                                                <!-- <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right"
+                                                        title="Thêm giỏ hàng"><i class="ion-bag"></i></a>
+                                                </li> -->
+                                            </ul>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-desc_info">
-                                        <h3 class="product-name"><a
-                                                href="<?= BASE_URL . '?act=chi-tiet-san-pham&id= ' . $value['id'] ?>"><?= $value['ten_san_pham'] ?></a></h3>
-                                        <div class="price-box">
-                                            <span class="new-price"><?= formatPrice($value['gia_san_pham']) ?>đ</span>
-                                            <span class="old-price"><?= formatPrice($value['gia_khuyen_mai']) ?>đ</span>
+                                    <div class="product-content">
+                                        <div class="product-desc_info">
+                                            <h3 class="product-name"><a
+                                                    href="<?= BASE_URL . '?act=chi-tiet-san-pham&id= ' . $value['id'] ?>"><?= $value['ten_san_pham'] ?></a></h3>
+                                            <div class="price-box">
+                                                <span class="new-price"><?= formatPrice($value['gia_san_pham']) ?>đ</span>
+                                                <span class="old-price"><?= formatPrice($value['gia_khuyen_mai']) ?>đ</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                        </div>
-                    <?php endforeach; ?>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 <?php } ?>
 <!-- Product Area End Here -->
@@ -335,7 +333,7 @@ if (isset($keyword)) {
                 <div class="banner-item img-hover_effect">
                     <div class="banner-img">
                         <a href="javascrip:void(0)">
-                            <img class="img-full" src="assets/images/banner/1-4.jpg" alt="Banner">
+                            <img class="img-full" src="assets/images/banner/4-3.jpg" alt="Banner">
                         </a>
                     </div>
                 </div>
@@ -344,7 +342,7 @@ if (isset($keyword)) {
                 <div class="banner-item img-hover_effect">
                     <div class="banner-img">
                         <a href="javascrip:void(0)">
-                            <img class="img-full" src="assets/images/banner/1-5.jpg" alt="Banner">
+                            <img class="img-full" src="assets/images/banner/4-4.jpg" alt="Banner">
                         </a>
                     </div>
                 </div>
@@ -360,7 +358,7 @@ if (isset($keyword)) {
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h3>All Product</h3>
+                    <h3>Tất cả sản phẩm</h3>
                 </div>
             </div>
             <div class="col-lg-12">
@@ -390,14 +388,14 @@ if (isset($keyword)) {
 
                                     <div class="single-product">
                                         <div class="product-img">
-                                            <a href="single-product.html">
+                                            <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id= ' . $value['id'] ?>">
                                                 <img class="primary-img" src="<?= $value['hinh_anh'] ?>"
                                                     style="width: 200px; height: 250px; object-fit: cover;"
                                                     alt="Kenne's Product Image">
                                             </a>
                                             <span class="sticker">Bestseller</span>
                                             <div class="add-actions">
-                                                <ul>
+                                                <!-- <ul>
                                                     <li class="quick-view-btn" data-bs-toggle="modal"
                                                         data-bs-target="#exampleModalCenter"><a href="#"
                                                             data-bs-toggle="tooltip" data-placement="right"
@@ -414,13 +412,13 @@ if (isset($keyword)) {
                                                     <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right"
                                                             title="Add To cart"><i class="ion-bag"></i></a>
                                                     </li>
-                                                </ul>
+                                                </ul> -->
                                             </div>
                                         </div>
                                         <div class="product-content">
                                             <div class="product-desc_info">
                                                 <h3 class="product-name"><a
-                                                        href="single-product.html"><?= $value['ten_san_pham'] ?></a></h3>
+                                                        href="<?= BASE_URL . '?act=chi-tiet-san-pham&id= ' . $value['id'] ?>"><?= $value['ten_san_pham'] ?></a></h3>
                                                 <div class="price-box">
                                                     <span class="new-price"><?= formatPrice($value['gia_san_pham']) ?>đ</span>
                                                     <span class="old-price"><?= formatPrice($value['gia_khuyen_mai']) ?>đ</span>
@@ -434,8 +432,8 @@ if (isset($keyword)) {
 
                         </div>
                     </div>
-                    
-                    
+
+
                 </div>
             </div>
         </div>
@@ -444,7 +442,7 @@ if (isset($keyword)) {
 <!-- Product Tab Area End Here -->
 
 <!-- Begin Latest Blog Area -->
-<div class="latest-blog_area">
+<!-- <div class="latest-blog_area">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -572,7 +570,7 @@ if (isset($keyword)) {
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Latest Blog Area End Here -->
 
 <!-- Begin Brand Area -->

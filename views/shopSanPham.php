@@ -8,7 +8,7 @@
         <div class="breadcrumb-content">
             <h2>Trang sản phẩm</h2>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Trang chủ</a></li>
                 <li class="active">sản phẩm</li>
             </ul>
         </div>
@@ -112,7 +112,7 @@
                                         }
                                         ?>
 
-                                        <div class="add-actions">
+                                        <!-- <div class="add-actions">
                                             <ul>
                                                 <li class="quick-view-btn" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><a href="#" data-bs-toggle="tooltip" data-placement="right" title="Quick View"><i class="ion-ios-search"></i></a>
                                                 </li>
@@ -125,11 +125,11 @@
                                                 <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right" title="Add To cart"><i class="ion-bag"></i></a>
                                                 </li>
                                             </ul>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div class="product-content">
                                         <div class="product-desc_info">
-                                            <h3 class="product-name"><a href="single-product.html"><?= $sanPham["ten_san_pham"] ?></a></h3>
+                                            <h3 class="product-name"><a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id= ' . $sanPham['id'] ?>"><?= $sanPham["ten_san_pham"] ?></a></h3>
                                             <div class="price-box">
                                                 <?php if ($sanPham["gia_khuyen_mai"]) { ?>
                                                     <span class="new-price"><?= formatPrice($sanPham["gia_khuyen_mai"])  ?>đ</span>

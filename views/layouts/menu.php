@@ -86,10 +86,10 @@
                                     <div class="main-menu_area position-relative">
                                         <nav class="main-nav d-flex justify-content-center">
                                             <ul>
-                                                <li class="dropdown-holder"><a href="<?= BASE_URL ?>">Home</a>
+                                                <li class="dropdown-holder"><a href="<?= BASE_URL ?>">Trang chủ</a>
 
                                                 </li>
-                                                <li class="megamenu-holder position-static"><a href="<?= BASE_URL . '?act=danh-sach-san-pham' ?>">Shop <i class="ion-chevron-down"></i></a>
+                                                <li class="megamenu-holder position-static"><a href="<?= BASE_URL . '?act=danh-sach-san-pham' ?>">Sản phẩm <i class="ion-chevron-down"></i></a>
                                                     <ul class="kenne-dropdown">
                                                         <?php foreach ($listDanhMuc as $danhMuc): ?>
                                                             <li>
@@ -98,14 +98,11 @@
                                                         <?php endforeach; ?>
                                                     </ul>
                                                 </li>
-                                                <li><a href="#">Pages</a>
-                                                </li>
-                                                <li><a href="#">Blog </a>
 
                                                 </li>
-                                                <li><a href="<?= BASE_URL . '?act=form-add-contact' ?>">Contact Us</a></li>
+                                                <li><a href="<?= BASE_URL . '?act=form-add-contact' ?>">Liên hệ</a></li>
 
-                                                <li><a href="about-us.html">About Us</a></li>
+                                                <li><a href="about-us.html">Giới thiệu</a></li>
                                             </ul>
                                         </nav>
                                     </div>

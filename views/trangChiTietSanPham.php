@@ -97,7 +97,7 @@
                             </div>
                             <div class="qty-btn_area">
                                 <ul>
-                                    <li><button class="qty-cart_btn">Add To Cart</button></li>
+                                    <li><button class="qty-cart_btn">Thêm giỏ hàng</button></li>
 
                                 </ul>
                             </div>
@@ -284,15 +284,6 @@
                                             <div class="price-box">
                                                 <span class="new-price">$<?= number_format($sanPhamByDanhMuc['gia_san_pham'], 2) ?></span>
                                                 <span class="old-price">$<?= number_format($sanPhamByDanhMuc['gia_khuyen_mai'], 2); ?></span>
-                                            </div>
-                                            <div class="rating-box">
-                                                <ul>
-                                                    <li><i class="ion-ios-star"></i></li>
-                                                    <li><i class="ion-ios-star"></i></li>
-                                                    <li><i class="ion-ios-star"></i></li>
-                                                    <li class="silver-color"><i class="ion-ios-star-half"></i></li>
-                                                    <li class="silver-color"><i class="ion-ios-star-outline"></i></li>
-                                                </ul>
                                             </div>
                                         </div>
                                     </div>
