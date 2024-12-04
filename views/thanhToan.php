@@ -57,17 +57,17 @@
                             </div>
 
                             <div class="single-input-item">
-                                <label for="email_nguoi_nhan">Địa chỉ email</label>
+                                <label for="email_nguoi_nhan" class="required">Địa chỉ email</label>
                                 <input type="text" id="email_nguoi_nhan" name="email_nguoi_nhan" value="<?= $user['email'] ?>" placeholder="Địa chỉ email" />
                             </div>
 
                             <div class="single-input-item">
-                                <label for="sdt_nguoi_nhan">Số điện thoại</label>
+                                <label for="sdt_nguoi_nhan" class="required">Số điện thoại</label>
                                 <input type="text" id="sdt_nguoi_nhan" name="sdt_nguoi_nhan" value="<?= $user['so_dien_thoai'] ?>" placeholder="Địa chỉ email" />
                             </div>
 
-                            <div class="single-input-item">
-                                <label for="dia_chi_nguoi_nhan">Địa chỉ </label>
+                            <div class="single-input-item" >
+                                <label for="dia_chi_nguoi_nhan" class="required">Địa chỉ </label>
                                 <input type="text" id="dia_chi_nguoi_nhan" name="dia_chi_nguoi_nhan" value="<?= $user['dia_chi'] ?>" placeholder="Địa chỉ email" />
                             </div>
 

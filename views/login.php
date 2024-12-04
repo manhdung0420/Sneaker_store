@@ -1,4 +1,12 @@
 <?php
+if (isset($_SESSION['error_message'])) {
+    $errorMessage = htmlspecialchars($_SESSION['error_message'], ENT_QUOTES, 'UTF-8');
+    echo "<script>alert('$errorMessage');</script>";
+    unset($_SESSION['error_message']); // Xóa thông báo sau khi hiển thị
+}
+?>
+
+<?php
 require_once './views/layouts/header.php'; ?>
 
 <?php require_once './views/layouts/menu.php'; ?>
