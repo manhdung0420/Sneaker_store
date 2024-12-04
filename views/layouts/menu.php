@@ -67,7 +67,7 @@
                                     <li class="minicart-wrap">
                                         <a href="<?= BASE_URL . '?act=gio-hang' ?>" class="minicart-btn ">
                                             <div class="minicart-count_area">
-                                                <!-- <span class="item-count">03</span> -->
+                                                <span class="item-count"><?= isset($tongSanPham) ? $tongSanPham : 0; ?></span>
                                                 <i class="ion-bag"></i>
                                             </div>
                                             <div class="minicart-front_text">
@@ -102,7 +102,7 @@
                                                 </li>
                                                 <li><a href="<?= BASE_URL . '?act=form-add-contact' ?>">Liên hệ</a></li>
 
-                                                <li><a href="about-us.html">Giới thiệu</a></li>
+                                                <li><a href="<?= BASE_URL . '?act=gioi-thieu' ?>">Giới thiệu</a></li>
                                             </ul>
                                         </nav>
                                     </div>

@@ -3,15 +3,31 @@ class LienHeController
 {
     public $model;
     public $modelSanPham;
+    public $modelTaikhoan;
+    public $modelGioHang;
 
     public function __construct()
     {
         $this->model = new LienHeModel();
         $this->modelSanPham = new SanPham();
+        $this->modelTaikhoan = new UserModel();
+        $this->modelGioHang = new GioHang();
     }
 
     public function formAddLienHe()
     {
+        $userModel = new UserModel();
+        if (isset($_SESSION["user_email"])) {
+            $user = $userModel->getTaiKhoanFromEMail($_SESSION["user_email"]);
+            $gioHang = $this->modelGioHang->getGioHangFromUser($user["id"]);
+            if (!$gioHang) {
+                $gioHangId = $this->modelGioHang->addGioHang($user["id"]);
+                $gioHang = ['id' => $gioHangId];
+            }
+
+            // Đếm số lượng sản phẩm trong giỏ hàng
+            $tongSanPham = $this->modelGioHang->countSanPhamTrongGioHang($gioHang["id"]);
+        }
         $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
         require_once 'views/contact.php';
     }

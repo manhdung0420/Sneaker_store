@@ -52,14 +52,14 @@ class GioHangController
                     $this->modelGioHang->addDetailGioHang($gioHang["id"], $san_pham_id, $so_luong, $size_id);
                 }
 
-                header("Location: " . BASE_URL . "?act=gio-hang");
+                header("Location: " . BASE_URL . "?act=chi-tiet-san-pham&id=" . $san_pham_id);
                 exit;
             } else {
                 echo "<script>
                     alert('Bạn cần đăng nhập để thêm sản phẩm vào giỏ hàng.');
                     window.location.href = '" . BASE_URL . "?act=formlogin';
                   </script>";
-            exit;
+                exit;
             }
         }
     }
@@ -78,6 +78,8 @@ class GioHangController
             } else {
                 $chiTietGioHang = $this->modelGioHang->getDetailGiohang($gioHang["id"]);
             }
+            // Đếm số lượng sản phẩm trong giỏ hàng
+            $tongSanPham = $this->modelGioHang->countSanPhamTrongGioHang($gioHang["id"]);
             $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
             require_once './views/gioHang.php';
         } else {
@@ -101,5 +103,4 @@ class GioHangController
         header("location:" . BASE_URL . '?act=gio-hang');
         exit();
     }
-
 }
