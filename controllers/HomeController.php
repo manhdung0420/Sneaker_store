@@ -182,7 +182,6 @@ class HomeController extends ProductModel
             // Đếm số lượng sản phẩm trong giỏ hàng
             $tongSanPham = $this->modelGioHang->countSanPhamTrongGioHang($gioHang["id"]);
         }
-        $userModel = new UserModel();
         $email = $_SESSION["user_email"];
         $thongTin = $userModel->getTaiKhoanFromEMail($email);
         $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
@@ -240,5 +239,22 @@ class HomeController extends ProductModel
                 exit();
             }
         }
+    }
+
+    public function About(){
+        $userModel = new UserModel();
+        if (isset($_SESSION["user_email"])) {
+            $user = $userModel->getTaiKhoanFromEMail($_SESSION["user_email"]);
+            $gioHang = $this->modelGioHang->getGioHangFromUser($user["id"]);
+            if (!$gioHang) {
+                $gioHangId = $this->modelGioHang->addGioHang($user["id"]);
+                $gioHang = ['id' => $gioHangId];
+            }
+
+            // Đếm số lượng sản phẩm trong giỏ hàng
+            $tongSanPham = $this->modelGioHang->countSanPhamTrongGioHang($gioHang["id"]);
+        }
+        $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
+        require_once './views/GioiThieu.php';
     }
 }
