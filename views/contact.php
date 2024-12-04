@@ -17,10 +17,10 @@
     <div class="breadcrumb-area">
         <div class="container">
             <div class="breadcrumb-content">
-                <h2>Other</h2>
+                <h2>Khác</h2>
                 <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <li class="active">Contact</li>
+                    <li><a href="index.php">Trang chủ</a></li>
+                    <li class="active">Liên hệ</li>
                 </ul>
             </div>
         </div>

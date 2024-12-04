@@ -7,7 +7,7 @@
         <div class="breadcrumb-content">
             <h2>Chi tiết sản phẩm</h2>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Trang chủ</a></li>
                 <li class="active">Chi tiết sản phẩm</li>
             </ul>
         </div>
@@ -128,9 +128,9 @@
                 <div class="sp-product-tab_nav">
                     <div class="product-tab">
                         <ul class="nav product-menu">
-                            <li><a class="active" data-bs-toggle="tab" href="#description"><span>Description</span></a>
+                            <li><a class="active" data-bs-toggle="tab" href="#description"><span>Mô tả sản phẩm</span></a>
                             </li>
-                            <li><a data-bs-toggle="tab" href="#reviews"><span>Reviews</span></a></li>
+                            <li><a data-bs-toggle="tab" href="#reviews"><span>Bình luận</span></a></li>
                         </ul>
                     </div>
                     <div class="tab-content uren-tab_content">
@@ -152,7 +152,7 @@
                                             <div class="binh-luan">
                                                 <h3>Để lại bình luận của bạn:</h3>
                                                 <form method="POST" action="index.php?act=addComment">
-                                                    <textarea name="noi_dung" id="noi_dung" rows="4" cols="100" placeholder="Nhập bình luận của bạn"></textarea><br>
+                                                    <textarea name="noi_dung" id="noi_dung" rows="4" cols="140" placeholder="Nhập bình luận của bạn"></textarea><br>
                                                     <input type="hidden" name="san_pham_id" value="<?= $sanpham['id'] ?>"> <!-- ID sản phẩm -->
                                                     <button type="submit" class="btn btn-primary">Gửi bình luận</button>
                                                 </form>

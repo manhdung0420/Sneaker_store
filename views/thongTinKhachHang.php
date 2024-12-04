@@ -4,10 +4,10 @@
 <div class="breadcrumb-area">
     <div class="container">
         <div class="breadcrumb-content">
-            <h2>Shop Related</h2>
+            <h2>Thông tin khách hàng</h2>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li class="active">My Account</li>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li class="active">Tài khoản của tôi</li>
             </ul>
         </div>
     </div>
