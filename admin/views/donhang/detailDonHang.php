@@ -36,9 +36,6 @@
           } else {
             $colorAlerts = "danger";
           }
-
-
-
           ?>
           <div class="alert alert-<?= $colorAlerts; ?> d-flex align-items-center justify-content-between" role="alert" style="padding: 10px;">
             <div class="mr-3">
@@ -69,7 +66,6 @@
                     </option>
                   <?php endforeach; ?>
                 </select>
-
 
                 <button type="submit" class="btn btn-warning" style="min-width: 120px;">
                   <i class="fas fa-cogs"></i> Sửa

@@ -7,13 +7,28 @@ class HomeController extends ProductModel
 {
     public $modelSanPham;
     public $product;
+    public $modelTaiKhoan;
+    public $modelGioHang;
     public function __construct()
     {
         $this->product = new ProductModel();
         $this->modelSanPham = new SanPham();
+        $this->modelGioHang = new GioHang();
     }
     public function index()
     {
+        $userModel = new UserModel();
+        if (isset($_SESSION["user_email"])) {
+            $user = $userModel->getTaiKhoanFromEMail($_SESSION["user_email"]);
+            $gioHang = $this->modelGioHang->getGioHangFromUser($user["id"]);
+            if (!$gioHang) {
+                $gioHangId = $this->modelGioHang->addGioHang($user["id"]);
+                $gioHang = ['id' => $gioHangId];
+            }
+
+            // Đếm số lượng sản phẩm trong giỏ hàng
+            $tongSanPham = $this->modelGioHang->countSanPhamTrongGioHang($gioHang["id"]);
+        }
         $products = $this->product->getAllProduct();
         $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
         require_once "./views/home.php";
@@ -21,6 +36,18 @@ class HomeController extends ProductModel
 
     public function search()
     {
+        $userModel = new UserModel();
+        if (isset($_SESSION["user_email"])) {
+            $user = $userModel->getTaiKhoanFromEMail($_SESSION["user_email"]);
+            $gioHang = $this->modelGioHang->getGioHangFromUser($user["id"]);
+            if (!$gioHang) {
+                $gioHangId = $this->modelGioHang->addGioHang($user["id"]);
+                $gioHang = ['id' => $gioHangId];
+            }
+
+            // Đếm số lượng sản phẩm trong giỏ hàng
+            $tongSanPham = $this->modelGioHang->countSanPhamTrongGioHang($gioHang["id"]);
+        }
         $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
 
         // Lấy từ khóa từ yêu cầu GET hoặc POST
@@ -144,6 +171,18 @@ class HomeController extends ProductModel
     public function getAllKhachHang()
     {
         $userModel = new UserModel();
+        if (isset($_SESSION["user_email"])) {
+            $user = $userModel->getTaiKhoanFromEMail($_SESSION["user_email"]);
+            $gioHang = $this->modelGioHang->getGioHangFromUser($user["id"]);
+            if (!$gioHang) {
+                $gioHangId = $this->modelGioHang->addGioHang($user["id"]);
+                $gioHang = ['id' => $gioHangId];
+            }
+
+            // Đếm số lượng sản phẩm trong giỏ hàng
+            $tongSanPham = $this->modelGioHang->countSanPhamTrongGioHang($gioHang["id"]);
+        }
+        $userModel = new UserModel();
         $email = $_SESSION["user_email"];
         $thongTin = $userModel->getTaiKhoanFromEMail($email);
         $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
@@ -197,7 +236,7 @@ class HomeController extends ProductModel
             } else {
                 $_SESSION["flash"] = true;
                 // Chuyển hướng về trang thông tin và ở lại phần Account Details
-                header("Location: " . BASE_URL. "?act=thong-tin");
+                header("Location: " . BASE_URL . "?act=thong-tin");
                 exit();
             }
         }

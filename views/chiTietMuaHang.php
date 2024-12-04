@@ -6,10 +6,10 @@
 <div class="breadcrumb-area">
     <div class="container">
         <div class="breadcrumb-content">
-            <h2>Shop Related</h2>
+            <h2>Cửa hàng</h2>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li class="active">Cart</li>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li class="active">Thông tin đơn hàng</li>
             </ul>
         </div>
     </div>
@@ -20,8 +20,8 @@
     <div class="container">
         <div class="section-bg-color">
             <div class="row">
-                <div class="col-lg-7">
-                    <!-- Thông tin sản phẩm đơn hàng -->
+                <!-- Table for Product Information -->
+                <div class="col-lg-12 mb-4">
                     <div class="cart-table table-responsive">
                         <table class="table table-bordered">
                             <thead>
@@ -32,7 +32,7 @@
                             <tbody>
                                 <tr class="text-center">
                                     <th>Hình ảnh</th>
-                                    <th style="width: 210px;">Tên sản phẩm</th>
+                                    <th>Tên sản phẩm</th>
                                     <th>Size</th>
                                     <th>Đơn giá</th>
                                     <th>Số lượng</th>
@@ -53,8 +53,8 @@
                     </div>
                 </div>
 
-                <div class="col-lg-5">
-                    <!-- Thông tin đơn hàng -->
+                <!-- Table for Order Information -->
+                <div class="col-lg-12">
                     <div class="cart-table table-responsive">
                         <table class="table table-bordered">
                             <thead>
@@ -107,6 +107,7 @@
         </div>
     </div>
 </div>
+
 <!-- cart main wrapper end -->
 
 <!-- Begin Brand Area -->
@@ -182,43 +183,7 @@
     </div>
 </div>
 <!-- Brand Area End Here -->
-<style>
-    body {
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-        /* Loại bỏ tràn ngang */
-        font-family: Arial, sans-serif;
-    }
 
-    .container {
-        max-width: 100%;
-        padding: 15px;
-        margin: 0 auto;
-    }
-
-    th,
-    td {
-        word-wrap: break-word;
-        /* Cho phép nội dung xuống dòng */
-        white-space: normal;
-        /* Tự động xuống dòng khi quá dài */
-        text-align: center;
-    }
-
-    thead th {
-        background-color: #d4a559;
-        /* Màu nền của tiêu đề */
-        color: white;
-        font-weight: bold;
-    }
-
-    .row {
-        display: flex;
-        flex-wrap: wrap;
-        /* Bảo đảm các cột co lại khi không đủ chỗ */
-    }
-</style>
 
 <?php require_once './views/layouts/footer.php' ?>
 
