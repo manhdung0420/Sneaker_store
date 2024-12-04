@@ -55,7 +55,11 @@ class GioHangController
                 header("Location: " . BASE_URL . "?act=gio-hang");
                 exit;
             } else {
-                echo "Bạn cần đăng nhập để thêm sản phẩm vào giỏ hàng.";
+                echo "<script>
+                    alert('Bạn cần đăng nhập để thêm sản phẩm vào giỏ hàng.');
+                    window.location.href = '" . BASE_URL . "?act=formlogin';
+                  </script>";
+            exit;
             }
         }
     }
@@ -77,7 +81,11 @@ class GioHangController
             $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
             require_once './views/gioHang.php';
         } else {
-            echo "Bạn cần đăng nhập để xem giỏ hàng.";
+            echo "<script>
+                    alert('Bạn cần đăng nhập để xem giỏ hàng.');
+                    window.location.href = '" . BASE_URL . "?act=formlogin';
+                  </script>";
+            exit;
         }
     }
 

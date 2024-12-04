@@ -51,7 +51,7 @@
         </li>
         <li class="nav-item">
           <a href="<?= BASE_URL_ADMIN . '?act=bien-the'  ?>" class="nav-link">
-            <i class="nav-icon fas fa-shoe-prints"></i>
+          <i class="nav-icon fas fa-sort-numeric-up"></i>
             <p>
               Quản lý biến thể
             </p>
@@ -104,7 +104,7 @@
         </li> -->
         <li class="nav-item">
           <a href="<?= BASE_URL_ADMIN . '?act=don-hang'  ?>" class="nav-link">
-            <i class="nav-icon fas fa-file-invoice-dollar"></i>
+          <i class="nav-icon fas fa-tasks"></i>
             <p>
               Đơn hàng
             </p>
@@ -113,7 +113,7 @@
         <!-- bình luận -->
         <li class="nav-item">
           <a href="<?= BASE_URL_ADMIN . '?act=binh-luan'  ?>" class="nav-link">
-            <i class="nav-icon fas fa-file-invoice-dollar"></i>
+          <i class="nav-icon far fa-comment-dots"></i>
             <p>
               Bình luận
             </p>
@@ -122,7 +122,7 @@
 
         <li class="nav-item">
           <a href="<?= BASE_URL_ADMIN . '?act=lien-he'  ?>" class="nav-link">
-            <i class="nav-icon fas fa-file-invoice-dollar"></i>
+          <i class="nav-icon fas fa-phone-square-alt"></i>
             <p>
               Liên hệ
             </p>

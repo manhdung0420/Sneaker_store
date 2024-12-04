@@ -22,9 +22,10 @@ class adminDonHangController
         $donHang = $this->modelDonHang->getDetailDonHang($id);
 
         $sanPhamDonHang = $this->modelDonHang->getListSpDonHang($id);
+        // var_dump($sanPhamDonHang);die;
         
-
         $listTrangThaiDonHang = $this->modelDonHang->getAllTrangThai();
+        $trangThaiOptions = $this->modelDonHang->getAllTrangThai();
         if ($donHang) {
             require_once './views/donhang/detailDonHang.php';
         } else {
@@ -45,7 +46,7 @@ class adminDonHangController
     $trangThaiOptions = $this->modelDonHang->getAllTrangThai();
 
     if ($donHang) {
-        require_once './views/donhang/editDonHang.php';
+        require_once './views/donhang/detailDonHang.php';
     } else {
         header("location:" . BASE_URL_ADMIN . '?act=don-hang');
         exit();
@@ -93,7 +94,7 @@ public function postEditDonHang()
     {
         $id = $_GET["id"];
         $this->modelDonHang->destroyDonHang($id);
-        header("location: " . BASE_URL_ADMIN . "?act=don-hang");
+header("location: " . BASE_URL_ADMIN . "?act=don-hang");
         exit();
     }
 }
