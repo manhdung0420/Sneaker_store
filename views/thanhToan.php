@@ -6,10 +6,10 @@
 <div class="breadcrumb-area">
     <div class="container">
         <div class="breadcrumb-content">
-            <h2>Shop Related</h2>
+            <h2>Thanh toán</h2>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li class="active">Cart</li>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li class="active">Thanh toán</li>
             </ul>
         </div>
     </div>
