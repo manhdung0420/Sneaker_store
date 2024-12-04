@@ -28,6 +28,7 @@ class DashboardController {
         $DoanhThuThang = $this->modelTK->TongDoanhThu();
         $DinhDangTien = number_format($DoanhThuThang['total_revenue'], 0, ',', '.') . " VND";
     
+
         // Load view dashboard
         require_once "./views/dashboard.php";
     }

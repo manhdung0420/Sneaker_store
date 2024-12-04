@@ -34,6 +34,7 @@ require_once './views/layouts/sidebar.php';
         <div class="col-12 text-center">
           <h2 class="text-uppercase font-weight-bold">BẢNG THỐNG KÊ THÁNG <?= date('m') ?></h2>
           <p class="text-muted">Tổng quan hoạt động trong tháng</p>
+
         </div>
       </div>
      
