@@ -102,7 +102,7 @@
                                                 </li>
                                                 <li><a href="<?= BASE_URL . '?act=form-add-contact' ?>">Liên hệ</a></li>
 
-                                                <li><a href="about-us.html">Giới thiệu</a></li>
+                                                <li><a href="<?= BASE_URL . '?act=gioi-thieu' ?>">Giới thiệu</a></li>
                                             </ul>
                                         </nav>
                                     </div>

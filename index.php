@@ -43,6 +43,7 @@ match ($act) {
     'logout'=> (new HomeController())->logout(),
     'admin' => (new HomeController())->checkAdmin(),
     'register'=> (new HomeController())->register(),
+    'gioi-thieu'=> (new HomeController())->About(),
 
     'danh-sach-san-pham' =>(new SanPhamController())->danhSachSanPham(),
     'chi-tiet-san-pham' =>(new SanPhamController())->chiTietSanPham($_GET['id']),
