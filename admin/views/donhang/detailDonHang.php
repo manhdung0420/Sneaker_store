@@ -36,9 +36,6 @@
           } else {
             $colorAlerts = "danger";
           }
-
-
-
           ?>
           <div class="alert alert-<?= $colorAlerts; ?> d-flex align-items-center justify-content-between" role="alert" style="padding: 10px;">
             <div class="mr-3">
@@ -49,7 +46,16 @@
                 <input type="hidden" name="id_don_hang" value="<?= $donHang['id'] ?>">
                 <select name="trang_thai" id="trang_thai" class="form-control mr-3" style="width: 200px;">
                   <?php foreach ($trangThaiOptions as $option): ?>
-                    <option value="<?= $option['id'] ?>" <?= $donHang['trang_thai_id'] == $option['id'] ? 'selected' : '' ?>>
+                    <option
+                    <?php
+                    if($donHang["trang_thai_id"]> $option["id"] 
+                    || $donHang['trang_thai_id'] == 4 
+                    || $donHang['trang_thai_id'] == 5 )
+                    {
+                        echo 'disabled';
+                    }
+                     ?>
+                     value="<?= $option['id'] ?>" <?= $donHang['trang_thai_id'] == $option['id'] ? 'selected' : '' ?>>
                       <?= $option['ten_trang_thai'] ?>
                     </option>
                   <?php endforeach; ?>

@@ -135,4 +135,21 @@ class GioHang
             echo "CÓ LỖI:".$e->getMessage();
         } 
     }
+
+    public function countSanPhamTrongGioHang($gio_hang_id)
+{
+    try {
+        // Đếm tổng số dòng tương ứng với gio_hang_id
+        $sql = "SELECT COUNT(*) as tong_san_pham 
+                FROM chi_tiet_gio_hangs 
+                WHERE gio_hang_id = :gio_hang_id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([':gio_hang_id' => $gio_hang_id]);
+        return $stmt->fetchColumn(); // Trả về số lượng dòng (tổng sản phẩm)
+    } catch (Exception $e) {
+        echo "Lỗi: " . $e->getMessage();
+        return 0; // Trả về 0 nếu có lỗi
+    }
+}
+
 }

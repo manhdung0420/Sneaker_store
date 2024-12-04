@@ -42,6 +42,18 @@ class DonHangController
                 die;
             }
 
+            if (isset($_SESSION["user_email"])) {
+                $user = $this->modelTaikhoan->getTaiKhoanFromEMail($_SESSION["user_email"]);
+                $gioHang = $this->modelGioHang->getGioHangFromUser($user["id"]);
+                if (!$gioHang) {
+                    $gioHangId = $this->modelGioHang->addGioHang($user["id"]);
+                    $gioHang = ['id' => $gioHangId];
+                }
+
+                // Đếm số lượng sản phẩm trong giỏ hàng
+                $tongSanPham = $this->modelGioHang->countSanPhamTrongGioHang($gioHang["id"]);
+            }
+
             $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
             require_once './views/thanhToan.php';
         } else {
@@ -138,6 +150,16 @@ class DonHangController
             // Lấy ra danh sách tất cả đơn hàng của tài khoản
             $donHangs = $this->modelDonHang->getDonHangFromUser($tai_khoan_id);
 
+            $gioHang = $this->modelGioHang->getGioHangFromUser($user["id"]);
+            if (!$gioHang) {
+                $gioHangId = $this->modelGioHang->addGioHang($user["id"]);
+                $gioHang = ['id' => $gioHangId];
+            }
+
+            // Đếm số lượng sản phẩm trong giỏ hàng
+            $tongSanPham = $this->modelGioHang->countSanPhamTrongGioHang($gioHang["id"]);
+
+
             // echo "<pre>";
             // print_r($donHangs);die;
             $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
@@ -173,6 +195,14 @@ class DonHangController
             // echo "<pre>";
             // print_r($donHang);
             // print_r($chiTietDonHang);
+            $gioHang = $this->modelGioHang->getGioHangFromUser($user["id"]);
+            if (!$gioHang) {
+                $gioHangId = $this->modelGioHang->addGioHang($user["id"]);
+                $gioHang = ['id' => $gioHangId];
+            }
+
+            // Đếm số lượng sản phẩm trong giỏ hàng
+            $tongSanPham = $this->modelGioHang->countSanPhamTrongGioHang($gioHang["id"]);
 
             if ($donHang['tai_khoan_id'] != $tai_khoan_id) {
                 echo "Bạn không có quyền hủy đơn hàng này";

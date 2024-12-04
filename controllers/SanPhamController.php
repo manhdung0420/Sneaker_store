@@ -2,13 +2,17 @@
 
 class SanPhamController
 {
-    private $modelSanPham;
-    private $commentModel;
+    public $modelSanPham;
+    public $commentModel;
+    public $modelGioHang;
+    public $modelTaikhoan;
 
     public function __construct()
     {
         $this->modelSanPham = new SanPham();
         $this->commentModel = new Comment();
+        $this->modelGioHang = new GioHang();
+        $this->modelTaikhoan = new UserModel();
     }
 
     public function danhSachSanPham()
@@ -40,7 +44,18 @@ class SanPhamController
         // Lấy thêm danh mục và kích thước để hiển thị bộ lọc
         $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
         $listSizeSP = $this->modelSanPham->getAllSizeSP();
-
+        
+        if (isset($_SESSION["user_email"])) {
+            $user = $this->modelTaikhoan->getTaiKhoanFromEMail($_SESSION["user_email"]);
+            $gioHang = $this->modelGioHang->getGioHangFromUser($user["id"]);
+            if (!$gioHang) {
+                $gioHangId = $this->modelGioHang->addGioHang($user["id"]);
+                $gioHang = ['id' => $gioHangId];
+            }
+    
+            // Đếm số lượng sản phẩm trong giỏ hàng
+            $tongSanPham = $this->modelGioHang->countSanPhamTrongGioHang($gioHang["id"]);
+        }
         // Xóa tham số size khỏi URL nếu không lọc theo size
         if (empty($size) && isset($_GET['size'])) {
             unset($_GET['size']);
@@ -73,6 +88,17 @@ class SanPhamController
 
         //Lấy comment của sản phẩm 
         $comments = $this->commentModel->getCommentsByProductId($id);
+        if (isset($_SESSION["user_email"])) {
+            $user = $this->modelTaikhoan->getTaiKhoanFromEMail($_SESSION["user_email"]);
+            $gioHang = $this->modelGioHang->getGioHangFromUser($user["id"]);
+            if (!$gioHang) {
+                $gioHangId = $this->modelGioHang->addGioHang($user["id"]);
+                $gioHang = ['id' => $gioHangId];
+            }
+    
+            // Đếm số lượng sản phẩm trong giỏ hàng
+            $tongSanPham = $this->modelGioHang->countSanPhamTrongGioHang($gioHang["id"]);
+        }
 
         if ($sanpham) {
             //Lấy các sản phẩm liên quan
