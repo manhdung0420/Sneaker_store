@@ -44,4 +44,18 @@ class adminBienTheController{
             }
         }
     }
+
+    public function deleteSize()
+    {
+        $id = $_GET["id"];
+        $size = $this->modelBienThe->getDetailSize($id);
+        // var_dump($id);die;
+
+        if ($size) {
+            $this->modelBienThe->destroySize($id);
+        }
+
+        header("location:" . BASE_URL_ADMIN . '?act=bien-the');
+        exit();
+    }
 }

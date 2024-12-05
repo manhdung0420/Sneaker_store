@@ -34,5 +34,30 @@ class adminBienThe{
         }
     }
 
-    
+    public function destroySize($id)
+    {
+        try {
+            $sql = "DELETE FROM size_sp WHERE id = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([
+                ':id' => $id,
+            ]);
+            return true;
+        } catch (Exception $e) {
+            echo "CÓ LỖI: " . $e->getMessage();
+        }
+    }
+    public function getDetailSize($id)
+    {
+        try {
+            $sql = "SELECT * FROM size_sp WHERE id = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([
+                ':id' => $id,
+            ]);
+            return $stmt->fetch();
+        } catch (Exception $e) {
+            echo "CÓ LỖI: " . $e->getMessage();
+        }
+    }
 }

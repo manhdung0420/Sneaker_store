@@ -72,6 +72,7 @@ match ($act) {
     'bien-the'=>(new adminBienTheController())->danhSachBienThe(),
     'form-them-size'=>(new adminBienTheController())->formAddSize(),
     'them-size'=>(new adminBienTheController())->postAddSize(),
+    'xoa-size'=>(new adminBienTheController())->deleteSize(),
 
     
     // route quản lý đơn hàng
