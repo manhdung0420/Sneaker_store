@@ -50,10 +50,7 @@
                                             <td><?= $size['size'] ?></td>
                                             <td><?= $size['ten_san_pham'] ?></td>
                                             <td>
-                                                <a href="<?= BASE_URL_ADMIN . '?act=form-sua-danh-muc&id_danh_muc=' . $danhmuc['id'] ?>">
-                                                    <button class="btn btn-warning"><i class="fas fa-cogs"></i></button>
-                                                </a>
-                                                <a href="<?= BASE_URL_ADMIN . '?act=xoa-danh-muc&id_danh_muc=' . $danhmuc['id'] ?>"
+                                                <a href="<?= BASE_URL_ADMIN . '?act=xoa-size&id=' . $size['id'] ?>"
                                                     onclick="return confirm('bạn có đồng ý xóa hay không')">
                                                     <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                                                 </a>

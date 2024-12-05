@@ -81,10 +81,10 @@
                             <div class="coupon-all">
                                 <div class="coupon">
                                     <input id="coupon_code" class="input-text" name="coupon_code" value="" placeholder="Coupon code" type="text">
-                                    <input class="button" name="apply_coupon" value="Apply coupon" type="submit">
+                                    <input class="button" name="apply_coupon" value="Thêm mã giảm giá" type="submit">
                                 </div>
                                 <div class="coupon2">
-                                    <input class="button" name="update_cart" value="Update cart" type="submit">
+                                    <input class="button" name="update_cart" value="Cập nhật giỏ hàng" type="submit">
                                 </div>
                             </div>
                         </div>

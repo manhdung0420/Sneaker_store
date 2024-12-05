@@ -59,7 +59,7 @@
 
                                             <td>
                                                 <span class="<?php
-                                                                if ($donhang['ten_trang_thai'] == 'Đã hủy') {
+                                                                if ($donhang['ten_trang_thai'] == 'Hủy đơn') {
                                                                     echo 'status-cancel';
                                                                 } elseif ($donhang['ten_trang_thai'] == 'Giao hàng thành công') {
                                                                     echo 'status-completed';

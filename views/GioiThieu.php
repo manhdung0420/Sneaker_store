@@ -109,7 +109,7 @@
                         <div class="team-member">
                             <div class="team-thumb img-hover_effect">
                                 <a href="#">
-                                    <img src="assets/images/about-us/team/1.jpg" alt="Our Team Member">
+                                    <img src="assets/images/about-us/team/1.JPG" alt="Our Team Member">
                                 </a>
                             </div>
                             <div class="team-content text-center">
@@ -195,7 +195,7 @@
                         <div class="team-member">
                             <div class="team-thumb img-hover_effect">
                                 <a href="#">
-                                    <img src="assets/images/about-us/team/3.jpg" height="320px" alt="Our Team Member">
+                                    <img src="assets/images/about-us/team/3.JPG" height="320px" alt="Our Team Member">
                                 </a>
                             </div>
                             <div class="team-content text-center">
