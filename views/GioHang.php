@@ -25,13 +25,13 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th class="kenne-product-remove">remove</th>
-                                    <th class="kenne-product-thumbnail">images</th>
-                                    <th class="cart-product-name">Product</th>
-                                    <th class="kenne-product-price">Unit Price</th>
+                                    <th class="kenne-product-remove">Xóa</th>
+                                    <th class="kenne-product-thumbnail">Hình ảnh</th>
+                                    <th class="cart-product-name">Tên sản phẩm</th>
+                                    <th class="kenne-product-price">Giá tiền</th>
                                     <th class="kenne-product-price">Size</th>
-                                    <th class="kenne-product-quantity">Quantity</th>
-                                    <th class="kenne-product-subtotal">Total</th>
+                                    <th class="kenne-product-quantity">Số lượng</th>
+                                    <th class="kenne-product-subtotal">Thành tiền</th>
                                 </tr>
                             </thead>
                             <tbody>

@@ -68,7 +68,7 @@
 
                             <div class="single-input-item" >
                                 <label for="dia_chi_nguoi_nhan" class="required">Địa chỉ </label>
-                                <input type="text" id="dia_chi_nguoi_nhan" name="dia_chi_nguoi_nhan" value="<?= $user['dia_chi'] ?>" placeholder="Địa chỉ email" />
+                                <input type="text" id="dia_chi_nguoi_nhan" name="dia_chi_nguoi_nhan" value="<?= $user['dia_chi'] ?>" placeholder="Địa chỉ" />
                             </div>
 
 

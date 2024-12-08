@@ -88,7 +88,7 @@
                                 </select>
                             </div>
                             <div class="quantity">
-                                <label><b>Quantity</b></label>
+                                <label><b>Số lượng</b></label>
                                 <div class="cart-plus-minus">
                                     <input class="cart-plus-minus-box" value="1" type="text" name="so_luong">
                                     <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
