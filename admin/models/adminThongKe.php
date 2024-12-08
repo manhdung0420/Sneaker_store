@@ -11,7 +11,7 @@ class adminThongKe extends BaseModel
 
     public function SpBanChay()
     {
-        $sql = "SELECT ct.san_pham_id, SUM(ct.so_luong) AS total_quantity,sp.ten_san_pham FROM chi_tiet_don_hangs ct
+        $sql = "SELECT ct.san_pham_id, (ct.so_luong) AS total_quantity,sp.ten_san_pham FROM chi_tiet_don_hangs ct
     INNER JOIN don_hangs dh ON ct.don_hang_id = dh.id
     INNER JOIN san_phams sp ON ct.san_pham_id = sp.id
     WHERE MONTH(dh.ngay_dat) = MONTH(CURRENT_DATE())

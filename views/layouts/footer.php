@@ -10,12 +10,12 @@
                                         <img src="assets/images/footer/logo/1.png" alt="Logo">
                                     </a>
                                 </div>
-                                <p class="short-desc">Subscribe to our newsleter, Enter your emil address</p>
+                                <p class="short-desc">Đăng ký để nhận thông tin, Nhập địa chỉ email của bạn</p>
                                 <div class="newsletter-form_wrap">
                                     <form action="https://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="newsletters-form validate" target="_blank" novalidate>
                                         <div id="mc_embed_signup_scroll">
                                             <div id="mc-form" class="mc-form subscribe-form">
-                                                <input id="mc-email" class="newsletter-input" type="email" autocomplete="off" placeholder="Enter email address" />
+                                                <input id="mc-email" class="newsletter-input" type="email" autocomplete="off" placeholder="Nhập email" />
                                                 <button class="newsletter-btn" id="mc-submit"><i
                                                 class="ion-android-mail"></i></button>
                                             </div>
@@ -28,40 +28,35 @@
                             <div class="row footer-widgets_wrap">
                                 <div class="col-lg-4 col-md-4 col-sm-4">
                                     <div class="footer-widgets_title">
-                                        <h4>Shopping</h4>
+                                        <h4>Mua sắm</h4>
                                     </div>
                                     <div class="footer-widgets">
                                         <ul>
-                                            <li><a href="#">Product</a></li>
-                                            <li><a href="#">My Cart</a></li>
-                                            <li><a href="#">Wishlist</a></li>
-                                            <li><a href="#">Cart</a></li>
+                                            <li><a href="<?= BASE_URL . '?act=danh-sach-san-pham' ?>">Sản phẩm</a></li>
+                                            <li><a href="<?= BASE_URL . '?act=gio-hang' ?>">Giỏ hàng</a></li>
+                                            <li><a href="<?= BASE_URL . '?act=lich-su-mua-hang' ?>">Đơn hàng</a></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4">
                                     <div class="footer-widgets_title">
-                                        <h4>Account</h4>
+                                        <h4>Tài khoản</h4>
                                     </div>
                                     <div class="footer-widgets">
                                         <ul>
-                                            <li><a href="#">Login</a></li>
-                                            <li><a href="#">Register</a></li>
-                                            <li><a href="#">Help</a></li>
-                                            <li><a href="#">Support</a></li>
+                                            <li><a href="<?= BASE_URL . '?act=formlogin' ?>">Login</a></li>
+                                            <li><a href="<?= BASE_URL . '?act=formlogin' ?>">Register</a></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4">
                                     <div class="footer-widgets_title">
-                                        <h4>Categories</h4>
+                                        <h4>Danh mục</h4>
                                     </div>
                                     <div class="footer-widgets">
                                         <ul>
-                                            <li><a href="#">Men</a></li>
-                                            <li><a href="#">Women</a></li>
-                                            <li><a href="#">Jeans</a></li>
-                                            <li><a href="#">Shoes</a></li>
+                                            <li><a href="<?= BASE_URL . '?act=danh-sach-san-pham&danh_muc_id=3' ?>">Giày nam</a></li>
+                                            <li><a href="<?= BASE_URL . '?act=danh-sach-san-pham&danh_muc_id=4' ?>">Giày nữ</a></li>
                                         </ul>
                                     </div>
                                 </div>
